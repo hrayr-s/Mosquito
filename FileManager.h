@@ -6,7 +6,7 @@
 #define DATABASE_FILEMANAGER_H
 
 #include <iostream>
-
+#include "types/String.h"
 using namespace std;
 
 class FileManager {
@@ -14,7 +14,7 @@ private:
     FILE *f;
     char* mode;
     int current_error = 0;
-    char* filename;
+    String filename;
 public:
     const int NO_ERROR = 0,
         FILE_NOT_FOUND = 1,
@@ -55,12 +55,12 @@ public:
     }
 
     void setFileName(char* name) {
-        strcpy_s(this->filename)
-        this->filename = name;
+        String fname(name);
+        this->filename = fname;
     }
 
     char* getFileName() {
-        return this->filename;
+        return this->filename.getContent();
     }
 
     char *read() {
@@ -90,16 +90,39 @@ public:
             this->setError(FILE_NOT_FOUND);
             return false;
         }
+
+        if (this->mode == "r") {
+            throw "Can not write until file open mode is 'r'";
+        }
         // Empty content to write
         if (content[0] == '\0') {
             this->setError(CONTENT_LENGTH_ZERO);
             return false;
         }
-        long long size = 0;
-        // Get size of a content
-        for (;content[size] != '\0'; ++size) {}
+        long long size = String::size(content);
 
         fwrite(content, sizeof(char), size, this->f);
+        return true;
+    }
+
+    bool write(String content) {
+        this->setError(NO_ERROR);
+        // No file opened or Requested file does not exist
+        if (this->f == NULL) {
+            this->setError(FILE_NOT_FOUND);
+            return false;
+        }
+
+        if (this->mode == "r") {
+            throw "Can not write until file open mode is 'r'";
+        }
+        // Empty content to write
+        if (content.getContent()[0] == '\0' || content.length() == 0) {
+            this->setError(CONTENT_LENGTH_ZERO);
+            return false;
+        }
+
+        fwrite(content.getContent(), sizeof(char), content.length(), this->f);
         return true;
     }
 };
