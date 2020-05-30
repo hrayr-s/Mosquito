@@ -1,6 +1,8 @@
 # Database
 Database application on C++ for Course work of Magestry second semester
 
+Remember that the command names are case sensitive. So SELECT does not equal to select and command will not be recognized by program
+
 Commands to use:
 ## SELECT
 ```
