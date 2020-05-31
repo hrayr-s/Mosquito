@@ -25,21 +25,11 @@ public:
     }
 
     FileManager(char *filename) {
-        this->setError(NO_ERROR);
-        this->f = fopen(filename, "r");
-        if (this->f == NULL) {
-            this->setError(FILE_NOT_FOUND);
-        }
-        this->mode = "r";
+        this->load(filename, "r");
     }
 
     FileManager(char *filename, char *mode) {
-        this->setError(NO_ERROR);
-        this->f = fopen(filename, mode);
-        if (this->f == NULL) {
-            this->setError(FILE_NOT_FOUND);
-        }
-        this->mode = mode;
+        this->load(filename, mode);
     }
 
     FILE *getFileInstance() {
@@ -54,13 +44,26 @@ public:
         return this->current_error;
     }
 
-    void setFileName(char* name) {
+    /**
+     * Loads file into current instance
+     * @param name
+     * @param mode
+     * @return
+     */
+    FileManager load(char *name, char *mode = "r") {
         String fname(name);
         this->filename = fname;
+        this->mode = mode;
+        this->setError(NO_ERROR);
+        this->f = fopen(filename, mode);
+        if (this->f == NULL || this->f == nullptr) {
+            this->setError(FILE_NOT_FOUND);
+        }
+        return *this;
     }
 
     char* getFileName() {
-        return this->filename.getContent();
+        return this->filename;
     }
 
     char *read() {
@@ -68,19 +71,25 @@ public:
         char *content;
         long long size = 0;
 
-        if (this->f == NULL) {
+        if (this->f == NULL || this->f == nullptr) {
             this->setError(FILE_NOT_FOUND);
             return nullptr;
         }
-
-        fseek(this->f, 0, SEEK_END);
-        size = ftell(this->f);
-        rewind(this->f);
+        size = this->size();
         content = new char[size + 1];
         cout << size << endl;
         fread(content, sizeof(char), size, this->f);
         content[size] = '\0';
         return content;
+    }
+
+    long long size() {
+        long long size;
+        long current_pos = ftell(this->f); // save current position
+        fseek(this->f, 0, SEEK_END); // set current position to the end of file
+        size = ftell(this->f); // get position - this will be the size of the file
+        fseek(this->f, current_pos, SEEK_SET); // set current position that saved position
+        return size; // return size of a file
     }
 
     bool write(char *content) {
