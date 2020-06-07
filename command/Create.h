@@ -8,7 +8,6 @@
 #include "../types/String.h"
 #include <iostream>
 #include "types/structures.h"
-#include "ArrayHelper.cpp"
 
 using namespace std;
 
@@ -28,24 +27,12 @@ private:
 
     struct column *parse_column(String raw) {
         struct column *s;
-        unsigned long long size = 0;
+        long long size = 0;
 
-        long long *items = raw.searchAll((char *) ",", (long long) 0);
-        size = count(items) + 1;
-        cout << size << " columns" << endl;
-        s = new column[size + 1];
-        String tmp;
-        tmp = raw.cut(0, items[0]);
-
-        s[0].name = new String(Parser::getColumnName(tmp));
-
-        long long i = 1;
-        for (; items[i] != NULL; ++i) {
-            cout << raw.cut(items[i - 1], items[i] - items[i - 1]) << endl;
-
-        }
-        cout << raw.cut(items[i - 1], raw.length() - items[i - 1]) << endl;
-
+        s = new column[1];
+        s[0].name = &raw;
+        s[0].type = 1;
+        s[0].size = 0;
         return s;
     }
 
@@ -61,6 +48,13 @@ public:
         String table_name = Parser::getTable(query);
         long long begin_cols = query.search("(");
         long long end_cols = query.search(")", 0, true);
+        long long *items = query.searchAll((char *) ",", begin_cols);
+        cout << query.cut(begin_cols, items[0] - begin_cols) << endl;
+        long long i = 1;
+        for (; items[i] != NULL; ++i) {
+            cout << query.cut(items[i - 1], items[i] - items[i - 1]) << endl;
+        }
+        cout << query.cut(items[i - 1], end_cols - items[i - 1] + 1) << endl;
         struct column *cols = this->parse_column(query.cut(begin_cols, end_cols - begin_cols + 1));
 
     }

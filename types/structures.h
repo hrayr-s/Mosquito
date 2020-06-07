@@ -5,22 +5,13 @@
 #ifndef DATABASE_STRUCTURES_H
 #define DATABASE_STRUCTURES_H
 
+class String;
 #include "String.h"
-#include "../command/Parser.h"
 
 struct column {
-public:
     String *name;
     int type;
     long long size;
-
-    column() {
-
-    }
-
-    ~column() {
-
-    }
 
     struct column operator=(nullptr_t s) {
         name = nullptr;
@@ -31,16 +22,6 @@ public:
 
     bool operator==(nullptr_t s) {
         return this->name == nullptr;
-    }
-
-    bool operator!=(nullptr_t s) {
-        return this->name != nullptr;
-    }
-
-    struct column operator=(String &col) {
-        this->name = new String(Parser::getColumnName(col));
-        this->type = Parser::getType(col);
-
     }
 
 };

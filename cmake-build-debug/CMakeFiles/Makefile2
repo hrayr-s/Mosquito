@@ -55,7 +55,6 @@ CMAKE_BINARY_DIR = C:\Users\Hrayr\CLionProjects\Database\cmake-build-debug
 
 # The main recursive "all" target.
 all: CMakeFiles\Database.dir\all
-all: CMakeFiles\DatabaseTest.dir\all
 
 .PHONY : all
 
@@ -66,7 +65,6 @@ preinstall:
 
 # The main recursive "clean" target.
 clean: CMakeFiles\Database.dir\clean
-clean: CMakeFiles\DatabaseTest.dir\clean
 
 .PHONY : clean
 
@@ -96,33 +94,6 @@ Database: CMakeFiles\Database.dir\rule
 CMakeFiles\Database.dir\clean:
 	$(MAKE) -f CMakeFiles\Database.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Database.dir\clean
 .PHONY : CMakeFiles\Database.dir\clean
-
-#=============================================================================
-# Target rules for target CMakeFiles/DatabaseTest.dir
-
-# All Build rule for target.
-CMakeFiles\DatabaseTest.dir\all:
-	$(MAKE) -f CMakeFiles\DatabaseTest.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DatabaseTest.dir\depend
-	$(MAKE) -f CMakeFiles\DatabaseTest.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DatabaseTest.dir\build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\Hrayr\CLionProjects\Database\cmake-build-debug\CMakeFiles --progress-num=3,4 "Built target DatabaseTest"
-.PHONY : CMakeFiles\DatabaseTest.dir\all
-
-# Build rule for subdir invocation for target.
-CMakeFiles\DatabaseTest.dir\rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Hrayr\CLionProjects\Database\cmake-build-debug\CMakeFiles 2
-	$(MAKE) -f CMakeFiles\Makefile2 /nologo -$(MAKEFLAGS) CMakeFiles\DatabaseTest.dir\all
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Hrayr\CLionProjects\Database\cmake-build-debug\CMakeFiles 0
-.PHONY : CMakeFiles\DatabaseTest.dir\rule
-
-# Convenience name for target.
-DatabaseTest: CMakeFiles\DatabaseTest.dir\rule
-
-.PHONY : DatabaseTest
-
-# clean rule for target.
-CMakeFiles\DatabaseTest.dir\clean:
-	$(MAKE) -f CMakeFiles\DatabaseTest.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\DatabaseTest.dir\clean
-.PHONY : CMakeFiles\DatabaseTest.dir\clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

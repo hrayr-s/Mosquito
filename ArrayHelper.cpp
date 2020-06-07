@@ -4,7 +4,7 @@
 #include "types/String.h"
 #include "ArrayHelper.h"
 
-bool ArrayHelper::resize(String *&f, long long size) {
+static bool ArrayHelper::resize(String *&f, long long size = 1) {
     if (size < 1) {
         throw "size should be more than 0";
     }
@@ -48,10 +48,4 @@ bool ArrayHelper::resize(struct column *f, long long int size) {
         f[i] = tmp[i];
     }
     return true;
-}
-
-unsigned long long count(long long *cols) {
-    unsigned long long size = 0;
-    for (; cols[size] != NULL; ++size) {}
-    return size;
 }

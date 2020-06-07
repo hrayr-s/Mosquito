@@ -5,6 +5,8 @@
 #ifndef DATABASE_ARRAYHELPER_H
 #define DATABASE_ARRAYHELPER_H
 
+class String;
+
 #include "types/String.h"
 #include "types/structures.h"
 

@@ -5,7 +5,6 @@
 #ifndef DATABASE_STRING_H
 #define DATABASE_STRING_H
 class ArrayHelper;
-
 #include <iostream>
 #include "../ArrayHelper.h"
 
@@ -18,10 +17,6 @@ private:
 public:
     String() {
         content = new char[actual_size];
-    }
-
-    ~String() {
-
     }
 
     String(char end_input_symbol) {
@@ -166,10 +161,6 @@ public:
         return s == this->content;
     }
 
-    bool operator==(nullptr_t s) {
-        return s == this->content;
-    }
-
     /**
      * Casting to char*
      * @return
@@ -246,11 +237,23 @@ public:
             ++count;
             if (count > 9) {
                 ArrayHelper::resize(items, count + 1);
+//                tmp = new long long[count];
+//                std::memcpy(tmp, items, sizeof(long long) * count);
+//                delete[] items;
+//                items = new long long[count+1];
+//                std::memcpy(items, tmp, sizeof(long long) * count);
+//                delete[] tmp;
             }
         }
         if (count < 9) {
             items[count] = NULL;
             ArrayHelper::resize(items, count + 1);
+//            tmp = new long long[count];
+//            std::memcpy(tmp, items, sizeof(long long) * count);
+//            delete[] items;
+//            items = new long long[count+1];
+//            std::memcpy(items, tmp, sizeof(long long) * count);
+//            delete[] tmp;
         }
         return items;
     }
@@ -403,29 +406,6 @@ public:
 
     String cut(long long pos, long long length = 0) {
         return String::cut(*this, pos, length);
-    }
-
-    void trim() {
-        char *ch = new char[this->length() + 1];
-        long long begin = 0, end = this->length() - 1;
-        for (long long i = 0; i < this->length(); ++i) {
-            if (this->content[i] == ' ' || this->content[i] == '\n' || this->content[i] == '\t' ||
-                this->content[i] == '\r') {
-                continue;
-            }
-            begin = i;
-            break;
-        }
-
-        for (long long i = this->length() - 1; i > begin; --i) {
-            if (this->content[i] == ' ' || this->content[i] == '\n' || this->content[i] == '\t' ||
-                this->content[i] == '\r') {
-                continue;
-            }
-            end = i;
-            break;
-        }
-        this = this->cut(begin, end);
     }
 
 };
