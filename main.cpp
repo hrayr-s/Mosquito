@@ -28,6 +28,7 @@ int main() {
     String query(';');
     cout << "Welcome to Database" << endl;
     cout << "Type commands" << endl;
+    Create creat;
     while (true) {
         cout << " $>:";
         cin >> query;
@@ -53,8 +54,7 @@ int main() {
                 drop.run(query);
                 break;
             case COMMAND_CREATE:
-                Create create;
-                create.run(query);
+                creat.run(query);
                 break;
             case COMMAND_EXIT:
                 return 0;

@@ -6,7 +6,7 @@
 #define DATABASE_PARSER_H
 
 #include <iostream>
-#include "types/String.h"
+#include "../types/String.h"
 
 const char COMMAND_SELECT = 0,
         COMMAND_UPDATE = 1,
@@ -139,6 +139,25 @@ public:
             default:
                 return nullptr;
         }
+    }
+
+    static String getColumnName(String str) {
+        long long index1 = str.search((char *) "`");
+        long long index2 = str.search((char *) "`", index1 + 1);
+        return str.cut(index1, index2);
+    }
+
+    static String getColumnName(String *str) {
+        long long index1 = str.search((char *) "`");
+        long long index2 = str.search((char *) "`", index1 + 1);
+        return str.cut(index1, index2);
+    }
+
+    static int getColType(String *str) {
+        long long index1 = str.search((char *) "`");
+        long long index2 = str.search((char *) "`", index1 + 1);
+        String tmp =
+        return 0;
     }
 };
 

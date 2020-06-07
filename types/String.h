@@ -4,8 +4,10 @@
 
 #ifndef DATABASE_STRING_H
 #define DATABASE_STRING_H
+class ArrayHelper;
 
 #include <iostream>
+#include "../ArrayHelper.h"
 
 class String {
 private:
@@ -18,17 +20,26 @@ public:
         content = new char[actual_size];
     }
 
+    ~String() {
+
+    }
+
     String(char end_input_symbol) {
         content = new char[actual_size];
         this->end_input_symbol = end_input_symbol;
     }
 
     String(char *text) {
-        long long size = String::size(text);
-        this->content = new char[size + 1];
-        this->_size = size;
-        std::strcpy(this->content, text);
-        this->content[size] = '\0';
+        if (text != NULL) {
+            long long size = String::size(text);
+            this->content = new char[size + 1];
+            this->_size = size;
+            std::strcpy(this->content, text);
+            this->content[size] = '\0';
+        } else {
+            this->content = nullptr;
+            this->_size = NULL;
+        }
     }
 
     friend std::ostream &operator<<(std::ostream &out, const String &str) {
@@ -133,9 +144,30 @@ public:
     }
 
     String operator=(char *s) {
+        if (s == NULL) {
+            return nullptr;
+        }
         this->_size = String::size(s);
         this->content = s;
         return *this;
+    }
+
+    String operator=(nullptr_t s) {
+        this->_size = NULL;
+        this->content = nullptr;
+        return *this;
+    }
+
+    bool operator!=(String s) {
+        return s.getContent() == this->content;
+    }
+
+    bool operator!=(nullptr_t s) {
+        return s == this->content;
+    }
+
+    bool operator==(nullptr_t s) {
+        return s == this->content;
     }
 
     /**
@@ -159,33 +191,53 @@ public:
      * @param haystack
      * @return -1 if stroke was not found
      */
-    static long long search(char *text, char *haystack, long long index = 0) {
-        if (text[0] == '\0') {
+    static long long search(String text, String haystack, long long index = 0, bool negative = false) {
+        if (text.getContent()[0] == '\0') {
             throw "Text can not be empty";
         }
         if (haystack[0] == '\0') {
             throw "Haystack can not be empty";
         }
+        if (negative) {
+            if (index >= 0) {
+                index = text.length() - index;
+            } else {
+                index = text.length() + index;
+            }
+            for (long long k = text.length() - 1; k >= 0; --k) {
+                for (long long i = haystack.length() - 1;; --i) {
+                    // If haystack ends
+                    if (i == -1) {
+                        // stroke was found at the position {index}
+                        return index;
+                    }
 
-        for (; text[index] != '\0';) {
-            for (long long i = 0;; ++i) {
-                // If haystack ends
-                if (haystack[i] == '\0') {
-                    // stroke was found at the position {index}
-                    return index;
+                    if (haystack.getContent()[i] != text.getContent()[index--]) {
+                        // Break for closure` haystack ended
+                        break;
+                    }
                 }
+            }
+        } else {
+            for (; text.getContent()[index] != '\0';) {
+                for (long long i = 0;; ++i) {
+                    // If haystack ends
+                    if (haystack.getContent()[i] == '\0') {
+                        // stroke that has been found ends at the position {index}
+                        return index;
+                    }
 
-                if (haystack[i] != text[index++]) {
-                    // Break for closure` haystack ended
-                    break;
+                    if (haystack.getContent()[i] != text.getContent()[index++]) {
+                        // Break for closure` haystack ended
+                        break;
+                    }
                 }
             }
         }
         return -1;
     }
 
-    static long long *searchAll(char* text, char* haystack) {
-        long long position = 0;
+    static long long *searchAll(char *text, char *haystack, long long position = 0) {
         long long *items = new long long[10];
         long long *tmp;
         long long count = 0;
@@ -193,21 +245,12 @@ public:
             items[count] = position;
             ++count;
             if (count > 9) {
-                tmp = new long long[count];
-                std::memcpy(tmp, items, sizeof(long long*) * (count -1));
-                delete[] items;
-                items = new long long[count];
-                std::memcpy(items, tmp, sizeof(long long*) * (count -1));
-                delete[] tmp;
+                ArrayHelper::resize(items, count + 1);
             }
         }
         if (count < 9) {
-            tmp = new long long[count];
-            std::memcpy(tmp, items, sizeof(long long *) * (count - 1));
-            delete[] items;
-            items = new long long[count];
-            std::memcpy(items, tmp, sizeof(long long *) * (count - 1));
-            delete[] tmp;
+            items[count] = NULL;
+            ArrayHelper::resize(items, count + 1);
         }
         return items;
     }
@@ -245,12 +288,12 @@ public:
         return -1;
     }
 
-    long long *searchAll(char *haystack) {
-        return String::searchAll(this->content, haystack);
+    long long *searchAll(char *haystack, long long pos = 0) {
+        return String::searchAll(this->content, haystack, pos);
     }
 
-    long long search(char *haystack, long long pos = 0) {
-        return String::search(this->content, haystack, pos);
+    long long search(char *haystack, long long pos = 0, bool negative = false) {
+        return String::search(this->content, haystack, pos, negative);
     }
 
     long long search(const char *haystack, long long pos = 0) {
@@ -327,7 +370,6 @@ public:
             }
         } else {
             // temporary pos
-            long long tm = str.length() + pos;
             if (length < 0) {
                 // Calculates position
                 pos = str.length() + pos + length;
@@ -361,6 +403,29 @@ public:
 
     String cut(long long pos, long long length = 0) {
         return String::cut(*this, pos, length);
+    }
+
+    void trim() {
+        char *ch = new char[this->length() + 1];
+        long long begin = 0, end = this->length() - 1;
+        for (long long i = 0; i < this->length(); ++i) {
+            if (this->content[i] == ' ' || this->content[i] == '\n' || this->content[i] == '\t' ||
+                this->content[i] == '\r') {
+                continue;
+            }
+            begin = i;
+            break;
+        }
+
+        for (long long i = this->length() - 1; i > begin; --i) {
+            if (this->content[i] == ' ' || this->content[i] == '\n' || this->content[i] == '\t' ||
+                this->content[i] == '\r') {
+                continue;
+            }
+            end = i;
+            break;
+        }
+        this = this->cut(begin, end);
     }
 
 };
