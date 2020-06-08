@@ -11,11 +11,11 @@ long long actual_size = 100;
 char end_input_symbol = '\0';
 
 String::String() {
-    content = new char[actual_size];
+    this->content = new char[this->actual_size];
 }
 
 String::String(char end_input_symbol) {
-    content = new char[actual_size];
+    this->content = new char[this->actual_size];
     this->end_input_symbol = end_input_symbol;
 }
 
