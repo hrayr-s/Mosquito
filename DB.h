@@ -5,15 +5,17 @@
 #ifndef DATABASE_DB_H
 #define DATABASE_DB_H
 
-#include "FileManager.h"
+class String;
+
+class FileManager;
 
 class DB {
 private:
-    static DB *instance = nullptr;
+    static DB *instance;
     char **table_data;
     char **table_structure;
-    String *tables;
-    long long table_count = 0;
+    String **tables;
+    long long table_count;
 
     /** LOAD DATA SECTION */
 
@@ -29,18 +31,14 @@ private:
      * @param table_name
      * @return
      */
-    bool check_table_loaded(String &table_name) {
-        return this->get_table_index(table_name) != -1;
-    }
+    bool check_table_loaded(String *table_name);
 
     /**
      * getting index of cached table
      * @param table_name
      * @return
      */
-    long long get_table_index(String &table_name) {
-        return String::searchInArray(this->tables, table_name);
-    }
+    long long get_table_index(String *table_name);
 
     /**
      * Load table data from a file
@@ -49,21 +47,21 @@ private:
      * @param force
      * @return
      */
-    bool load_table(String table_name, bool force = false);
+    bool load_table(String *table_name, bool force = false);
 
     /**
      * Returns table data raw by given name
      * @param table_name
      * @return
      */
-    char *get_table_data(String &table_name);
+    char *get_table_data(String *table_name);
 
     /**
      * Returns table structure raw by given name
      * @param table_name
      * @return
      */
-    char *get_table_structure(char *table_name);
+    char *get_table_structure(String *table_name);
 
     /** END LOAD DATA SECTION */
 
@@ -72,14 +70,14 @@ private:
      * @param table_name
      * @return
      */
-    bool save_table_data(String &table_name);
+    bool save_table_data(String *table_name);
 
     /**
      * Saves table structure raw into table structure file
      * @param table_name
      * @return
      */
-    bool save_table_structure(String &table_name);
+    bool save_table_structure(String *table_name);
 
     bool save_tables();
 
@@ -91,7 +89,7 @@ public:
      * Returns singleton class instance
      * @return
      */
-    DB getInstance();
+    DB *getInstance();
 
     ~DB() {
         // On program exit or anyway when DB class deconstruct will be called
@@ -109,14 +107,14 @@ public:
      * get_table()[1] - Table data
      * @return
      */
-    char **getTable(String table_name);
+    char **getTable(String *table_name);
 
     /**
      * Saves Table raw into files
      * @param table_name
      * @return
      */
-    bool saveTable(String table_name);
+    bool saveTable(String *table_name);
 
 };
 

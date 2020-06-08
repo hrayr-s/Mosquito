@@ -4,6 +4,7 @@
 
 #include "Parser.h"
 #include <iostream>
+#include "../types/String.h"
 
 int Parser::cureent_cmd = -1;
 
@@ -42,7 +43,7 @@ String Parser::get_table_from_update(String &query) {
 int Parser::getCMD(char *command) {
     char cmd[7];
     cmd[6] = '\0';
-    for (int i = 0, k = 0; i < cmnds_count; ++i) {
+    for (int i = 0, k = 0; i < Parser::cmnds_count; ++i) {
         if (k == 0 && (command[i] == ' ' || command[i] == '\n' || command[i] == '\t' || command[i] == '\r')) {
             continue;
         }
@@ -54,7 +55,7 @@ int Parser::getCMD(char *command) {
         k++;
     }
     int index = 0;
-    for (; index < cmnds_count; ++index) {
+    for (; index < Parser::cmnds_count; ++index) {
         if (String::compare(cmd, (char *) Parser::cmnds[index]))
             break;
     }

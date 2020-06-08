@@ -84,7 +84,79 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="C:/Users/Hrayr/CLionProjects/Database/ArrayHelper.cpp">
+			<Option target="Database"/>
+		</Unit>
+		<Unit filename="C:/Users/Hrayr/CLionProjects/Database/ArrayHelper.h">
+			<Option target="Database"/>
+		</Unit>
+		<Unit filename="C:/Users/Hrayr/CLionProjects/Database/DB.cpp">
+			<Option target="Database"/>
+		</Unit>
+		<Unit filename="C:/Users/Hrayr/CLionProjects/Database/DB.h">
+			<Option target="Database"/>
+		</Unit>
+		<Unit filename="C:/Users/Hrayr/CLionProjects/Database/FileManager.cpp">
+			<Option target="Database"/>
+		</Unit>
+		<Unit filename="C:/Users/Hrayr/CLionProjects/Database/FileManager.h">
+			<Option target="Database"/>
+		</Unit>
+		<Unit filename="C:/Users/Hrayr/CLionProjects/Database/command/Create.cpp">
+			<Option target="Database"/>
+		</Unit>
+		<Unit filename="C:/Users/Hrayr/CLionProjects/Database/command/Create.h">
+			<Option target="Database"/>
+		</Unit>
+		<Unit filename="C:/Users/Hrayr/CLionProjects/Database/command/Delete.cpp">
+			<Option target="Database"/>
+		</Unit>
+		<Unit filename="C:/Users/Hrayr/CLionProjects/Database/command/Delete.h">
+			<Option target="Database"/>
+		</Unit>
+		<Unit filename="C:/Users/Hrayr/CLionProjects/Database/command/Drop.cpp">
+			<Option target="Database"/>
+		</Unit>
+		<Unit filename="C:/Users/Hrayr/CLionProjects/Database/command/Drop.h">
+			<Option target="Database"/>
+		</Unit>
+		<Unit filename="C:/Users/Hrayr/CLionProjects/Database/command/Insert.cpp">
+			<Option target="Database"/>
+		</Unit>
+		<Unit filename="C:/Users/Hrayr/CLionProjects/Database/command/Insert.h">
+			<Option target="Database"/>
+		</Unit>
+		<Unit filename="C:/Users/Hrayr/CLionProjects/Database/command/Parser.cpp">
+			<Option target="Database"/>
+		</Unit>
+		<Unit filename="C:/Users/Hrayr/CLionProjects/Database/command/Parser.h">
+			<Option target="Database"/>
+		</Unit>
+		<Unit filename="C:/Users/Hrayr/CLionProjects/Database/command/Select.cpp">
+			<Option target="Database"/>
+		</Unit>
+		<Unit filename="C:/Users/Hrayr/CLionProjects/Database/command/Select.h">
+			<Option target="Database"/>
+		</Unit>
+		<Unit filename="C:/Users/Hrayr/CLionProjects/Database/command/Update.cpp">
+			<Option target="Database"/>
+		</Unit>
+		<Unit filename="C:/Users/Hrayr/CLionProjects/Database/command/Update.h">
+			<Option target="Database"/>
+		</Unit>
 		<Unit filename="C:/Users/Hrayr/CLionProjects/Database/main.cpp">
+			<Option target="Database"/>
+		</Unit>
+		<Unit filename="C:/Users/Hrayr/CLionProjects/Database/types/String.cpp">
+			<Option target="Database"/>
+		</Unit>
+		<Unit filename="C:/Users/Hrayr/CLionProjects/Database/types/String.h">
+			<Option target="Database"/>
+		</Unit>
+		<Unit filename="C:/Users/Hrayr/CLionProjects/Database/types/structures.cpp">
+			<Option target="Database"/>
+		</Unit>
+		<Unit filename="C:/Users/Hrayr/CLionProjects/Database/types/structures.h">
 			<Option target="Database"/>
 		</Unit>
 		<Unit filename="C:/Users/Hrayr/CLionProjects/Database/CMakeLists.txt">

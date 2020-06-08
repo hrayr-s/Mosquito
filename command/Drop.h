@@ -5,15 +5,17 @@
 #ifndef DATABASE_DROP_H
 #define DATABASE_DROP_H
 
+class String;
+
+class Parser;
+
 #include <iostream>
 
 class Drop {
 
 public:
-    void run(String query) {
-        String table_name = Parser::getTable(query);
-        cout << table_name << endl;
-    }
+
+    void run(String query);
 };
 
 

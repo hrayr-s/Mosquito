@@ -58,9 +58,199 @@ include CMakeFiles\Database.dir\progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles\Database.dir\flags.make
 
+CMakeFiles\Database.dir\ArrayHelper.cpp.obj: CMakeFiles\Database.dir\flags.make
+CMakeFiles\Database.dir\ArrayHelper.cpp.obj: ..\ArrayHelper.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Hrayr\CLionProjects\Database\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Database.dir/ArrayHelper.cpp.obj"
+	C:\PROGRA~2\MICROS~1\2019\COMMUN~1\VC\Tools\MSVC\1425~1.286\bin\Hostx86\x86\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\Database.dir\ArrayHelper.cpp.obj /FdCMakeFiles\Database.dir\ /FS -c C:\Users\Hrayr\CLionProjects\Database\ArrayHelper.cpp
+<<
+
+CMakeFiles\Database.dir\ArrayHelper.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Database.dir/ArrayHelper.cpp.i"
+	C:\PROGRA~2\MICROS~1\2019\COMMUN~1\VC\Tools\MSVC\1425~1.286\bin\Hostx86\x86\cl.exe > CMakeFiles\Database.dir\ArrayHelper.cpp.i @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Hrayr\CLionProjects\Database\ArrayHelper.cpp
+<<
+
+CMakeFiles\Database.dir\ArrayHelper.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Database.dir/ArrayHelper.cpp.s"
+	C:\PROGRA~2\MICROS~1\2019\COMMUN~1\VC\Tools\MSVC\1425~1.286\bin\Hostx86\x86\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\Database.dir\ArrayHelper.cpp.s /c C:\Users\Hrayr\CLionProjects\Database\ArrayHelper.cpp
+<<
+
+CMakeFiles\Database.dir\DB.cpp.obj: CMakeFiles\Database.dir\flags.make
+CMakeFiles\Database.dir\DB.cpp.obj: ..\DB.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Hrayr\CLionProjects\Database\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Database.dir/DB.cpp.obj"
+	C:\PROGRA~2\MICROS~1\2019\COMMUN~1\VC\Tools\MSVC\1425~1.286\bin\Hostx86\x86\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\Database.dir\DB.cpp.obj /FdCMakeFiles\Database.dir\ /FS -c C:\Users\Hrayr\CLionProjects\Database\DB.cpp
+<<
+
+CMakeFiles\Database.dir\DB.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Database.dir/DB.cpp.i"
+	C:\PROGRA~2\MICROS~1\2019\COMMUN~1\VC\Tools\MSVC\1425~1.286\bin\Hostx86\x86\cl.exe > CMakeFiles\Database.dir\DB.cpp.i @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Hrayr\CLionProjects\Database\DB.cpp
+<<
+
+CMakeFiles\Database.dir\DB.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Database.dir/DB.cpp.s"
+	C:\PROGRA~2\MICROS~1\2019\COMMUN~1\VC\Tools\MSVC\1425~1.286\bin\Hostx86\x86\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\Database.dir\DB.cpp.s /c C:\Users\Hrayr\CLionProjects\Database\DB.cpp
+<<
+
+CMakeFiles\Database.dir\FileManager.cpp.obj: CMakeFiles\Database.dir\flags.make
+CMakeFiles\Database.dir\FileManager.cpp.obj: ..\FileManager.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Hrayr\CLionProjects\Database\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Database.dir/FileManager.cpp.obj"
+	C:\PROGRA~2\MICROS~1\2019\COMMUN~1\VC\Tools\MSVC\1425~1.286\bin\Hostx86\x86\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\Database.dir\FileManager.cpp.obj /FdCMakeFiles\Database.dir\ /FS -c C:\Users\Hrayr\CLionProjects\Database\FileManager.cpp
+<<
+
+CMakeFiles\Database.dir\FileManager.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Database.dir/FileManager.cpp.i"
+	C:\PROGRA~2\MICROS~1\2019\COMMUN~1\VC\Tools\MSVC\1425~1.286\bin\Hostx86\x86\cl.exe > CMakeFiles\Database.dir\FileManager.cpp.i @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Hrayr\CLionProjects\Database\FileManager.cpp
+<<
+
+CMakeFiles\Database.dir\FileManager.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Database.dir/FileManager.cpp.s"
+	C:\PROGRA~2\MICROS~1\2019\COMMUN~1\VC\Tools\MSVC\1425~1.286\bin\Hostx86\x86\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\Database.dir\FileManager.cpp.s /c C:\Users\Hrayr\CLionProjects\Database\FileManager.cpp
+<<
+
+CMakeFiles\Database.dir\command\Create.cpp.obj: CMakeFiles\Database.dir\flags.make
+CMakeFiles\Database.dir\command\Create.cpp.obj: ..\command\Create.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Hrayr\CLionProjects\Database\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Database.dir/command/Create.cpp.obj"
+	C:\PROGRA~2\MICROS~1\2019\COMMUN~1\VC\Tools\MSVC\1425~1.286\bin\Hostx86\x86\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\Database.dir\command\Create.cpp.obj /FdCMakeFiles\Database.dir\ /FS -c C:\Users\Hrayr\CLionProjects\Database\command\Create.cpp
+<<
+
+CMakeFiles\Database.dir\command\Create.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Database.dir/command/Create.cpp.i"
+	C:\PROGRA~2\MICROS~1\2019\COMMUN~1\VC\Tools\MSVC\1425~1.286\bin\Hostx86\x86\cl.exe > CMakeFiles\Database.dir\command\Create.cpp.i @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Hrayr\CLionProjects\Database\command\Create.cpp
+<<
+
+CMakeFiles\Database.dir\command\Create.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Database.dir/command/Create.cpp.s"
+	C:\PROGRA~2\MICROS~1\2019\COMMUN~1\VC\Tools\MSVC\1425~1.286\bin\Hostx86\x86\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\Database.dir\command\Create.cpp.s /c C:\Users\Hrayr\CLionProjects\Database\command\Create.cpp
+<<
+
+CMakeFiles\Database.dir\command\Delete.cpp.obj: CMakeFiles\Database.dir\flags.make
+CMakeFiles\Database.dir\command\Delete.cpp.obj: ..\command\Delete.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Hrayr\CLionProjects\Database\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Database.dir/command/Delete.cpp.obj"
+	C:\PROGRA~2\MICROS~1\2019\COMMUN~1\VC\Tools\MSVC\1425~1.286\bin\Hostx86\x86\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\Database.dir\command\Delete.cpp.obj /FdCMakeFiles\Database.dir\ /FS -c C:\Users\Hrayr\CLionProjects\Database\command\Delete.cpp
+<<
+
+CMakeFiles\Database.dir\command\Delete.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Database.dir/command/Delete.cpp.i"
+	C:\PROGRA~2\MICROS~1\2019\COMMUN~1\VC\Tools\MSVC\1425~1.286\bin\Hostx86\x86\cl.exe > CMakeFiles\Database.dir\command\Delete.cpp.i @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Hrayr\CLionProjects\Database\command\Delete.cpp
+<<
+
+CMakeFiles\Database.dir\command\Delete.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Database.dir/command/Delete.cpp.s"
+	C:\PROGRA~2\MICROS~1\2019\COMMUN~1\VC\Tools\MSVC\1425~1.286\bin\Hostx86\x86\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\Database.dir\command\Delete.cpp.s /c C:\Users\Hrayr\CLionProjects\Database\command\Delete.cpp
+<<
+
+CMakeFiles\Database.dir\command\Drop.cpp.obj: CMakeFiles\Database.dir\flags.make
+CMakeFiles\Database.dir\command\Drop.cpp.obj: ..\command\Drop.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Hrayr\CLionProjects\Database\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/Database.dir/command/Drop.cpp.obj"
+	C:\PROGRA~2\MICROS~1\2019\COMMUN~1\VC\Tools\MSVC\1425~1.286\bin\Hostx86\x86\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\Database.dir\command\Drop.cpp.obj /FdCMakeFiles\Database.dir\ /FS -c C:\Users\Hrayr\CLionProjects\Database\command\Drop.cpp
+<<
+
+CMakeFiles\Database.dir\command\Drop.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Database.dir/command/Drop.cpp.i"
+	C:\PROGRA~2\MICROS~1\2019\COMMUN~1\VC\Tools\MSVC\1425~1.286\bin\Hostx86\x86\cl.exe > CMakeFiles\Database.dir\command\Drop.cpp.i @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Hrayr\CLionProjects\Database\command\Drop.cpp
+<<
+
+CMakeFiles\Database.dir\command\Drop.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Database.dir/command/Drop.cpp.s"
+	C:\PROGRA~2\MICROS~1\2019\COMMUN~1\VC\Tools\MSVC\1425~1.286\bin\Hostx86\x86\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\Database.dir\command\Drop.cpp.s /c C:\Users\Hrayr\CLionProjects\Database\command\Drop.cpp
+<<
+
+CMakeFiles\Database.dir\command\Insert.cpp.obj: CMakeFiles\Database.dir\flags.make
+CMakeFiles\Database.dir\command\Insert.cpp.obj: ..\command\Insert.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Hrayr\CLionProjects\Database\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/Database.dir/command/Insert.cpp.obj"
+	C:\PROGRA~2\MICROS~1\2019\COMMUN~1\VC\Tools\MSVC\1425~1.286\bin\Hostx86\x86\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\Database.dir\command\Insert.cpp.obj /FdCMakeFiles\Database.dir\ /FS -c C:\Users\Hrayr\CLionProjects\Database\command\Insert.cpp
+<<
+
+CMakeFiles\Database.dir\command\Insert.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Database.dir/command/Insert.cpp.i"
+	C:\PROGRA~2\MICROS~1\2019\COMMUN~1\VC\Tools\MSVC\1425~1.286\bin\Hostx86\x86\cl.exe > CMakeFiles\Database.dir\command\Insert.cpp.i @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Hrayr\CLionProjects\Database\command\Insert.cpp
+<<
+
+CMakeFiles\Database.dir\command\Insert.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Database.dir/command/Insert.cpp.s"
+	C:\PROGRA~2\MICROS~1\2019\COMMUN~1\VC\Tools\MSVC\1425~1.286\bin\Hostx86\x86\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\Database.dir\command\Insert.cpp.s /c C:\Users\Hrayr\CLionProjects\Database\command\Insert.cpp
+<<
+
+CMakeFiles\Database.dir\command\Parser.cpp.obj: CMakeFiles\Database.dir\flags.make
+CMakeFiles\Database.dir\command\Parser.cpp.obj: ..\command\Parser.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Hrayr\CLionProjects\Database\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/Database.dir/command/Parser.cpp.obj"
+	C:\PROGRA~2\MICROS~1\2019\COMMUN~1\VC\Tools\MSVC\1425~1.286\bin\Hostx86\x86\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\Database.dir\command\Parser.cpp.obj /FdCMakeFiles\Database.dir\ /FS -c C:\Users\Hrayr\CLionProjects\Database\command\Parser.cpp
+<<
+
+CMakeFiles\Database.dir\command\Parser.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Database.dir/command/Parser.cpp.i"
+	C:\PROGRA~2\MICROS~1\2019\COMMUN~1\VC\Tools\MSVC\1425~1.286\bin\Hostx86\x86\cl.exe > CMakeFiles\Database.dir\command\Parser.cpp.i @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Hrayr\CLionProjects\Database\command\Parser.cpp
+<<
+
+CMakeFiles\Database.dir\command\Parser.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Database.dir/command/Parser.cpp.s"
+	C:\PROGRA~2\MICROS~1\2019\COMMUN~1\VC\Tools\MSVC\1425~1.286\bin\Hostx86\x86\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\Database.dir\command\Parser.cpp.s /c C:\Users\Hrayr\CLionProjects\Database\command\Parser.cpp
+<<
+
+CMakeFiles\Database.dir\command\Select.cpp.obj: CMakeFiles\Database.dir\flags.make
+CMakeFiles\Database.dir\command\Select.cpp.obj: ..\command\Select.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Hrayr\CLionProjects\Database\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/Database.dir/command/Select.cpp.obj"
+	C:\PROGRA~2\MICROS~1\2019\COMMUN~1\VC\Tools\MSVC\1425~1.286\bin\Hostx86\x86\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\Database.dir\command\Select.cpp.obj /FdCMakeFiles\Database.dir\ /FS -c C:\Users\Hrayr\CLionProjects\Database\command\Select.cpp
+<<
+
+CMakeFiles\Database.dir\command\Select.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Database.dir/command/Select.cpp.i"
+	C:\PROGRA~2\MICROS~1\2019\COMMUN~1\VC\Tools\MSVC\1425~1.286\bin\Hostx86\x86\cl.exe > CMakeFiles\Database.dir\command\Select.cpp.i @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Hrayr\CLionProjects\Database\command\Select.cpp
+<<
+
+CMakeFiles\Database.dir\command\Select.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Database.dir/command/Select.cpp.s"
+	C:\PROGRA~2\MICROS~1\2019\COMMUN~1\VC\Tools\MSVC\1425~1.286\bin\Hostx86\x86\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\Database.dir\command\Select.cpp.s /c C:\Users\Hrayr\CLionProjects\Database\command\Select.cpp
+<<
+
+CMakeFiles\Database.dir\command\Update.cpp.obj: CMakeFiles\Database.dir\flags.make
+CMakeFiles\Database.dir\command\Update.cpp.obj: ..\command\Update.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Hrayr\CLionProjects\Database\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/Database.dir/command/Update.cpp.obj"
+	C:\PROGRA~2\MICROS~1\2019\COMMUN~1\VC\Tools\MSVC\1425~1.286\bin\Hostx86\x86\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\Database.dir\command\Update.cpp.obj /FdCMakeFiles\Database.dir\ /FS -c C:\Users\Hrayr\CLionProjects\Database\command\Update.cpp
+<<
+
+CMakeFiles\Database.dir\command\Update.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Database.dir/command/Update.cpp.i"
+	C:\PROGRA~2\MICROS~1\2019\COMMUN~1\VC\Tools\MSVC\1425~1.286\bin\Hostx86\x86\cl.exe > CMakeFiles\Database.dir\command\Update.cpp.i @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Hrayr\CLionProjects\Database\command\Update.cpp
+<<
+
+CMakeFiles\Database.dir\command\Update.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Database.dir/command/Update.cpp.s"
+	C:\PROGRA~2\MICROS~1\2019\COMMUN~1\VC\Tools\MSVC\1425~1.286\bin\Hostx86\x86\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\Database.dir\command\Update.cpp.s /c C:\Users\Hrayr\CLionProjects\Database\command\Update.cpp
+<<
+
 CMakeFiles\Database.dir\main.cpp.obj: CMakeFiles\Database.dir\flags.make
 CMakeFiles\Database.dir\main.cpp.obj: ..\main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Hrayr\CLionProjects\Database\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Database.dir/main.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Hrayr\CLionProjects\Database\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/Database.dir/main.cpp.obj"
 	C:\PROGRA~2\MICROS~1\2019\COMMUN~1\VC\Tools\MSVC\1425~1.286\bin\Hostx86\x86\cl.exe @<<
  /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\Database.dir\main.cpp.obj /FdCMakeFiles\Database.dir\ /FS -c C:\Users\Hrayr\CLionProjects\Database\main.cpp
 <<
@@ -77,17 +267,79 @@ CMakeFiles\Database.dir\main.cpp.s: cmake_force
  /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\Database.dir\main.cpp.s /c C:\Users\Hrayr\CLionProjects\Database\main.cpp
 <<
 
+CMakeFiles\Database.dir\types\String.cpp.obj: CMakeFiles\Database.dir\flags.make
+CMakeFiles\Database.dir\types\String.cpp.obj: ..\types\String.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Hrayr\CLionProjects\Database\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/Database.dir/types/String.cpp.obj"
+	C:\PROGRA~2\MICROS~1\2019\COMMUN~1\VC\Tools\MSVC\1425~1.286\bin\Hostx86\x86\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\Database.dir\types\String.cpp.obj /FdCMakeFiles\Database.dir\ /FS -c C:\Users\Hrayr\CLionProjects\Database\types\String.cpp
+<<
+
+CMakeFiles\Database.dir\types\String.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Database.dir/types/String.cpp.i"
+	C:\PROGRA~2\MICROS~1\2019\COMMUN~1\VC\Tools\MSVC\1425~1.286\bin\Hostx86\x86\cl.exe > CMakeFiles\Database.dir\types\String.cpp.i @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Hrayr\CLionProjects\Database\types\String.cpp
+<<
+
+CMakeFiles\Database.dir\types\String.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Database.dir/types/String.cpp.s"
+	C:\PROGRA~2\MICROS~1\2019\COMMUN~1\VC\Tools\MSVC\1425~1.286\bin\Hostx86\x86\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\Database.dir\types\String.cpp.s /c C:\Users\Hrayr\CLionProjects\Database\types\String.cpp
+<<
+
+CMakeFiles\Database.dir\types\structures.cpp.obj: CMakeFiles\Database.dir\flags.make
+CMakeFiles\Database.dir\types\structures.cpp.obj: ..\types\structures.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Hrayr\CLionProjects\Database\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/Database.dir/types/structures.cpp.obj"
+	C:\PROGRA~2\MICROS~1\2019\COMMUN~1\VC\Tools\MSVC\1425~1.286\bin\Hostx86\x86\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\Database.dir\types\structures.cpp.obj /FdCMakeFiles\Database.dir\ /FS -c C:\Users\Hrayr\CLionProjects\Database\types\structures.cpp
+<<
+
+CMakeFiles\Database.dir\types\structures.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Database.dir/types/structures.cpp.i"
+	C:\PROGRA~2\MICROS~1\2019\COMMUN~1\VC\Tools\MSVC\1425~1.286\bin\Hostx86\x86\cl.exe > CMakeFiles\Database.dir\types\structures.cpp.i @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Hrayr\CLionProjects\Database\types\structures.cpp
+<<
+
+CMakeFiles\Database.dir\types\structures.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Database.dir/types/structures.cpp.s"
+	C:\PROGRA~2\MICROS~1\2019\COMMUN~1\VC\Tools\MSVC\1425~1.286\bin\Hostx86\x86\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\Database.dir\types\structures.cpp.s /c C:\Users\Hrayr\CLionProjects\Database\types\structures.cpp
+<<
+
 # Object files for target Database
 Database_OBJECTS = \
-"CMakeFiles\Database.dir\main.cpp.obj"
+"CMakeFiles\Database.dir\ArrayHelper.cpp.obj" \
+"CMakeFiles\Database.dir\DB.cpp.obj" \
+"CMakeFiles\Database.dir\FileManager.cpp.obj" \
+"CMakeFiles\Database.dir\command\Create.cpp.obj" \
+"CMakeFiles\Database.dir\command\Delete.cpp.obj" \
+"CMakeFiles\Database.dir\command\Drop.cpp.obj" \
+"CMakeFiles\Database.dir\command\Insert.cpp.obj" \
+"CMakeFiles\Database.dir\command\Parser.cpp.obj" \
+"CMakeFiles\Database.dir\command\Select.cpp.obj" \
+"CMakeFiles\Database.dir\command\Update.cpp.obj" \
+"CMakeFiles\Database.dir\main.cpp.obj" \
+"CMakeFiles\Database.dir\types\String.cpp.obj" \
+"CMakeFiles\Database.dir\types\structures.cpp.obj"
 
 # External object files for target Database
 Database_EXTERNAL_OBJECTS =
 
+Database.exe: CMakeFiles\Database.dir\ArrayHelper.cpp.obj
+Database.exe: CMakeFiles\Database.dir\DB.cpp.obj
+Database.exe: CMakeFiles\Database.dir\FileManager.cpp.obj
+Database.exe: CMakeFiles\Database.dir\command\Create.cpp.obj
+Database.exe: CMakeFiles\Database.dir\command\Delete.cpp.obj
+Database.exe: CMakeFiles\Database.dir\command\Drop.cpp.obj
+Database.exe: CMakeFiles\Database.dir\command\Insert.cpp.obj
+Database.exe: CMakeFiles\Database.dir\command\Parser.cpp.obj
+Database.exe: CMakeFiles\Database.dir\command\Select.cpp.obj
+Database.exe: CMakeFiles\Database.dir\command\Update.cpp.obj
 Database.exe: CMakeFiles\Database.dir\main.cpp.obj
+Database.exe: CMakeFiles\Database.dir\types\String.cpp.obj
+Database.exe: CMakeFiles\Database.dir\types\structures.cpp.obj
 Database.exe: CMakeFiles\Database.dir\build.make
 Database.exe: CMakeFiles\Database.dir\objects1.rsp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\Hrayr\CLionProjects\Database\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable Database.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\Hrayr\CLionProjects\Database\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Linking CXX executable Database.exe"
 	"C:\Program Files\JetBrains\CLion 2020.1\bin\cmake\win\bin\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\Database.dir --rc=C:\PROGRA~2\WI3CF2~1\10\bin\100183~1.0\x86\rc.exe --mt=C:\PROGRA~2\WI3CF2~1\10\bin\100183~1.0\x86\mt.exe --manifests  -- C:\PROGRA~2\MICROS~1\2019\COMMUN~1\VC\Tools\MSVC\1425~1.286\bin\Hostx86\x86\link.exe /nologo @CMakeFiles\Database.dir\objects1.rsp @<<
  /out:Database.exe /implib:Database.lib /pdb:C:\Users\Hrayr\CLionProjects\Database\cmake-build-debug\Database.pdb /version:0.0  /machine:X86 /debug /INCREMENTAL /subsystem:console  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib 
 <<

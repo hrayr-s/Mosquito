@@ -2,11 +2,9 @@
 // Created by Hrayr on 5/29/2020.
 //
 
-class ArrayHelper;
-
 #include <iostream>
-#include "../ArrayHelper.h"
 #include "String.h"
+#include "../ArrayHelper.h"
 
 long long _size = 0;
 long long actual_size = 100;
@@ -22,7 +20,7 @@ String::String(char end_input_symbol) {
 }
 
 String::String(char *text) {
-    if (text != NULL) {
+    if (text != nullptr) {
         long long size = String::size(text);
         this->content = new char[size + 1];
         this->_size = size;
@@ -36,7 +34,7 @@ String::String(char *text) {
 
 /** Overload operators */
 
-friend std::ostream &String::operator<<(std::ostream &out, const String &str) {
+std::ostream &operator<<(std::ostream &out, const String &str) {
     // Since operator<< is a friend of the String class, we can access Point's members directly.
     out << str.content;
 
@@ -49,7 +47,7 @@ friend std::ostream &String::operator<<(std::ostream &out, const String &str) {
  * @param str
  * @return
  */
-friend std::istream &String::operator>>(std::istream &in, String &str) {
+std::istream &operator>>(std::istream &in, String &str) {
     // Since operator>> is a friend of the String class, we can access Point's members directly.
     char *buf = new char[101];
     char *tmp = nullptr;
@@ -127,17 +125,21 @@ bool String::operator!=(String s) {
     return s.getContent() == this->content;
 }
 
+bool String::operator!=(String *s) {
+    return s->getContent() == this->content;
+}
+
 bool String::operator!=(nullptr_t s) {
     return s == this->content;
 }
 
 String String::operator+(String str) {
     char *tmp;
-    long long size = String::size(str);
+    long long size = str.length();
     long long new_size = size + this->size();
     tmp = new char[new_size + 1];
     std::strcpy(tmp, this->content);
-    std::strcpy(tmp + this->size(), str);
+    std::strcpy(tmp + this->size(), str.getContent());
 
     String s(tmp);
     return s;
@@ -176,7 +178,11 @@ char *String::concat(char *str, char *str2) {
     return tmp;
 }
 
-long long String::search(String text, String haystack, long long index = 0, bool negative = false) {
+char *String::getContent() {
+    return this->content;
+}
+
+long long String::search(String text, String haystack, long long index, bool negative) {
     if (text.getContent()[0] == '\0') {
         throw "Text can not be empty";
     }
@@ -222,7 +228,7 @@ long long String::search(String text, String haystack, long long index = 0, bool
     return -1;
 }
 
-long long *String::searchAll(char *text, char *haystack, long long position = 0) {
+long long *String::searchAll(char *text, char *haystack, long long position) {
     long long *items = new long long[10];
     long long *tmp;
     long long count = 0;
@@ -252,22 +258,48 @@ long long *String::searchAll(char *text, char *haystack, long long position = 0)
     return items;
 }
 
-long long String::searchInArray(String *array_string, char *haystack, long long pos = 0) {
+long long String::searchInArray(String **array_string, char *haystack, long long pos) {
     for (long long i = pos; array_string[i] != nullptr; ++i) {
-        if (array_string[i].compare(haystack)) {
+        if (array_string[i]->compare(haystack)) {
             return i;
         }
     }
     return -1;
 }
 
-long long String::searchInArray(String *array_string, long long pos = 0) {
+long long String::searchInArray(String **array_string, long long pos) {
     for (long long i = pos; array_string[i] != nullptr; ++i) {
-        if (array_string[i].compare(this->content)) {
+        if (array_string[i]->compare(this->content)) {
             return i;
         }
     }
     return -1;
+}
+
+long long *String::searchAll(char *haystack, long long pos) {
+    return String::searchAll(this->content, haystack, pos);
+}
+
+long long String::search(char *haystack, long long pos, bool negative) {
+    return String::search(this->content, haystack, pos, negative);
+}
+
+long long String::search(const char *haystack, long long pos) {
+    return String::search(this->content, (char *) haystack, pos);
+}
+
+long long String::size(char *text) {
+    long long size = 0;
+    for (; text[size] != '\0'; ++size) {}
+    return size;
+}
+
+long long String::size() {
+    return this->_size;
+}
+
+long long String::length() {
+    return this->_size;
 }
 
 bool String::compare(char *str1, char *str2) {
@@ -281,7 +313,11 @@ bool String::compare(char *str1, char *str2) {
     return !(str1[pos] != '\0' || str2[pos] != '\0');
 }
 
-String String::cut(String str, long long pos, long long length = 0) {
+bool String::compare(char *str) {
+    return String::compare(this->content, str);
+}
+
+String String::cut(String str, long long pos, long long length) {
     char *tmp;
 
     // Calculate for positive position
@@ -330,6 +366,10 @@ String String::cut(String str, long long pos, long long length = 0) {
     }
     tmp[length] = '\0';
     return tmp;
+}
+
+String String::cut(long long pos, long long length) {
+    return String::cut(*this, pos, length);
 }
 
 long long String::searchInArray(char **array_string, char *haystack) {

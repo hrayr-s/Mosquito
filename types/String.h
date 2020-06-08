@@ -5,6 +5,7 @@
 #ifndef DATABASE_STRING_H
 #define DATABASE_STRING_H
 
+#include <iostream>
 
 class String {
 private:
@@ -23,6 +24,22 @@ public:
 
     friend std::istream &operator>>(std::istream &in, String &str);
 
+    String operator=(String s);
+
+    String operator=(char *s);
+
+    String operator=(nullptr_t s);
+
+    bool operator!=(String *s);
+
+    bool operator!=(String s);
+
+    bool operator!=(nullptr_t s);
+
+    String operator+(String str);
+
+    const char operator[](std::size_t idx) const;
+
     explicit operator char *();
 
     explicit operator const char *();
@@ -35,9 +52,7 @@ public:
      */
     static char *concat(char *str, char *str2);
 
-    char *getContent() {
-        return this->content;
-    }
+    char *getContent();
 
     /**
      * Returns position of searched string
@@ -57,35 +72,21 @@ public:
      * @param haystack
      * @return
      */
-    static long long searchInArray(String *array_string, char *haystack, long long pos = 0);
+    static long long searchInArray(String **array_string, char *haystack, long long pos = 0);
 
-    long long searchInArray(String *array_string, long long pos = 0);
+    long long searchInArray(String **array_string, long long pos = 0);
 
-    long long *searchAll(char *haystack, long long pos = 0) {
-        return String::searchAll(this->content, haystack, pos);
-    }
+    long long *searchAll(char *haystack, long long pos = 0);
 
-    long long search(char *haystack, long long pos = 0, bool negative = false) {
-        return String::search(this->content, haystack, pos, negative);
-    }
+    long long search(char *haystack, long long pos = 0, bool negative = false);
 
-    long long search(const char *haystack, long long pos = 0) {
-        return String::search(this->content, (char *) haystack, pos);
-    }
+    long long search(const char *haystack, long long pos = 0);
 
-    static long long size(char *text) {
-        long long size = 0;
-        for (; text[size] != '\0'; ++size) {}
-        return size;
-    }
+    static long long size(char *text);
 
-    long long size() {
-        return this->_size;
-    }
+    long long size();
 
-    long long length() {
-        return this->_size;
-    }
+    long long length();
 
     /**
      * Compare two given strings
@@ -100,9 +101,7 @@ public:
      * @param str
      * @return
      */
-    bool compare(char *str) {
-        return String::compare(this->content, str);
-    }
+    bool compare(char *str);
 
     /**
      * Cuts given String by position and length
@@ -116,9 +115,7 @@ public:
      */
     static String cut(String str, long long pos, long long length = 0);
 
-    String cut(long long pos, long long length = 0) {
-        return String::cut(*this, pos, length);
-    }
+    String cut(long long pos, long long length = 0);
 
 };
 

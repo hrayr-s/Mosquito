@@ -5,17 +5,16 @@
 #ifndef DATABASE_DELETE_H
 #define DATABASE_DELETE_H
 
-#include <iostream>
+class String;
 
-using namespace std;
+class Parser;
+
+#include <iostream>
 
 class Delete {
 
 public:
-    void run(String query) {
-        String table_name = Parser::getTable(query);
-        cout << table_name << endl;
-    }
+    void run(String query);
 };
 
 

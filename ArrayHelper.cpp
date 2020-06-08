@@ -2,7 +2,12 @@
 // Created by Hrayr on 5/31/2020.
 //
 
-static bool ArrayHelper::resize(String *&f, long long size = 1) {
+#include "ArrayHelper.h"
+
+#include "types/String.h"
+#include "types/structures.h"
+
+bool ArrayHelper::resize(String *f, long long size) {
     if (size < 1) {
         throw "size should be more than 0";
     }
@@ -48,7 +53,7 @@ bool ArrayHelper::resize(struct column *f, long long int size) {
     return true;
 }
 
-static bool ArrayHelper::resize(long long *&f, long long size = 1) {
+bool ArrayHelper::resize(long long *&f, long long size) {
     if (size < 1) {
         throw "size should be more than 0";
     }
@@ -68,3 +73,4 @@ static bool ArrayHelper::resize(long long *&f, long long size = 1) {
     }
     return true;
 }
+

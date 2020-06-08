@@ -2,6 +2,9 @@
 // Created by Hrayr on 5/30/2020.
 //
 
+#include "../types/String.h"
+#include "../types/structures.h"
+#include "Parser.h"
 #include "Create.h"
 
 bool Create::resetVariables() {

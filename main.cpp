@@ -1,4 +1,6 @@
 #include <iostream>
+#include "types/String.h"
+#include "types/structures.h"
 #include "FileManager.h"
 #include "command/Parser.h"
 #include "command/Create.h"

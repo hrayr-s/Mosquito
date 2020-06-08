@@ -5,22 +5,20 @@
 #ifndef DATABASE_STRUCTURES_H
 #define DATABASE_STRUCTURES_H
 
+class String;
+
+#include <cstddef>
 
 struct column {
     String *name;
     int type;
     long long size;
 
-    struct column operator=(nullptr_t s) {
-        name = nullptr;
-        type = NULL;
-        size = NULL;
-        return *this;
-    }
+    struct column operator=(nullptr_t s);
 
-    bool operator==(nullptr_t s) {
-        return this->name == nullptr;
-    }
+    bool operator==(nullptr_t s);
+
+    bool operator!=(nullptr_t s);
 
 };
 

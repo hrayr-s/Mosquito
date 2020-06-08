@@ -6,6 +6,7 @@
 #define DATABASE_FILEMANAGER_H
 
 class String;
+#include <iostream>
 
 using namespace std;
 
@@ -16,9 +17,9 @@ private:
     int current_error = 0;
     String *filename;
 public:
-    const int NO_ERROR = 0,
-        FILE_NOT_FOUND = 1,
-        CONTENT_LENGTH_ZERO = 2;
+    static const int NO_ERROR = 0,
+            FILE_NOT_FOUND = 1,
+            CONTENT_LENGTH_ZERO = 2;
 
     FileManager();
 

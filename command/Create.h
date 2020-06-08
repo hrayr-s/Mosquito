@@ -5,9 +5,11 @@
 #ifndef DATABASE_CREATE_H
 #define DATABASE_CREATE_H
 
-#include "../types/String.h"
+class String;
+
+class Parser;
+
 #include <iostream>
-#include "types/structures.h"
 
 using namespace std;
 

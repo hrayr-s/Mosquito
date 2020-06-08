@@ -2,6 +2,8 @@
 // Created by Hrayr on 5/29/2020.
 //
 
+#include <iostream>
+#include "types/String.h"
 #include "FileManager.h"
 
 FileManager::FileManager() {
@@ -24,13 +26,13 @@ void FileManager::setError(int code) {
     this->current_error = code;
 }
 
-FileManager FileManager::load(char *name, char *mode = "r") {
+FileManager FileManager::load(char *name, char *mode) {
     String fname(name);
-    this->filename = fname;
+    this->filename = &fname;
     this->mode = mode;
     this->setError(NO_ERROR);
     this->f = fopen((char *) filename, mode);
-    if (this->f == NULL || this->f == nullptr) {
+    if (this->f == nullptr) {
         this->setError(FILE_NOT_FOUND);
     }
     return *this;
@@ -45,7 +47,7 @@ char *FileManager::read() {
     char *content;
     long long size = 0;
 
-    if (this->f == NULL || this->f == nullptr) {
+    if (this->f == nullptr) {
         this->setError(FILE_NOT_FOUND);
         return nullptr;
     }
@@ -69,7 +71,7 @@ long long FileManager::size() {
 bool FileManager::write(char *content) {
     this->setError(NO_ERROR);
     // No file opened or Requested file does not exist
-    if (this->f == NULL) {
+    if (this->f == nullptr) {
         this->setError(FILE_NOT_FOUND);
         return false;
     }
@@ -91,7 +93,7 @@ bool FileManager::write(char *content) {
 bool FileManager::write(String content) {
     this->setError(NO_ERROR);
     // No file opened or Requested file does not exist
-    if (this->f == NULL) {
+    if (this->f == nullptr) {
         this->setError(FILE_NOT_FOUND);
         return false;
     }

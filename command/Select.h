@@ -5,22 +5,18 @@
 #ifndef DATABASE_SELECT_H
 #define DATABASE_SELECT_H
 
-#include "../types/String.h"
-#include "Parser.h"
+class String;
+
+class Parser;
+
 #include <iostream>
 
 class Select {
 private:
 
-    bool Table(char *params) {
-
-    }
-
 public:
-    void run(String query) {
-        String table_name = Parser::getTable(query);
-        std::cout << table_name << std::endl;
-    }
+
+    void run(String query);
 };
 
 

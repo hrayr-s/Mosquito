@@ -75,12 +75,12 @@ clean: CMakeFiles\Database.dir\clean
 CMakeFiles\Database.dir\all:
 	$(MAKE) -f CMakeFiles\Database.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Database.dir\depend
 	$(MAKE) -f CMakeFiles\Database.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Database.dir\build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\Hrayr\CLionProjects\Database\cmake-build-debug\CMakeFiles --progress-num=1,2 "Built target Database"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\Hrayr\CLionProjects\Database\cmake-build-debug\CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13,14 "Built target Database"
 .PHONY : CMakeFiles\Database.dir\all
 
 # Build rule for subdir invocation for target.
 CMakeFiles\Database.dir\rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Hrayr\CLionProjects\Database\cmake-build-debug\CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Hrayr\CLionProjects\Database\cmake-build-debug\CMakeFiles 14
 	$(MAKE) -f CMakeFiles\Makefile2 /nologo -$(MAKEFLAGS) CMakeFiles\Database.dir\all
 	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Hrayr\CLionProjects\Database\cmake-build-debug\CMakeFiles 0
 .PHONY : CMakeFiles\Database.dir\rule

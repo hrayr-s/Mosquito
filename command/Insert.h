@@ -5,17 +5,17 @@
 #ifndef DATABASE_INSERT_H
 #define DATABASE_INSERT_H
 
-#include <iostream>
+class String;
 
-using namespace std;
+class Parser;
+
+#include <iostream>
 
 class Insert {
 
 public:
-    void run(String query) {
-        String table_name = Parser::getTable(query);
-        cout << table_name << endl;
-    }
+
+    void run(String query);
 };
 
 
