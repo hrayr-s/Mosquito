@@ -6,9 +6,6 @@
 #include "String.h"
 #include "../ArrayHelper.h"
 
-long long _size = 0;
-long long actual_size = 100;
-char end_input_symbol = '\0';
 
 String::String() {
     this->content = new char[this->actual_size];
@@ -107,7 +104,7 @@ String String::operator=(String s) {
 }
 
 String String::operator=(char *s) {
-    if (s == NULL) {
+    if (s == nullptr) {
         return nullptr;
     }
     this->_size = String::size(s);

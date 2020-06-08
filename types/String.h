@@ -10,9 +10,9 @@
 class String {
 private:
     char *content;
-    long long _size;
-    long long actual_size;
-    char end_input_symbol;
+    long long _size = 0;
+    long long actual_size = 100;
+    char end_input_symbol = '\0';
 public:
     String();
 
