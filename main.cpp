@@ -1,7 +1,6 @@
 #include <iostream>
 #include "FileManager.h"
-#include "types/String.h"
-#include "command/Parser.cpp"
+#include "command/Parser.h"
 #include "command/Create.h"
 #include "command/Drop.h"
 #include "command/Select.h"
@@ -10,7 +9,6 @@
 #include "command/Insert.h"
 
 using namespace std;
-
 
 int main() {
 /*    FileManager f("a.txt", "w");
@@ -32,7 +30,7 @@ int main() {
     while (true) {
         cout << " $>:";
         cin >> query;
-        switch (Parser::getCMD(query)) {
+        switch (Parser::getCMD((char *) query)) {
             case COMMAND_SELECT:
                 Select select;
                 select.run(query);

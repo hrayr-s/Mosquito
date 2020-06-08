@@ -5,8 +5,6 @@
 #ifndef DATABASE_STRUCTURES_H
 #define DATABASE_STRUCTURES_H
 
-class String;
-#include "String.h"
 
 struct column {
     String *name;
