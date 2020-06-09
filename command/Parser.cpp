@@ -85,20 +85,40 @@ String Parser::getTable(String query) {
 String Parser::getColumnName(String str) {
     long long index1 = str.search((char *) "`");
     long long index2 = str.search((char *) "`", index1 + 1);
-    return str.cut(index1, index2);
+    return str.cut(index1, index2 - index1 - 1);
 }
 
-
-String *Parser::getColumnName(String *str) {
+String *Parser::getColumnName_P(String *str) {
     long long index1 = str->search((char *) "`");
     long long index2 = str->search((char *) "`", index1 + 1);
     String *rtn = new String(str->cut(index1, index2));
     return rtn;
 }
 
-int Parser::getColType(String &str) {
+int Parser::getColumnType(String str) {
     long long index1 = str.search((char *) "`");
-    long long index2 = str.search((char *) "`", index1 + 1);
-//        String* tmp = &str.cut();
-    return 0;
+    index1 = str.search((char *) "`", index1);
+    String s = str.cut(index1, str.length() - index1).trim();
+    if (s[s.length() - 1] == ')') {
+        s = s.cut(0, s.search("(") - 1);
+    }
+    int index = 0;
+    for (; index < Parser::types_count; ++index) {
+        if (s.compare((char *) Parser::types[index]))
+            break;
+    }
+    if (index == Parser::cmnds_count) {
+        return -1;
+    }
+    return index;
+}
+
+long long Parser::getColumnSize(String col) {
+    long long index1 = col.search("(");
+    long long index2 = col.search(")");
+    return (long long) col.cut(index1, index2 - index1 - 1);
+}
+
+char *Parser::getColumnTypeName(int type) {
+    return (char *) Parser::types[type];
 }

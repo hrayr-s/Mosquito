@@ -4,6 +4,7 @@
 
 #ifndef DATABASE_PARSER_H
 #define DATABASE_PARSER_H
+
 class String;
 
 const char COMMAND_SELECT = 0,
@@ -14,10 +15,14 @@ const char COMMAND_SELECT = 0,
         COMMAND_CREATE = 5,
         COMMAND_EXIT = 6;
 
+const char TYPE_INT = 0,
+        TYPE_VARCHAR = 1,
+        TYPE_TEXT = 2;
+
 class Parser {
 private:
     static constexpr int cmnds_count = 7;
-    static constexpr char cmnds[7][7] = {
+    static constexpr char cmnds[cmnds_count][7] = {
             "SELECT",
             "UPDATE",
             "DELETE",
@@ -25,6 +30,12 @@ private:
             "DROP\0\0",
             "CREATE",
             "EXIT\0\0"
+    };
+    static constexpr short int types_count = 3;
+    static constexpr char types[types_count][8] = {
+            "INT\0\0\0\0",
+            "VARCHAR",
+            "TEXT\0\0\0"
     };
 
     static String get_table_name(String &query, const char *from_str);
@@ -86,9 +97,12 @@ public:
 
     static String getColumnName(String str);
 
-    static String *getColumnName(String *str);
+    static String *getColumnName_P(String *str);
 
-    static int getColType(String &str);
+    static int getColumnType(String str);
 
+    static long long getColumnSize(String col);
+
+    static char *getColumnTypeName(int type);
 };
 #endif //DATABASE_PARSER_H

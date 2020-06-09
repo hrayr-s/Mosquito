@@ -4,6 +4,7 @@
 
 #include "../types/String.h"
 #include "../types/structures.h"
+#include "../ArrayHelper.h"
 #include "Parser.h"
 #include "Create.h"
 
@@ -16,15 +17,9 @@ bool Create::resetVariables() {
     return true;
 }
 
-struct column *Create::parse_column(String raw) {
-    struct column *s;
-    long long size = 0;
-
-    s = new column[1];
-    s[0].name = &raw;
-    s[0].type = 1;
-    s[0].size = 0;
-    return s;
+struct table *Create::parse_table(String table_name, String *raw) {
+    struct table *tb = new table(table_name, raw);
+    return tb;
 }
 
 Create::Create() {
@@ -39,12 +34,15 @@ void Create::run(String query) {
     long long begin_cols = query.search("(");
     long long end_cols = query.search(")", 0, true);
     long long *items = query.searchAll((char *) ",", begin_cols);
-    cout << query.cut(begin_cols, items[0] - begin_cols) << endl;
+    long long col_count = ArrayHelper::count(items) + 1;
+    String *raw_cols = new String[col_count + 1];
+    raw_cols[col_count] = nullptr;
+    raw_cols[0] = query.cut(begin_cols, items[0] - 1 - begin_cols).trim();
     long long i = 1;
     for (; items[i] != NULL; ++i) {
-        cout << query.cut(items[i - 1], items[i] - items[i - 1]) << endl;
+        raw_cols[i] = query.cut(items[i - 1], items[i] - 1 - items[i - 1]).trim();
     }
-    cout << query.cut(items[i - 1], end_cols - items[i - 1] + 1) << endl;
-    struct column *cols = this->parse_column(query.cut(begin_cols, end_cols - begin_cols + 1));
+    raw_cols[i] = query.cut(items[i - 1], end_cols - items[i - 1] + 1).trim();
+    struct table *cols = this->parse_table(table_name, raw_cols);
 
 }

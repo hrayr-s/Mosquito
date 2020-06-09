@@ -119,15 +119,15 @@ String String::operator=(nullptr_t s) {
 }
 
 bool String::operator!=(String s) {
-    return s.getContent() == this->content;
+    return s.getContent() != this->content;
 }
 
 bool String::operator!=(String *s) {
-    return s->getContent() == this->content;
+    return s->getContent() != this->content;
 }
 
 bool String::operator!=(nullptr_t s) {
-    return s == this->content;
+    return s != this->content;
 }
 
 String String::operator+(String str) {
@@ -227,30 +227,17 @@ long long String::search(String text, String haystack, long long index, bool neg
 
 long long *String::searchAll(char *text, char *haystack, long long position) {
     long long *items = new long long[10];
-    long long *tmp;
     long long count = 0;
     for (; (position = String::search(text, haystack, position)) != -1;) {
         items[count] = position;
         ++count;
         if (count > 9) {
             ArrayHelper::resize(items, count + 1);
-//                tmp = new long long[count];
-//                std::memcpy(tmp, items, sizeof(long long) * count);
-//                delete[] items;
-//                items = new long long[count+1];
-//                std::memcpy(items, tmp, sizeof(long long) * count);
-//                delete[] tmp;
         }
     }
     if (count < 9) {
         items[count] = NULL;
         ArrayHelper::resize(items, count + 1);
-//            tmp = new long long[count];
-//            std::memcpy(tmp, items, sizeof(long long) * count);
-//            delete[] items;
-//            items = new long long[count+1];
-//            std::memcpy(items, tmp, sizeof(long long) * count);
-//            delete[] tmp;
     }
     return items;
 }
@@ -376,4 +363,35 @@ long long String::searchInArray(char **array_string, char *haystack) {
         }
     }
     return -1;
+}
+
+
+String String::trim() {
+    long long begin = 0, end = this->length();
+    for (long long i = 0; i < this->length(); ++i) {
+        if (this->content[i] == ' ' || this->content[i] == '\n' || this->content[i] == '\t' ||
+            this->content[i] == '\r') {
+            continue;
+        }
+        begin = i;
+        break;
+    }
+
+    for (long long i = this->length() - 1; i > begin; --i) {
+        if (this->content[i] == ' ' || this->content[i] == '\n' || this->content[i] == '\t' ||
+            this->content[i] == '\r') {
+            continue;
+        }
+        end = i + 1;
+        break;
+    }
+    return this->cut(begin, end - begin);
+}
+
+String::operator long long() {
+    long long tmp = 0;
+    for (long long i = 0; i < this->length(); ++i) {
+        tmp = tmp * 10 + (this->content[i] - '0');
+    }
+    return tmp;
 }

@@ -2,10 +2,9 @@
 // Created by Hrayr on 5/31/2020.
 //
 
-#include "ArrayHelper.h"
-
 #include "types/String.h"
 #include "types/structures.h"
+#include "ArrayHelper.h"
 
 bool ArrayHelper::resize(String *f, long long size) {
     if (size < 1) {
@@ -74,3 +73,14 @@ bool ArrayHelper::resize(long long *&f, long long size) {
     return true;
 }
 
+long long ArrayHelper::count(long long *array) {
+    long long size = 0;
+    for (; array[size] != NULL; ++size) {}
+    return size;
+}
+
+long long int ArrayHelper::count(String *array) {
+    long long size = 0;
+    for (; array[size] != nullptr; ++size) {}
+    return size;
+}

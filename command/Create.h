@@ -6,7 +6,6 @@
 #define DATABASE_CREATE_H
 
 class String;
-
 class Parser;
 
 #include <iostream>
@@ -20,7 +19,7 @@ private:
 
     bool resetVariables();
 
-    struct column *parse_column(String raw);
+    struct table *parse_table(String table_name, String *raw);
 
 public:
     Create();

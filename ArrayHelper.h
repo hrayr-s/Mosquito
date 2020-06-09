@@ -15,6 +15,10 @@ public:
     static bool resize(long long *&f, long long size = 1);
 
     bool resize(String *f, long long int size = 1);
+
+    static long long int count(long long int *array);
+
+    static long long int count(String *array);
 };
 
 

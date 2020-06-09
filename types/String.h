@@ -6,6 +6,7 @@
 #define DATABASE_STRING_H
 
 #include <iostream>
+#include "structures.h"
 
 class String {
 private:
@@ -43,6 +44,8 @@ public:
     explicit operator char *();
 
     explicit operator const char *();
+
+    explicit operator long long();
 
     /**
      * Concatenation of two given string in given order` first str1 then str2
@@ -117,6 +120,10 @@ public:
 
     String cut(long long pos, long long length = 0);
 
+    /**
+     * Remove first and last space like symbols
+     */
+    String trim();
 };
 
 
