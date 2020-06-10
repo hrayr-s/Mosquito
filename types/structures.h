@@ -11,7 +11,7 @@ class String;
 
 struct column {
     String *name;
-    int type;
+    char type;
     long long size;
 
     column();
@@ -30,7 +30,7 @@ struct column {
 
 struct table {
     struct column *columns;
-    long long cols_count;
+    char cols_count; // Table columns count should not be more than 255
     String *name;
     char *data;
 
@@ -45,16 +45,16 @@ struct table {
 
     struct table operator=(nullptr_t s);
 
-    /**
+    /** No needed for now
      * With given String array organize table structure
      * @param s
      * @return
      */
     struct table operator=(String *s);
 
-    bool operator==(nullptr_t s);
+    bool operator==(nullptr_t s) const;
 
-    bool operator!=(nullptr_t s);
+    bool operator!=(nullptr_t s) const;
 };
 
 #endif //DATABASE_STRUCTURES_H

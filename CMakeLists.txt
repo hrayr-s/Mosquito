@@ -32,3 +32,5 @@ file(GLOB SOURCES command/Create.cpp command/Delete.cpp
 #add_library(libtypes types/String.cpp)
 
 add_executable(Database ${SOURCES})
+
+add_executable(Test test.cpp)

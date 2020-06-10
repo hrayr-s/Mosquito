@@ -7,25 +7,21 @@
 #include "../ArrayHelper.h"
 #include "Parser.h"
 #include "Create.h"
+#include "../DB.h"
 
 bool Create::resetVariables() {
-    delete[] columns;
-    columns = new column[1];
-    columns[0] = nullptr;
-    col_count = 0;
-
+    delete[] this->tb;
+    this->tb = nullptr;
     return true;
 }
 
 struct table *Create::parse_table(String table_name, String *raw) {
-    struct table *tb = new table(table_name, raw);
-    return tb;
+    this->tb = new table(table_name, raw);
+    return this->tb;
 }
 
 Create::Create() {
-    columns = new struct column[1];
-    columns[0] = nullptr;
-    col_count = 0;
+    this->tb = nullptr;
 }
 
 void Create::run(String query) {
@@ -43,6 +39,7 @@ void Create::run(String query) {
         raw_cols[i] = query.cut(items[i - 1], items[i] - 1 - items[i - 1]).trim();
     }
     raw_cols[i] = query.cut(items[i - 1], end_cols - items[i - 1] + 1).trim();
-    struct table *cols = this->parse_table(table_name, raw_cols);
-
+    this->parse_table(table_name, raw_cols);
+    DB::getInstance()->setTableStructure(this->tb);
+    DB::getInstance()->saveTable(*this->tb->name);
 }

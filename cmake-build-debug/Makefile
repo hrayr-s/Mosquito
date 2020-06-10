@@ -124,6 +124,19 @@ Database\fast:
 	$(MAKE) -f CMakeFiles\Database.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Database.dir\build
 .PHONY : Database\fast
 
+#=============================================================================
+# Target rules for targets named Test
+
+# Build rule for target.
+Test: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 /nologo -$(MAKEFLAGS) Test
+.PHONY : Test
+
+# fast build rule for target.
+Test\fast:
+	$(MAKE) -f CMakeFiles\Test.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Test.dir\build
+.PHONY : Test\fast
+
 ArrayHelper.obj: ArrayHelper.cpp.obj
 
 .PHONY : ArrayHelper.obj
@@ -421,6 +434,33 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles\Database.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Database.dir\main.cpp.s
 .PHONY : main.cpp.s
 
+test.obj: test.cpp.obj
+
+.PHONY : test.obj
+
+# target to build an object file
+test.cpp.obj:
+	$(MAKE) -f CMakeFiles\Test.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Test.dir\test.cpp.obj
+.PHONY : test.cpp.obj
+
+test.i: test.cpp.i
+
+.PHONY : test.i
+
+# target to preprocess a source file
+test.cpp.i:
+	$(MAKE) -f CMakeFiles\Test.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Test.dir\test.cpp.i
+.PHONY : test.cpp.i
+
+test.s: test.cpp.s
+
+.PHONY : test.s
+
+# target to generate assembly for a file
+test.cpp.s:
+	$(MAKE) -f CMakeFiles\Test.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Test.dir\test.cpp.s
+.PHONY : test.cpp.s
+
 types\String.obj: types\String.cpp.obj
 
 .PHONY : types\String.obj
@@ -484,6 +524,7 @@ help:
 	@echo ... edit_cache
 	@echo ... Database
 	@echo ... rebuild_cache
+	@echo ... Test
 	@echo ... ArrayHelper.obj
 	@echo ... ArrayHelper.i
 	@echo ... ArrayHelper.s
@@ -517,6 +558,9 @@ help:
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
+	@echo ... test.obj
+	@echo ... test.i
+	@echo ... test.s
 	@echo ... types/String.obj
 	@echo ... types/String.i
 	@echo ... types/String.s

@@ -3,6 +3,7 @@
 //
 
 #include "types/String.h"
+#include "types/structures.h"
 #include "DB.h"
 #include "FileManager.h"
 
@@ -13,7 +14,7 @@ DB::DB() {
     this->table_count = 0;
     this->table_data = new char *[1];
     this->table_structure = new char *[1];
-    this->tables = new String *[1];
+    this->tables = new String[1];
     for (int i = 0; i < 1; ++i) {
         this->table_data[i] = nullptr;
         this->table_structure[i] = nullptr;
@@ -35,7 +36,7 @@ bool DB::resize(long long size) {
     char **tmp = new char *[this->table_count];
     long long tmp_size = 0;
     // Copy table_data into tmp
-    for (long long i = 0; i < table_count; ++i) {
+    for (long long i = 0; i < this->table_count; ++i) {
         tmp_size = String::size(this->table_data[i]);
         tmp[i] = new char[tmp_size + 1];
         memcpy(tmp[i], this->table_data[i], tmp_size);
@@ -44,20 +45,24 @@ bool DB::resize(long long size) {
     delete[] this->table_data;
     this->table_data = new char *[this->table_count + size + 1]; // +1 to set the end(nullptr) of array
     // copy stored data back from tmp to tables_data
-    for (long long i = 0; i < table_count; ++i) {
+    for (long long i = 0; i < this->table_count; ++i) {
         tmp_size = String::size(tmp[i]);
         this->table_data[i] = new char[tmp_size + 1];
         memcpy(this->table_data[i], tmp[i], tmp_size);
         this->table_data[i][tmp_size] = '\0';
     }
-    for (long long i = 0; i <= size; ++i) {
-        this->table_data[table_count + i] = nullptr;
+    long long i = 0;
+    if (this->table_count == 0) {
+        i = 1;
+    }
+    for (; i <= size; ++i) {
+        this->table_data[this->table_count + i] = nullptr;
     }
     delete[] tmp;
 
     // Copy table_structure into tmp
     tmp = new char *[this->table_count];
-    for (long long i = 0; i < table_count; ++i) {
+    for (i = 0; i < this->table_count; ++i) {
         tmp_size = String::size(this->table_structure[i]);
         tmp[i] = new char[tmp_size + 1];
         memcpy(tmp[i], this->table_structure[i], tmp_size);
@@ -66,45 +71,59 @@ bool DB::resize(long long size) {
     delete[] this->table_structure;
     this->table_structure = new char *[this->table_count + size + 1]; // +1 to set the end(nullptr) of array
     // copy stored data back from tmp to tables_data
-    for (long long i = 0; i < table_count; ++i) {
+    for (i = 0; i < this->table_count; ++i) {
         tmp_size = String::size(tmp[i]);
         this->table_structure[i] = new char[tmp_size + 1];
         memcpy(this->table_structure[i], tmp[i], tmp_size);
         this->table_structure[i][tmp_size] = '\0';
     }
-    for (long long i = 0; i <= size; ++i) {
-        this->table_structure[table_count + i] = nullptr;
+    i = 0;
+    if (this->table_count == 0) {
+        i = 1;
+    }
+    for (; i <= size; ++i) {
+        this->table_structure[this->table_count + i] = nullptr;
     }
     delete[] tmp;
 
     // Copy tables into tmp
-    String **tmp_tables = new String *[this->table_count];
-    for (long long i = 0; i < table_count; ++i) {
-        tmp_tables[i] = new String(tables[i]->getContent());
+    String *tmp_tables = new String[this->table_count];
+    for (i = 0; i < this->table_count; ++i) {
+        tmp_tables[i] = new String(tables[i].getContent());
     }
     delete[] this->tables;
-    this->tables = new String *[this->table_count + size + 1]; // +1 to set the end(nullptr) of array
+    this->tables = new String[this->table_count + size + 1]; // +1 to set the end(nullptr) of array
     // copy stored data back from tmp to tables_data
-    for (long long i = 0; i < table_count; ++i) {
-        this->tables[i] = new String(tmp_tables[i]->getContent());
+    for (i = 0; i < this->table_count; ++i) {
+        this->tables[i] = new String(tmp_tables[i].getContent());
     }
-    for (long long i = 0; i <= size; ++i) {
-        this->tables[table_count + i] = nullptr;
+    i = 0;
+    if (this->table_count == 0) {
+        i = 1;
+    }
+    for (; i <= size; ++i) {
+        this->tables[this->table_count + i] = nullptr;
     }
     delete[] tmp_tables;
 
     return true;
 }
 
-bool DB::check_table_loaded(String *table_name) {
+bool DB::check_table_loaded(String table_name) {
     return this->get_table_index(table_name) != -1;
 }
 
-long long DB::get_table_index(String *table_name) {
-    return String::searchInArray(this->tables, table_name->getContent());
+bool DB::check_table_exists(String table_name) {
+    FileManager *f = new FileManager(table_name + ".structure.db");
+    // If there is no structure of this table then it does not exists
+    return f->getError() != FileManager::FILE_NOT_FOUND && f->read()[0] == '\0';
 }
 
-bool DB::load_table(String *table_name, bool force) {
+long long DB::get_table_index(String table_name) {
+    return String::searchInArray(this->tables, table_name.getContent());
+}
+
+bool DB::load_table(String table_name, bool force) {
     long long index = 0;
     if (check_table_loaded(table_name)) {
         if (!force) {
@@ -142,29 +161,33 @@ bool DB::load_table(String *table_name, bool force) {
     return true;
 }
 
-char *DB::get_table_data(String *table_name) {
+char *DB::get_table_data(String table_name) {
     load_table(table_name);
-    long long index = table_name->searchInArray(this->tables);
+    long long index = table_name.searchInArray(this->tables);
     return this->table_data[index];
 }
 
-char *DB::get_table_structure(String *table_name) {
+char *DB::get_table_structure(String table_name) {
     load_table(table_name);
-    long long index = table_name->searchInArray(this->tables);
-    return (char *) this->table_data[index];
+    long long index = table_name.searchInArray(this->tables);
+    return this->table_structure[index];
 }
 
-bool DB::save_table_data(String *table_name) {
-    FileManager f;
-    f.load(String::concat((char *) table_name, (char *) ".data.db"), (char *) "w");
+bool DB::save_table_data(String table_name) {
+
+    FileManager f(String::concat((char *) table_name, (char *) ".data.db"), (char *) "w");
     f.write(this->get_table_data(table_name));
     return true;
 }
 
-bool DB::save_table_structure(String *table_name) {
+bool DB::save_table_structure(String table_name) {
     FileManager f;
     f.load(String::concat((char *) table_name, (char *) ".structure.db"), (char *) "w");
-    f.write(this->get_table_data(table_name));
+    long long *size = new long long();
+    *size = 0;
+    char *struct_data = this->get_table_structure(table_name);
+    memcpy(size, &struct_data[1], sizeof(long long));
+    f.write(struct_data, *size);
     return true;
 }
 
@@ -175,15 +198,68 @@ bool DB::save_tables() {
     return true;
 }
 
-char **DB::getTable(String *table_name) {
+char **DB::getTable(String table_name) {
     char **tmp = new char *[2];
     tmp[0] = get_table_structure(table_name);
     tmp[1] = get_table_data(table_name);
     return tmp;
 }
 
-bool DB::saveTable(String *table_name) {
+bool DB::saveTable(String table_name) {
     this->save_table_data(table_name);
     this->save_table_structure(table_name);
+    return true;
+}
+
+bool DB::setTableStructure(struct table *tb) {
+    if (tb == nullptr) {
+        return false;
+    }
+
+    if (this->check_table_exists(*tb->name)) {
+        throw "Table Already Exists. You can't edit an existing table structure";
+    }
+
+    this->resize(1);
+
+    this->tables[this->table_count] = new String(tb->name->getContent());
+    long long tmp_size = String::size(tb->data);
+    if (tb->data != nullptr) {
+        this->table_data[this->table_count] = new char[tmp_size + 1];
+        memcpy(this->table_data[this->table_count], tb->data, tmp_size);
+        this->table_data[this->table_count][tmp_size] = '\0';
+    } else {
+        this->table_data[this->table_count] = nullptr;
+    }
+    char *structure;
+    // 1 byte of columns count and 8 bytes (sizeof(long long)) of a structure size
+    long long struct_size = 1 + sizeof(long long);
+
+    for (char i = 0; i < tb->cols_count; ++i) {
+        struct_size += 1 + 1 + sizeof(long long) + tb->columns[i].name->size() + 1 + 1;
+    }
+    structure = new char[struct_size];
+    structure[0] = tb->cols_count;
+    memcpy(&structure[1], &struct_size, sizeof(long long));
+    long long *ltasdasd = &struct_size;
+    char *tmp;
+    long long previous_col_size = sizeof(long long) + 1, cur_col_size = 0;
+    for (char i = 0; i < tb->cols_count; ++i) {
+        cur_col_size = 1 + 1 + sizeof(long long) + tb->columns[i].name->size() + 1 + 1;
+        tmp = new char[cur_col_size];
+        tmp[0] = '\15'; // Shift in column
+        tmp[1] = tb->columns[i].type;
+        memcpy(&tmp[2], &tb->columns[i].size, sizeof(long long));
+        memcpy(&tmp[2 + sizeof(long long)], tb->columns[i].name->getContent(),
+               sizeof(char) * tb->columns[i].name->size());
+        tmp[cur_col_size - 2] = '\0'; // end of column name string
+        tmp[cur_col_size - 1] = '\14'; // Shift out column
+        memcpy(&structure[previous_col_size], tmp, cur_col_size);
+        previous_col_size += cur_col_size;
+        delete[] tmp;
+    }
+    this->table_structure[this->table_count] = new char[struct_size];
+    memcpy(this->table_structure[this->table_count], structure, struct_size);
+    this->table_count++;
     return true;
 }

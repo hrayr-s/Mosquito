@@ -99,10 +99,10 @@ public:
 
     static String *getColumnName_P(String *str);
 
-    static int getColumnType(String str);
+    static char getColumnType(String str);
 
     static long long getColumnSize(String col);
 
-    static char *getColumnTypeName(int type);
+    static char *getColumnTypeName(char type);
 };
 #endif //DATABASE_PARSER_H

@@ -21,11 +21,15 @@ public:
 
     String(char *text);
 
+    String(char *text, long long int size);
+
     friend std::ostream &operator<<(std::ostream &out, const String &str);
 
     friend std::istream &operator>>(std::istream &in, String &str);
 
     String operator=(String s);
+
+    String operator=(String *s);
 
     String operator=(char *s);
 
@@ -39,13 +43,29 @@ public:
 
     String operator+(String str);
 
-    const char operator[](std::size_t idx) const;
+    String operator+(char *str);
 
-    explicit operator char *();
+    String operator+(const char *str);
 
-    explicit operator const char *();
+    String operator+(char str);
 
-    explicit operator long long();
+    String operator+=(char str);
+
+    String operator+=(const char *str);
+
+    String operator+=(char *str);
+
+    String operator+=(String str);
+
+    char &operator[](int idx);
+
+    char &operator[](long long idx);
+
+    operator char *();
+
+    operator const char *();
+
+    operator long long();
 
     /**
      * Concatenation of two given string in given order` first str1 then str2
@@ -75,9 +95,9 @@ public:
      * @param haystack
      * @return
      */
-    static long long searchInArray(String **array_string, char *haystack, long long pos = 0);
+    static long long searchInArray(String *array_string, char *haystack, long long pos = 0);
 
-    long long searchInArray(String **array_string, long long pos = 0);
+    long long searchInArray(String *array_string, long long pos = 0);
 
     long long *searchAll(char *haystack, long long pos = 0);
 

@@ -95,14 +95,14 @@ String *Parser::getColumnName_P(String *str) {
     return rtn;
 }
 
-int Parser::getColumnType(String str) {
+char Parser::getColumnType(String str) {
     long long index1 = str.search((char *) "`");
     index1 = str.search((char *) "`", index1);
     String s = str.cut(index1, str.length() - index1).trim();
     if (s[s.length() - 1] == ')') {
         s = s.cut(0, s.search("(") - 1);
     }
-    int index = 0;
+    char index = 0;
     for (; index < Parser::types_count; ++index) {
         if (s.compare((char *) Parser::types[index]))
             break;
@@ -119,6 +119,6 @@ long long Parser::getColumnSize(String col) {
     return (long long) col.cut(index1, index2 - index1 - 1);
 }
 
-char *Parser::getColumnTypeName(int type) {
+char *Parser::getColumnTypeName(char type) {
     return (char *) Parser::types[type];
 }

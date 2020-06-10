@@ -64,13 +64,15 @@ table::table() {
 }
 
 table::table(String name, String *raw) {
-    struct column *s;
-    long long size = 0;
+    char size;
     size = ArrayHelper::count(raw);
-    s = new column[size + 1];
+    this->columns = new column[size + 1];
     for (long long i = 0; i < size; ++i) {
-        s[i] = new column(raw[i]);
+        this->columns[i] = new column(raw[i]);
     }
+    this->cols_count = size;
+    this->name = new String(name);
+    this->data = nullptr;
 }
 
 struct table table::operator=(nullptr_t s) {
@@ -81,11 +83,11 @@ struct table table::operator=(nullptr_t s) {
     return *this;
 }
 
-bool table::operator==(nullptr_t s) {
+bool table::operator==(nullptr_t s) const {
     return this->name == nullptr;
 }
 
-bool table::operator!=(nullptr_t s) {
+bool table::operator!=(nullptr_t s) const {
     return this->name != nullptr;
 }
 /** END TABLE STRUCTURE */

@@ -32,35 +32,40 @@ int main() {
     while (true) {
         cout << " $>:";
         cin >> query;
-        switch (Parser::getCMD((char *) query)) {
-            case COMMAND_SELECT:
-                Select select;
-                select.run(query);
-                break;
-            case COMMAND_UPDATE:
-                Update update;
-                update.run(query);
-                break;
-            case COMMAND_DELETE:
-                Delete del;
-                del.run(query);
-                break;
-            case COMMAND_INSERT:
-                Insert insert;
-                insert.run(query);
-                break;
-            case COMMAND_DROP:
-                Drop drop;
-                drop.run(query);
-                break;
-            case COMMAND_CREATE:
-                creat.run(query);
-                break;
-            case COMMAND_EXIT:
-                return 0;
-            default:
-                cout << "Command not found!" << endl;
-                break;
+        try {
+            switch (Parser::getCMD((char *) query)) {
+                case COMMAND_SELECT:
+                    Select select;
+                    select.run(query);
+                    break;
+                case COMMAND_UPDATE:
+                    Update update;
+                    update.run(query);
+                    break;
+                case COMMAND_DELETE:
+                    Delete del;
+                    del.run(query);
+                    break;
+                case COMMAND_INSERT:
+                    Insert insert;
+                    insert.run(query);
+                    break;
+                case COMMAND_DROP:
+                    Drop drop;
+                    drop.run(query);
+                    break;
+                case COMMAND_CREATE:
+                    creat.run(query);
+                    break;
+                case COMMAND_EXIT:
+                    return 0;
+                default:
+                    cout << "Command not found!" << endl;
+                    break;
+            }
+        } catch (char *s) {
+            // catch any text error and print it
+            cout << s << endl;
         }
     }
     return 0;

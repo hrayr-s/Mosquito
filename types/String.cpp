@@ -9,6 +9,8 @@
 
 String::String() {
     this->content = new char[this->actual_size];
+    this->content[0] = '\0';
+    this->_size = 0;
 }
 
 String::String(char end_input_symbol) {
@@ -21,7 +23,21 @@ String::String(char *text) {
         long long size = String::size(text);
         this->content = new char[size + 1];
         this->_size = size;
-        std::strcpy(this->content, text);
+        memcpy(this->content, text, sizeof(char) * size);
+        this->content[size] = '\0';
+    } else {
+        this->content = nullptr;
+        this->_size = NULL;
+    }
+}
+
+String::String(char *text, long long int size) {
+    if (text != nullptr) {
+//        long long size = String::size(text);
+        this->content = new char[size + 1];
+        this->_size = size;
+//        std::strcpy(this->content, text);
+        memcpy(this->content, text, sizeof(char) * size);
         this->content[size] = '\0';
     } else {
         this->content = nullptr;
@@ -103,6 +119,12 @@ String String::operator=(String s) {
     return *this;
 }
 
+String String::operator=(String *s) {
+    this->_size = s->size();
+    this->content = s->getContent();
+    return *this;
+}
+
 String String::operator=(char *s) {
     if (s == nullptr) {
         return nullptr;
@@ -142,6 +164,41 @@ String String::operator+(String str) {
     return s;
 }
 
+String String::operator+(char *str) {
+    char *tmp;
+    long long size = String::size(str);
+    long long new_size = size + this->size();
+    tmp = new char[new_size + 1];
+    std::strcpy(tmp, this->content);
+    std::strcpy(tmp + this->size(), str);
+
+    String s(tmp);
+    return s;
+}
+
+String String::operator+(const char *str) {
+    char *tmp;
+    long long size = String::size((char *) str);
+    long long new_size = size + this->size();
+    tmp = new char[new_size + 1];
+    std::strcpy(tmp, this->content);
+    std::strcpy(tmp + this->size(), str);
+
+    String s(tmp);
+    return s;
+}
+
+String String::operator+(char ch) {
+    char *tmp;
+    long long new_size = 1 + this->size();
+    tmp = new char[new_size + 1];
+    std::strcpy(tmp, this->content);
+    tmp[new_size - 1] = ch;
+
+    String s(tmp);
+    return s;
+}
+
 /**
  * Casting to char*
  * @return
@@ -160,7 +217,56 @@ String::operator const char *() {
     return (const char *) tmp;
 }
 
-const char String::operator[](std::size_t idx) const { return this->content[idx]; }
+char &String::operator[](int idx) {
+    if (idx > this->length() || idx < -1) {
+        throw "Unknown position of a String";
+    }
+    if (this->content == nullptr) {
+        *this = new String;
+    }
+    // If adding an Index
+    if (idx == this->length() || idx == -1) {
+        idx = this->length();
+        *this = *this + 'x';
+        this->content[idx] = '\0';
+    }
+    return this->content[idx];
+}
+
+char &String::operator[](long long idx) {
+    if (idx > this->length() || idx < -1) {
+        throw "Unknown position of a String";
+    }
+    if (this->content == nullptr) {
+        *this = new String;
+    }
+    // If adding an Index
+    if (idx == this->length() || idx == -1) {
+        idx = this->length();
+        *this = *this + '\0';
+    }
+    return this->content[idx];
+}
+
+String String::operator+=(char ch) {
+    *this = *this + ch;
+    return *this;
+}
+
+String String::operator+=(const char *ch) {
+    *this = *this + ch;
+    return *this;
+}
+
+String String::operator+=(char *ch) {
+    *this = *this + ch;
+    return *this;
+}
+
+String String::operator+=(String ch) {
+    *this = *this + ch;
+    return *this;
+}
 
 /** End Operators Overloading */
 
@@ -242,18 +348,18 @@ long long *String::searchAll(char *text, char *haystack, long long position) {
     return items;
 }
 
-long long String::searchInArray(String **array_string, char *haystack, long long pos) {
+long long String::searchInArray(String *array_string, char *haystack, long long pos) {
     for (long long i = pos; array_string[i] != nullptr; ++i) {
-        if (array_string[i]->compare(haystack)) {
+        if (array_string[i].compare(haystack)) {
             return i;
         }
     }
     return -1;
 }
 
-long long String::searchInArray(String **array_string, long long pos) {
+long long String::searchInArray(String *array_string, long long pos) {
     for (long long i = pos; array_string[i] != nullptr; ++i) {
-        if (array_string[i]->compare(this->content)) {
+        if (array_string[i].compare(this->content)) {
             return i;
         }
     }
@@ -274,6 +380,9 @@ long long String::search(const char *haystack, long long pos) {
 
 long long String::size(char *text) {
     long long size = 0;
+    if (text == nullptr) {
+        return 0;
+    }
     for (; text[size] != '\0'; ++size) {}
     return size;
 }

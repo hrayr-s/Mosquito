@@ -14,7 +14,15 @@ FileManager::FileManager(char *filename) {
     this->load(filename, "r");
 }
 
+FileManager::FileManager(String filename) {
+    this->load(filename, "r");
+}
+
 FileManager::FileManager(char *filename, char *mode) {
+    this->load(filename, mode);
+}
+
+FileManager::FileManager(String filename, char *mode) {
     this->load(filename, mode);
 }
 
@@ -31,9 +39,11 @@ FileManager FileManager::load(char *name, char *mode) {
     this->filename = &fname;
     this->mode = mode;
     this->setError(NO_ERROR);
-    this->f = fopen((char *) filename, mode);
+    this->f = fopen(filename->getContent(), mode);
     if (this->f == nullptr) {
         this->setError(FILE_NOT_FOUND);
+    } else {
+        fseek(this->f, 0, SEEK_END);
     }
     return *this;
 }
@@ -61,14 +71,14 @@ char *FileManager::read() {
 
 long long FileManager::size() {
     long long size;
-    long current_pos = ftell(this->f); // save current position
+    long long current_pos = ftell(this->f); // save current position
     fseek(this->f, 0, SEEK_END); // set current position to the end of file
     size = ftell(this->f); // get position - this will be the size of the file
     fseek(this->f, current_pos, SEEK_SET); // set current position that saved position
     return size; // return size of a file
 }
 
-bool FileManager::write(char *content) {
+bool FileManager::write(char *content, long long int size) {
     this->setError(NO_ERROR);
     // No file opened or Requested file does not exist
     if (this->f == nullptr) {
@@ -80,33 +90,28 @@ bool FileManager::write(char *content) {
         throw "Can not write until file open mode is 'r'";
     }
     // Empty content to write
-    if (content[0] == '\0') {
-        this->setError(CONTENT_LENGTH_ZERO);
-        return false;
+    if (content == nullptr) {
+        fputc('\0', this->f);
+    } else {
+        fwrite(content, sizeof(char), size, this->f);
     }
-    long long size = String::size(content);
-
-    fwrite(content, sizeof(char), size, this->f);
+    fflush(this->f);
     return true;
+}
+
+bool FileManager::write(char *content) {
+    long long size = String::size(content);
+    return this->write(content, size);
 }
 
 bool FileManager::write(String content) {
-    this->setError(NO_ERROR);
-    // No file opened or Requested file does not exist
-    if (this->f == nullptr) {
-        this->setError(FILE_NOT_FOUND);
-        return false;
-    }
-
-    if (this->mode == "r") {
-        throw "Can not write until file open mode is 'r'";
-    }
-    // Empty content to write
-    if (content.getContent()[0] == '\0' || content.length() == 0) {
-        this->setError(CONTENT_LENGTH_ZERO);
-        return false;
-    }
-
-    fwrite(content.getContent(), sizeof(char), content.length(), this->f);
-    return true;
+    return this->write(content.getContent(), content.length());
 }
+/*
+
+FileManager::~FileManager() {
+    if (this->f != nullptr) {
+        fclose(this->f);
+    }
+}
+*/

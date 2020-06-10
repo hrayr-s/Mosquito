@@ -25,7 +25,13 @@ public:
 
     FileManager(char *filename);
 
+    FileManager(String filename);
+
     FileManager(char *filename, char *mode);
+
+    FileManager(String filename, char *mode);
+
+//    ~FileManager();
 
     FILE *getFileInstance();
 
@@ -48,6 +54,8 @@ public:
     char *read();
 
     long long size();
+
+    bool write(char *content, long long size);
 
     bool write(char *content);
 

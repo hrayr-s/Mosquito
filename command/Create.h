@@ -14,12 +14,12 @@ using namespace std;
 
 class Create {
 private:
-    long long col_count;
-    struct column *columns;
+    struct table *tb;
 
     bool resetVariables();
 
     struct table *parse_table(String table_name, String *raw);
+
 
 public:
     Create();

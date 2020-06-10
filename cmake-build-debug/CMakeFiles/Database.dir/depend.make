@@ -18,6 +18,7 @@ CMakeFiles\Database.dir\FileManager.cpp.obj: ..\types\String.h
 CMakeFiles\Database.dir\FileManager.cpp.obj: ..\types\structures.h
 
 CMakeFiles\Database.dir\command\Create.cpp.obj: ..\ArrayHelper.h
+CMakeFiles\Database.dir\command\Create.cpp.obj: ..\DB.h
 CMakeFiles\Database.dir\command\Create.cpp.obj: ..\command\Create.cpp
 CMakeFiles\Database.dir\command\Create.cpp.obj: ..\command\Create.h
 CMakeFiles\Database.dir\command\Create.cpp.obj: ..\command\Parser.h
