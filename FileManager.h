@@ -31,15 +31,13 @@ public:
 
     FileManager(String filename, char *mode);
 
-//    ~FileManager();
+    ~FileManager();
 
     FILE *getFileInstance();
 
     void setError(int code);
 
-    int getError() {
-        return this->current_error;
-    }
+    int getError();
 
     /**
      * Loads file into current instance
@@ -47,7 +45,7 @@ public:
      * @param mode
      * @return
      */
-    FileManager load(char *name, char *mode = "r");
+    FileManager *load(char *name, char *mode = "r");
 
     char *getFileName();
 

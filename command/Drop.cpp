@@ -6,10 +6,16 @@
 #include "../types/String.h"
 #include "Parser.h"
 #include "Drop.h"
+#include "../DB.h"
 
 using namespace std;
 
 void Drop::run(String query) {
     String table_name = Parser::getTable(query);
-    cout << table_name << endl;
+    cout << endl;
+    if (!DB::getInstance()->check_table_exists(table_name)) {
+        throw "Can not find provided table!";
+    }
+    remove(table_name + ".structure.db");
+    remove(table_name + ".data.db");
 }

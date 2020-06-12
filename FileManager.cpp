@@ -34,7 +34,11 @@ void FileManager::setError(int code) {
     this->current_error = code;
 }
 
-FileManager FileManager::load(char *name, char *mode) {
+int FileManager::getError() {
+    return this->current_error;
+}
+
+FileManager *FileManager::load(char *name, char *mode) {
     String fname(name);
     this->filename = &fname;
     this->mode = mode;
@@ -45,7 +49,7 @@ FileManager FileManager::load(char *name, char *mode) {
     } else {
         fseek(this->f, 0, SEEK_END);
     }
-    return *this;
+    return this;
 }
 
 char *FileManager::getFileName() {
@@ -107,11 +111,10 @@ bool FileManager::write(char *content) {
 bool FileManager::write(String content) {
     return this->write(content.getContent(), content.length());
 }
-/*
 
 FileManager::~FileManager() {
     if (this->f != nullptr) {
         fclose(this->f);
     }
 }
-*/
+

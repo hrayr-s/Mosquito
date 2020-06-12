@@ -31,6 +31,7 @@ CMakeFiles\Database.dir\command\Delete.cpp.obj: ..\command\Parser.h
 CMakeFiles\Database.dir\command\Delete.cpp.obj: ..\types\String.h
 CMakeFiles\Database.dir\command\Delete.cpp.obj: ..\types\structures.h
 
+CMakeFiles\Database.dir\command\Drop.cpp.obj: ..\DB.h
 CMakeFiles\Database.dir\command\Drop.cpp.obj: ..\command\Drop.cpp
 CMakeFiles\Database.dir\command\Drop.cpp.obj: ..\command\Drop.h
 CMakeFiles\Database.dir\command\Drop.cpp.obj: ..\command\Parser.h

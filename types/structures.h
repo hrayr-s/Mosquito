@@ -43,6 +43,13 @@ struct table {
      */
     table(String name, String *raw);
 
+    /**
+     * With given char/byte array organize table structure
+     * @param s
+     * @return
+     */
+    table(String name, char *raw);
+
     struct table operator=(nullptr_t s);
 
     /** No needed for now

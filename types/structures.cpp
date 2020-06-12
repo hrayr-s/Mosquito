@@ -29,7 +29,6 @@ column::column(String raw_col) {
     } else {
         throw "Unknown column type";
     }
-    cout << Parser::getColumnTypeName(this->type) << *this->name << " has size " << this->size << endl;
 }
 
 struct column column::operator=(nullptr_t s) {
@@ -73,6 +72,14 @@ table::table(String name, String *raw) {
     this->cols_count = size;
     this->name = new String(name);
     this->data = nullptr;
+}
+
+table::table(String name, char *raw) {
+    // Remember {col_count}^1 + {raw_structure_size}^8 +
+    // {shift in/begin 0x0D '\15'}^1
+    char col_count = raw[0];
+    long long raw_structure_size = 0;
+
 }
 
 struct table table::operator=(nullptr_t s) {

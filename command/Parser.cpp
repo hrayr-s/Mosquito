@@ -48,7 +48,7 @@ int Parser::getCMD(char *command) {
             continue;
         }
         cmd[k] = command[i];
-        if (cmd[k] == ' ' || cmd[k] == '\n' || command[i] == '\t' || command[i] == '\r') {
+        if (cmd[k] == ' ' || cmd[k] == '\n' || command[i] == '\t' || command[i] == '\r' || command[i] == ';') {
             cmd[k] = '\0';
             break;
         }

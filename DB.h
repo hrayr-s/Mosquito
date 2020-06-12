@@ -14,8 +14,9 @@ class FileManager;
 class DB {
 private:
     static DB *instance;
-    char **table_data;
-    char **table_structure;
+    char **_table_data;
+    char **_table_structure;
+    struct table *table_structure;
     String *tables;
     long long table_count;
 
@@ -34,13 +35,6 @@ private:
      * @return
      */
     bool check_table_loaded(String table_name);
-
-    /**
-     * Returns true if table with given name already exists
-     * @param table_name
-     * @return
-     */
-    bool check_table_exists(String table_name);
 
     /**
      * getting index of cached table
@@ -100,15 +94,7 @@ public:
      */
     static DB *getInstance();
 
-    ~DB() {
-        // On program exit or anyway when DB class deconstruct will be called
-        // save data into files
-        this->save_tables();
-        // then delete variables
-        delete[] table_data;
-        delete[] table_structure;
-        delete[] tables;
-    }
+    ~DB();
 
     /**
      * Returns table data and structure in raw format
@@ -125,7 +111,23 @@ public:
      */
     bool saveTable(String table_name);
 
+    /**
+     * Returns true if table with given name already exists
+     * @param table_name
+     * @return
+     */
+    bool check_table_exists(String table_name);
+
+    /**
+     * Creating new table structure raw data from a `struct table`
+     * @return
+     */
     bool setTableStructure(table *);
+
+    /**
+     * Generates `struct table` from a table structure raw data (file)
+     */
+    struct table getTableStructure(String table_name);
 };
 
 
