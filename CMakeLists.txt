@@ -33,4 +33,8 @@ file(GLOB SOURCES command/Create.cpp command/Delete.cpp
 
 add_executable(Database ${SOURCES})
 
-add_executable(Test test.cpp)
+file(GLOB TEST_SOURCES
+        types/String.cpp
+        ArrayHelper.cpp
+        test.cpp)
+add_executable(Test ${TEST_SOURCES})

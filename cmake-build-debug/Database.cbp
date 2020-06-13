@@ -132,9 +132,11 @@
 		</Build>
 		<Unit filename="C:/Users/Hrayr/CLionProjects/Database/ArrayHelper.cpp">
 			<Option target="Database"/>
+			<Option target="Test"/>
 		</Unit>
 		<Unit filename="C:/Users/Hrayr/CLionProjects/Database/ArrayHelper.h">
 			<Option target="Database"/>
+			<Option target="Test"/>
 		</Unit>
 		<Unit filename="C:/Users/Hrayr/CLionProjects/Database/DB.cpp">
 			<Option target="Database"/>
@@ -198,9 +200,11 @@
 		</Unit>
 		<Unit filename="C:/Users/Hrayr/CLionProjects/Database/types/String.cpp">
 			<Option target="Database"/>
+			<Option target="Test"/>
 		</Unit>
 		<Unit filename="C:/Users/Hrayr/CLionProjects/Database/types/String.h">
 			<Option target="Database"/>
+			<Option target="Test"/>
 		</Unit>
 		<Unit filename="C:/Users/Hrayr/CLionProjects/Database/types/structures.cpp">
 			<Option target="Database"/>

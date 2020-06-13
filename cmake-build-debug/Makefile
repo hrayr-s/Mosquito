@@ -144,6 +144,7 @@ ArrayHelper.obj: ArrayHelper.cpp.obj
 # target to build an object file
 ArrayHelper.cpp.obj:
 	$(MAKE) -f CMakeFiles\Database.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Database.dir\ArrayHelper.cpp.obj
+	$(MAKE) -f CMakeFiles\Test.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Test.dir\ArrayHelper.cpp.obj
 .PHONY : ArrayHelper.cpp.obj
 
 ArrayHelper.i: ArrayHelper.cpp.i
@@ -153,6 +154,7 @@ ArrayHelper.i: ArrayHelper.cpp.i
 # target to preprocess a source file
 ArrayHelper.cpp.i:
 	$(MAKE) -f CMakeFiles\Database.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Database.dir\ArrayHelper.cpp.i
+	$(MAKE) -f CMakeFiles\Test.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Test.dir\ArrayHelper.cpp.i
 .PHONY : ArrayHelper.cpp.i
 
 ArrayHelper.s: ArrayHelper.cpp.s
@@ -162,6 +164,7 @@ ArrayHelper.s: ArrayHelper.cpp.s
 # target to generate assembly for a file
 ArrayHelper.cpp.s:
 	$(MAKE) -f CMakeFiles\Database.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Database.dir\ArrayHelper.cpp.s
+	$(MAKE) -f CMakeFiles\Test.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Test.dir\ArrayHelper.cpp.s
 .PHONY : ArrayHelper.cpp.s
 
 DB.obj: DB.cpp.obj
@@ -468,6 +471,7 @@ types\String.obj: types\String.cpp.obj
 # target to build an object file
 types\String.cpp.obj:
 	$(MAKE) -f CMakeFiles\Database.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Database.dir\types\String.cpp.obj
+	$(MAKE) -f CMakeFiles\Test.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Test.dir\types\String.cpp.obj
 .PHONY : types\String.cpp.obj
 
 types\String.i: types\String.cpp.i
@@ -477,6 +481,7 @@ types\String.i: types\String.cpp.i
 # target to preprocess a source file
 types\String.cpp.i:
 	$(MAKE) -f CMakeFiles\Database.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Database.dir\types\String.cpp.i
+	$(MAKE) -f CMakeFiles\Test.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Test.dir\types\String.cpp.i
 .PHONY : types\String.cpp.i
 
 types\String.s: types\String.cpp.s
@@ -486,6 +491,7 @@ types\String.s: types\String.cpp.s
 # target to generate assembly for a file
 types\String.cpp.s:
 	$(MAKE) -f CMakeFiles\Database.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Database.dir\types\String.cpp.s
+	$(MAKE) -f CMakeFiles\Test.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Test.dir\types\String.cpp.s
 .PHONY : types\String.cpp.s
 
 types\structures.obj: types\structures.cpp.obj

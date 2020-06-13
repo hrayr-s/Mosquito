@@ -5,7 +5,12 @@
 #include <iostream>
 #include "String.h"
 #include "../ArrayHelper.h"
+#include <climits>
 
+#define d_LENGTH 16
+#define f_LENGTH 8
+#define i_LENGTH 11
+#define ll_LENGTH 20
 
 String::String() {
     this->content = new char[this->actual_size];
@@ -161,6 +166,7 @@ String String::operator+(String str) {
     std::strcpy(tmp + this->size(), str.getContent());
 
     String s(tmp);
+    delete[] tmp;
     return s;
 }
 
@@ -173,6 +179,7 @@ String String::operator+(char *str) {
     std::strcpy(tmp + this->size(), str);
 
     String s(tmp);
+    delete[] tmp;
     return s;
 }
 
@@ -185,7 +192,21 @@ String String::operator+(const char *str) {
     std::strcpy(tmp + this->size(), str);
 
     String s(tmp);
+    delete[] tmp;
     return s;
+}
+
+String operator+(const char *str, String &s) {
+    char *tmp;
+    long long size = String::size((char *) str);
+    long long new_size = size + s.size();
+    tmp = new char[new_size + 1];
+    std::strcpy(tmp, s.content);
+    std::strcpy(tmp + s.size(), str);
+
+    String raw(tmp);
+    delete[] tmp;
+    return raw;
 }
 
 String String::operator+(char ch) {
@@ -196,6 +217,17 @@ String String::operator+(char ch) {
     tmp[new_size - 1] = ch;
 
     String s(tmp);
+    return s;
+}
+
+String operator+(char ch, String &str) {
+    char *tmp;
+    long long new_size = 1 + str.size();
+    tmp = new char[new_size + 1];
+    std::strcpy(tmp, str.content);
+    tmp[new_size - 1] = ch;
+    String s(tmp);
+    delete[] tmp;
     return s;
 }
 
@@ -266,6 +298,70 @@ String String::operator+=(char *ch) {
 String String::operator+=(String ch) {
     *this = *this + ch;
     return *this;
+}
+
+String String::operator+(double number) {
+    char *sum = new char[this->length() + d_LENGTH + 1];
+    sprintf(sum, "%s%.*g", this->content, d_LENGTH, number);
+    String s(sum);
+    delete[] sum;
+    return s;
+}
+
+String operator+(double number, String &str) {
+    char *sum = new char[str.length() + d_LENGTH + 1];
+    sprintf(sum, "%s%.*g", str.content, d_LENGTH, number);
+    String s(sum);
+    delete[] sum;
+    return s;
+}
+
+String String::operator+(float number) {
+    char *sum = new char[this->length() + f_LENGTH + 1];
+    sprintf(sum, "%s%.*g", this->content, f_LENGTH, number);
+    String s(sum);
+    delete[] sum;
+    return s;
+}
+
+String operator+(float number, String &str) {
+    char *sum = new char[str.length() + f_LENGTH + 1];
+    sprintf(sum, "%s%.*g", str.content, f_LENGTH, number);
+    String s(sum);
+    delete[] sum;
+    return s;
+}
+
+String String::operator+(int number) {
+    char *sum = new char[this->length() + i_LENGTH + 1];
+    sprintf(sum, "%s%d", this->content, number);
+    String s(sum);
+    delete[] sum;
+    return s;
+}
+
+String operator+(int number, String &str) {
+    char *sum = new char[str.length() + i_LENGTH + 1];
+    sprintf(sum, "%s%d", str.content, number);
+    String s(sum);
+    delete[] sum;
+    return s;
+}
+
+String String::operator+(long long number) {
+    char *sum = new char[this->length() + ll_LENGTH + 1];
+    sprintf(sum, "%s%d", this->content, number);
+    String s(sum);
+    delete[] sum;
+    return s;
+}
+
+String operator+(long long number, String &str) {
+    char *sum = new char[str.length() + ll_LENGTH + 1];
+    sprintf(sum, "%s%lld", str.content, number);
+    String s(sum);
+    delete[] sum;
+    return s;
 }
 
 /** End Operators Overloading */

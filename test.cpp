@@ -3,14 +3,18 @@
 //
 
 #include <iostream>
+#include "types/String.h"
 
 using namespace std;
 
 int main() {
-    FILE *f;
-    f = fopen("hell.txt", "w");
-    fwrite("Hell Yeah", sizeof("Hell Yeah"), 1, f);
-    fflush(f);
-    fclose(f);
+    String s;
+    double f = 0;
+    cout << "Input number: ";
+    cin >> f;
+    cout << "Input text: ";
+    cin >> s;
+    cout << endl;
+    cout << s + f;
     return 0;
 }

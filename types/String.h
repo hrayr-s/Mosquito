@@ -45,9 +45,13 @@ public:
 
     String operator+(char *str);
 
+    friend String operator+(const char *str, String &s);
+
     String operator+(const char *str);
 
     String operator+(char str);
+
+    friend String operator+(char ch, String &str);
 
     String operator+=(char str);
 
@@ -56,6 +60,22 @@ public:
     String operator+=(char *str);
 
     String operator+=(String str);
+
+    String operator+(double number);
+
+    friend String operator+(double number, String &str);
+
+    String operator+(float number);
+
+    friend String operator+(float number, String &str);
+
+    String operator+(int number);
+
+    friend String operator+(int number, String &str);
+
+    String operator+(long long number);
+
+    friend String operator+(long long number, String &str);
 
     char &operator[](int idx);
 
