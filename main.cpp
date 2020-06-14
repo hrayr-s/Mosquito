@@ -48,7 +48,7 @@ int main() {
                 case COMMAND_EXIT:
                     return 0;
                 default:
-                    cout << "Command not found!" << endl;
+                    cout << endl << "Command not found!" << endl;
                     break;
             }
         } catch (char *s) {

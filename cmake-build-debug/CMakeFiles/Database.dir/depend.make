@@ -38,6 +38,7 @@ CMakeFiles\Database.dir\command\Drop.cpp.obj: ..\command\Parser.h
 CMakeFiles\Database.dir\command\Drop.cpp.obj: ..\types\String.h
 CMakeFiles\Database.dir\command\Drop.cpp.obj: ..\types\structures.h
 
+CMakeFiles\Database.dir\command\Insert.cpp.obj: ..\DB.h
 CMakeFiles\Database.dir\command\Insert.cpp.obj: ..\command\Insert.cpp
 CMakeFiles\Database.dir\command\Insert.cpp.obj: ..\command\Insert.h
 CMakeFiles\Database.dir\command\Insert.cpp.obj: ..\command\Parser.h

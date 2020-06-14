@@ -164,6 +164,12 @@ public:
      * Remove first and last space like symbols
      */
     String trim();
+
+    /**
+     * Parsing to String from other types
+     */
+
+    static String parse(long long var);
 };
 
 

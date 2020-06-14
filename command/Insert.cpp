@@ -6,10 +6,12 @@
 #include "../types/String.h"
 #include "Parser.h"
 #include "Insert.h"
+#include "../DB.h"
 
 using namespace std;
 
 void Insert::run(String query) {
     String table_name = Parser::getTable(query);
-    cout << table_name << endl;
+    cout << "Reading structure of `" << table_name << "`..." << endl;
+    struct table tb = *DB::getInstance()->getTableStructure(table_name);
 }

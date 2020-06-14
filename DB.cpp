@@ -273,7 +273,6 @@ bool DB::setTableStructure(struct table *tb) {
     structure = new char[struct_size];
     structure[0] = tb->cols_count;
     memcpy(&structure[1], &struct_size, sizeof(long long));
-    long long *ltasdasd = &struct_size;
     char *tmp;
     long long previous_col_size = sizeof(long long) + 1, cur_col_size = 0;
     for (char i = 0; i < tb->cols_count; ++i) {
@@ -296,11 +295,11 @@ bool DB::setTableStructure(struct table *tb) {
     return true;
 }
 
-struct table DB::getTableStructure(String table_name) {
+struct table *DB::getTableStructure(String table_name) {
     char *raw_structure;
-    FileManager f(table_name + ".structure.db");
-    raw_structure = new char[f.size()];
-    struct table tb(table_name, raw_structure);
+    this->load_table(table_name);
+    raw_structure = this->get_table_structure(table_name);
+    struct table *tb = new table(table_name, raw_structure);
     return tb;
 }
 

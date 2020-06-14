@@ -39,8 +39,7 @@ int FileManager::getError() {
 }
 
 FileManager *FileManager::load(char *name, char *mode) {
-    String fname(name);
-    this->filename = &fname;
+    this->filename = new String(name);
     this->mode = mode;
     this->setError(NO_ERROR);
     this->f = fopen(filename->getContent(), mode);
@@ -67,7 +66,7 @@ char *FileManager::read() {
     }
     size = this->size();
     content = new char[size + 1];
-    cout << size << endl;
+    fseek(this->f, 0, SEEK_SET);
     fread(content, sizeof(char), size, this->f);
     content[size] = '\0';
     return content;

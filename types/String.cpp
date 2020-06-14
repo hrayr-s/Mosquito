@@ -38,10 +38,8 @@ String::String(char *text) {
 
 String::String(char *text, long long int size) {
     if (text != nullptr) {
-//        long long size = String::size(text);
         this->content = new char[size + 1];
         this->_size = size;
-//        std::strcpy(this->content, text);
         memcpy(this->content, text, sizeof(char) * size);
         this->content[size] = '\0';
     } else {
@@ -73,8 +71,7 @@ std::istream &operator>>(std::istream &in, String &str) {
     long long size = 0;
     long long counter = 0;
     bool enter_pressed = false;
-    size_t cpy_size = 0;
-    char c = '\0';
+    char c;
     do {
         c = in.get();
         buf[counter++] = c;
@@ -163,7 +160,7 @@ String String::operator+(String str) {
     long long new_size = size + this->size();
     tmp = new char[new_size + 1];
     std::strcpy(tmp, this->content);
-    std::strcpy(tmp + this->size(), str.getContent());
+    std::strcpy(tmp + this->size(), str.content);
 
     String s(tmp);
     delete[] tmp;
@@ -350,7 +347,7 @@ String operator+(int number, String &str) {
 
 String String::operator+(long long number) {
     char *sum = new char[this->length() + ll_LENGTH + 1];
-    sprintf(sum, "%s%d", this->content, number);
+    sprintf(sum, "%s%lld", this->content, number);
     String s(sum);
     delete[] sum;
     return s;
@@ -550,15 +547,19 @@ String String::cut(String str, long long pos, long long length) {
     }
 
     tmp = new char[length + 1];
-    for (long long index = pos, i = 0; index < pos + length; ++i, ++index) {
-        tmp[i] = str.getContent()[index];
-    }
+    memcpy(tmp, str.content + pos, length * sizeof(char));
+//    for (long long index = pos, i = 0; index < pos + length; ++i, ++index) {
+//        tmp[i] = str.getContent()[index];
+//    }
     tmp[length] = '\0';
-    return tmp;
+    String s(tmp);
+//    delete [] tmp;
+    return s;
 }
 
 String String::cut(long long pos, long long length) {
-    return String::cut(*this, pos, length);
+    String str = String::cut(*this, pos, length);
+    return str;
 }
 
 long long String::searchInArray(char **array_string, char *haystack) {
@@ -590,7 +591,8 @@ String String::trim() {
         end = i + 1;
         break;
     }
-    return this->cut(begin, end - begin);
+    String s = String::cut(*this, begin, end - begin);
+    return s;
 }
 
 String::operator long long() {
@@ -599,4 +601,12 @@ String::operator long long() {
         tmp = tmp * 10 + (this->content[i] - '0');
     }
     return tmp;
+}
+
+String String::parse(long long int var) {
+    char *sum = new char[ll_LENGTH + 1];
+    sprintf(sum, "%lld", var);
+    String s(sum);
+    delete[] sum;
+    return s;
 }
