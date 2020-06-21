@@ -32,7 +32,7 @@ Commands to use:
 ## UPDATE
 ```
   UPDATE `table_name` SET `col1`='col_val1', `col2`='col_val2', ..., `colN`='col_valN'
-      [WEHERE {USE WHERE SINTACSIS US IN SELECT}];
+      [WEHERE {USE WHERE SINTACSIS AS IN SELECT}];
 ```
       
 ## CREATE
