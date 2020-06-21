@@ -32,6 +32,8 @@ struct column {
 
     bool insert(String data);
 
+    bool insert(void *data);
+
     bool remove_last_added();
 
     bool checkVar(String var);
@@ -75,6 +77,8 @@ struct table {
     bool operator==(nullptr_t s) const;
 
     bool operator!=(nullptr_t s) const;
+
+    bool prepareRawBytes();
 
     bool setTableData(char *raw);
 

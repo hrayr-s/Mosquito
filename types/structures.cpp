@@ -113,6 +113,33 @@ bool column::insert(String var) {
     return true;
 }
 
+bool column::insert(void *data) {
+    ArrayHelper::resize(this->data, 1);
+    long long tmp_size;
+    char *val_ch;
+    switch (this->type) {
+        case TYPE_INT:
+            this->data[this->rows_count] = new long long;
+            memcpy(this->data[this->rows_count++], data, ll_SIZE);
+            break;
+        case TYPE_VARCHAR:
+            this->data[this->rows_count] = new char[this->size + 1];
+            memcpy(this->data[this->rows_count], data, this->size);
+            ((char *) this->data[this->rows_count])[this->size] = '\0';
+            this->rows_count++;
+            break;
+        case TYPE_TEXT:
+            val_ch = (char *) data;
+            tmp_size = String::size(val_ch);
+            memcpy(this->data[this->rows_count++], val_ch, tmp_size);
+            ((char *) this->data[this->rows_count])[tmp_size + 1] = '\0';
+            break;
+        default:
+            return false;
+    }
+    return true;
+}
+
 bool column::remove_last_added() {
     delete[] this->data[--this->rows_count];
     this->data[this->rows_count] = nullptr;
@@ -290,7 +317,7 @@ bool table::setTableData(char *raw) {
     memcpy(&size, raw, ll_SIZE);
     this->data = new char[size];
     memcpy(this->data, raw, size);
-    // And take the 8 bytes so we will get data size
+    this->prepareRawBytes();
     this->flushed = true;
     return true;
 }
@@ -384,5 +411,35 @@ long long table::getDataSize() {
     long long data_size = 0;
     memcpy(&data_size, this->data, ll_SIZE);
     return data_size;
+}
+
+bool table::prepareRawBytes() {
+    long long byte_pos = 0;
+    long long data_size = 0;
+    long long col_index = 0;
+    char *data = this->data;
+    long long tmp_size = 0;
+    void *tmp_data;
+    memcpy(&data_size, this->data, ll_SIZE);
+    byte_pos = ll_SIZE;
+    // This Cycle to walk on whole data byte array
+    for (; byte_pos < data_size;) {
+        if (data[byte_pos++] != 0x1D) {
+            throw "Table data is corrupted!";
+        }
+        for (col_index = 0; col_index < this->cols_count; ++col_index) {
+            for (tmp_size = 0; data[byte_pos + tmp_size] != 0x1E; ++tmp_size) {
+                if (tmp_size > data_size) {
+                    throw "Table data is corrupted";
+                }
+            }
+            tmp_data = new char[tmp_size];
+            memcpy(tmp_data, data + byte_pos, tmp_size);
+            this->columns[col_index].insert(tmp_data);
+            delete[] tmp_data;
+            byte_pos += tmp_size + 1;
+        }
+    }
+    return true;
 }
 /** END TABLE STRUCTURE */
