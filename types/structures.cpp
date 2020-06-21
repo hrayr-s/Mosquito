@@ -54,6 +54,22 @@ struct column column::operator=(String raw_col) {
     return *this;
 }
 
+/** Overload operators */
+
+void *&column::operator[](int idx) {
+    if (idx > this->rows_count || idx < -1) {
+        throw "Unknown row index";
+    }
+    return this->data[idx];
+}
+
+void *&column::operator[](long long idx) {
+    if (idx > this->rows_count || idx < -1) {
+        throw "Unknown row index";
+    }
+    return this->data[idx];
+}
+
 struct column column::operator=(nullptr_t s) {
     name = nullptr;
     type = NULL;
@@ -104,8 +120,8 @@ bool column::insert(String var) {
             break;
         case TYPE_TEXT:
             this->data[this->rows_count] = new char[var.length()];
-            memcpy(this->data[this->rows_count++], var.getContent() + 1, var.length() - 2);
-            ((char *) this->data[this->rows_count])[var.length() - 1] = '\0';
+            memcpy(this->data[this->rows_count], var.getContent() + 1, var.length() - 2);
+            ((char *) this->data[this->rows_count++])[var.length() - 2] = '\0';
             break;
         default:
             return false;
@@ -442,4 +458,117 @@ bool table::prepareRawBytes() {
     }
     return true;
 }
+
 /** END TABLE STRUCTURE */
+
+/** BEGIN CONDITION STRUCTURE */
+condition::condition() {
+    this->optr = new String;
+    this->col_index = NULL;
+    this->left_operand = nullptr;
+    this->right_operand = nullptr;
+}
+
+bool condition::doCompare(struct table *tb, long long int row) {
+    struct column *col = &tb->columns[this->col_index];
+    long long num = 0;
+    if (*this->optr == "!=") {
+        switch (col->type) {
+            case TYPE_INT:
+                if (!this->right_operand->isNumber()) {
+                    String err("Can not accept condition.");
+                    err += " Column ";
+                    err += *col->name;
+                    err += " is INT type. String given to compare!";
+                    throw err.getContent();
+                }
+                num = this->right_operand->parseToInt();
+                return *((long long *) col[0][row]) != num;
+
+            case TYPE_VARCHAR:
+                if (this->right_operand->length() > col->size) {
+                    return true;
+                }
+            case TYPE_TEXT:
+                String tmp((char *) col[0][row]);
+                return tmp != *this->right_operand;
+        }
+
+    } else if (*this->optr == "=") {
+        switch (col->type) {
+            case TYPE_INT:
+                if (!this->right_operand->isNumber()) {
+                    String err("Can not accept condition.");
+                    err += " Column ";
+                    err += *col->name;
+                    err += " is INT type. String given to compare!";
+                    throw err.getContent();
+                }
+                num = this->right_operand->parseToInt();
+                return *((long long *) col[0][row]) == num;
+
+            case TYPE_VARCHAR:
+                if (this->right_operand->length() > col->size) {
+                    return false;
+                }
+            case TYPE_TEXT:
+                String tmp((char *) col[0][row]);
+                return tmp == *this->right_operand;
+        }
+    }
+    return false;
+}
+
+void condition::set(String raw) {
+    raw = raw.trim();
+    long long begin_col = raw.search("`");
+    long long operator_pos = raw.search("=");
+    this->left_operand = new String(raw.cut(begin_col, raw.search("`", begin_col) - begin_col - 1));
+    if (raw[operator_pos - 2] == '!') {
+        *this->optr = "!=";
+    } else {
+        *this->optr = "=";
+    }
+    String val;
+    bool apostrophe_begin = false;
+    for (long long i = operator_pos; i < raw.length(); ++i) {
+        if (String::isSpace(raw[i]) && !apostrophe_begin) {
+            continue;
+        }
+        if (raw[i] == '\'') {
+            if (!apostrophe_begin) {
+                apostrophe_begin = true;
+                continue;
+            } else {
+                break;
+            }
+        }
+        val += raw[i];
+    }
+    this->right_operand = new String(val);
+}
+
+
+struct condition &condition::operator=(nullptr_t s) {
+    this->left_operand = nullptr;
+    this->col_index = NULL;
+    this->right_operand = nullptr;
+    this->optr = nullptr;
+    return *this;
+}
+
+bool condition::operator!=(nullptr_t s) {
+    if (this == nullptr)
+        return false;
+    return this->left_operand != nullptr;
+}
+
+bool condition::operator==(nullptr_t s) {
+    if (this == nullptr)
+        return true;
+    return this->left_operand == nullptr;
+}
+
+
+
+/** END CONDITION STRUCTURE */

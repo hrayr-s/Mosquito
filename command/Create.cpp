@@ -42,4 +42,5 @@ void Create::run(String query) {
     this->parse_table(table_name, raw_cols);
     DB::getInstance()->setTableStructure(this->tb);
     DB::getInstance()->saveTable(*this->tb->name);
+    cout << endl;
 }

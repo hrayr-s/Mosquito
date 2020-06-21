@@ -137,3 +137,37 @@ char *Parser::parseInsertValues(table tb, String str) {
     }
     return nullptr;
 }
+
+String *Parser::getSelectColumns(String query) {
+    long long start = query.search("SELECT", 0);
+    String cols_raw = query.cut(start, query.search(" FROM ", 0) - 6 - start);
+    String *cols = cols_raw.split(",");
+    for (long long i = 0; cols[i] != nullptr; ++i) {
+        cols[i] = cols[i].trim();
+        cols[i] = cols[i].cut(1, cols[i].length() - 2);
+    }
+    return cols;
+}
+
+struct condition *Parser::parseConditions(String query) {
+    long long start = query.search("WHERE", 0);
+    long long start_AND, start_OR;
+    if (start == -1) {
+        return nullptr;
+    }
+    String condition_raw = query.cut(start, query.length() - start - 1).trim();
+    start_AND = condition_raw.search("AND");
+    start_OR = condition_raw.search("OR");
+    if (start_OR > start_AND) {
+        start = start_AND - 3;
+    } else {
+        start = start_OR - 2;
+    }
+    if (start <= -1) {
+        start = condition_raw.length();
+    }
+    struct condition *s = new condition[2];
+    s[0].set(condition_raw.cut(0, start));
+    s[1] = NULL;
+    return s;
+}

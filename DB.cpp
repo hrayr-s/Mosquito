@@ -207,7 +207,13 @@ bool DB::save_table_data(String table_name) {
     FileManager f(String::concat((char *) table_name, (char *) ".data.db"), (char *) "w");
     char *data = this->get_table_data(table_name);
     long long size = 0;
-    memcpy(&size, data, sizeof(long long));
+    if (data != nullptr) {
+        memcpy(&size, data, sizeof(long long));
+    } else {
+        size = 1;
+        data = new char[1];
+        data[0] = '\0';
+    }
     f.write(data, size);
     return true;
 }
@@ -300,6 +306,7 @@ bool DB::setTableStructure(struct table *tb) {
     }
     this->_table_structure[this->table_count] = new char[struct_size];
     memcpy(this->_table_structure[this->table_count], structure, struct_size);
+    this->table_structure = new table(this->tables[this->table_count], this->_table_structure[this->table_count]);
     this->table_count++;
     return true;
 }

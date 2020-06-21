@@ -43,6 +43,12 @@ public:
 
     bool operator!=(String s);
 
+    bool operator==(String s);
+
+    bool operator==(String *s);
+
+    bool operator==(const char *s);
+
     bool operator!=(nullptr_t s);
 
     String operator+(String str);
@@ -205,7 +211,7 @@ public:
      */
     String *split(String delimiter);
 
-
+    static bool isSpace(char a);
 };
 
 

@@ -166,12 +166,24 @@ String String::operator=(nullptr_t s) {
     return *this;
 }
 
+bool String::operator!=(String *s) {
+    return s->getContent() != this->content;
+}
+
 bool String::operator!=(String s) {
     return s.getContent() != this->content;
 }
 
-bool String::operator!=(String *s) {
-    return s->getContent() != this->content;
+bool String::operator==(String s) {
+    return this->compare(s.getContent());
+}
+
+bool String::operator==(String *s) {
+    return this->compare(s->getContent());
+}
+
+bool String::operator==(const char *s) {
+    return this->compare((char *) s);
 }
 
 bool String::operator!=(nullptr_t s) {
@@ -234,9 +246,11 @@ String String::operator+(char ch) {
     char *tmp;
     long long new_size = 1 + this->size();
     tmp = new char[new_size + 1];
-    std::strcpy(tmp, this->content);
+    if (this->size() >= 0) {
+        std::strcpy(tmp, this->content);
+    }
     tmp[new_size - 1] = ch;
-
+    tmp[new_size] = '\0';
     String s(tmp);
     return s;
 }
@@ -738,4 +752,19 @@ String *String::split(String delimiter) {
     }
 
     return parts;
+}
+
+bool String::isSpace(char a) {
+    switch (a) {
+        case ' ':
+        case '\t':
+        case '\r':
+        case '\n':
+        case '\f':
+        case '\v':
+            return true;
+        default:
+            return false;
+    }
+    return false;
 }

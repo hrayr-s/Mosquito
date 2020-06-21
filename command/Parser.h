@@ -106,5 +106,9 @@ public:
     static char *getColumnTypeName(char type);
 
     static char *parseInsertValues(struct table tb, String str);
+
+    static String *getSelectColumns(String query);
+
+    static struct condition *parseConditions(String query);
 };
 #endif //DATABASE_PARSER_H

@@ -5,6 +5,7 @@
 #ifndef DATABASE_STRUCTURES_H
 #define DATABASE_STRUCTURES_H
 
+#include <iostream>
 #include <cstddef>
 
 class String;
@@ -25,6 +26,10 @@ struct column {
     struct column operator=(nullptr_t s);
 
     struct column operator=(String raw_col);
+
+    void *&operator[](int idx);
+
+    void *&operator[](long long idx);
 
     bool operator==(nullptr_t s);
 
@@ -89,4 +94,24 @@ struct table {
     long long getDataSize();
 };
 
+struct condition {
+    String *left_operand;
+    long long col_index;
+    String *right_operand;
+    String *optr;
+
+    condition();
+
+    condition(String raw);
+
+    struct condition &operator=(nullptr_t s);
+
+    bool operator!=(nullptr_t);
+
+    bool operator==(nullptr_t);
+
+    void set(String raw);
+
+    bool doCompare(struct table *tb, long long row);
+};
 #endif //DATABASE_STRUCTURES_H

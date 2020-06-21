@@ -50,6 +50,7 @@ CMakeFiles\Database.dir\command\Parser.cpp.obj: ..\command\Parser.h
 CMakeFiles\Database.dir\command\Parser.cpp.obj: ..\types\String.h
 CMakeFiles\Database.dir\command\Parser.cpp.obj: ..\types\structures.h
 
+CMakeFiles\Database.dir\command\Select.cpp.obj: ..\DB.h
 CMakeFiles\Database.dir\command\Select.cpp.obj: ..\command\Parser.h
 CMakeFiles\Database.dir\command\Select.cpp.obj: ..\command\Select.cpp
 CMakeFiles\Database.dir\command\Select.cpp.obj: ..\command\Select.h

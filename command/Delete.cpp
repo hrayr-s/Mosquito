@@ -10,5 +10,5 @@ using namespace std;
 
 void Delete::run(String query) {
     String table_name = Parser::getTable(query);
-    cout << table_name << endl;
+
 }
