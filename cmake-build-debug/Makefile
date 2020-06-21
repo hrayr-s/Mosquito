@@ -336,6 +336,7 @@ command\Parser.obj: command\Parser.cpp.obj
 # target to build an object file
 command\Parser.cpp.obj:
 	$(MAKE) -f CMakeFiles\Database.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Database.dir\command\Parser.cpp.obj
+	$(MAKE) -f CMakeFiles\Test.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Test.dir\command\Parser.cpp.obj
 .PHONY : command\Parser.cpp.obj
 
 command\Parser.i: command\Parser.cpp.i
@@ -345,6 +346,7 @@ command\Parser.i: command\Parser.cpp.i
 # target to preprocess a source file
 command\Parser.cpp.i:
 	$(MAKE) -f CMakeFiles\Database.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Database.dir\command\Parser.cpp.i
+	$(MAKE) -f CMakeFiles\Test.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Test.dir\command\Parser.cpp.i
 .PHONY : command\Parser.cpp.i
 
 command\Parser.s: command\Parser.cpp.s
@@ -354,6 +356,7 @@ command\Parser.s: command\Parser.cpp.s
 # target to generate assembly for a file
 command\Parser.cpp.s:
 	$(MAKE) -f CMakeFiles\Database.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Database.dir\command\Parser.cpp.s
+	$(MAKE) -f CMakeFiles\Test.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Test.dir\command\Parser.cpp.s
 .PHONY : command\Parser.cpp.s
 
 command\Select.obj: command\Select.cpp.obj
@@ -501,6 +504,7 @@ types\structures.obj: types\structures.cpp.obj
 # target to build an object file
 types\structures.cpp.obj:
 	$(MAKE) -f CMakeFiles\Database.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Database.dir\types\structures.cpp.obj
+	$(MAKE) -f CMakeFiles\Test.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Test.dir\types\structures.cpp.obj
 .PHONY : types\structures.cpp.obj
 
 types\structures.i: types\structures.cpp.i
@@ -510,6 +514,7 @@ types\structures.i: types\structures.cpp.i
 # target to preprocess a source file
 types\structures.cpp.i:
 	$(MAKE) -f CMakeFiles\Database.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Database.dir\types\structures.cpp.i
+	$(MAKE) -f CMakeFiles\Test.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Test.dir\types\structures.cpp.i
 .PHONY : types\structures.cpp.i
 
 types\structures.s: types\structures.cpp.s
@@ -519,6 +524,7 @@ types\structures.s: types\structures.cpp.s
 # target to generate assembly for a file
 types\structures.cpp.s:
 	$(MAKE) -f CMakeFiles\Database.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Database.dir\types\structures.cpp.s
+	$(MAKE) -f CMakeFiles\Test.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Test.dir\types\structures.cpp.s
 .PHONY : types\structures.cpp.s
 
 # Help Target

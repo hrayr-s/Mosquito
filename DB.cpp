@@ -14,10 +14,12 @@ DB::DB() {
     this->table_count = 0;
     this->_table_data = new char *[1];
     this->_table_structure = new char *[1];
+    this->table_structure = new table[1];
     this->tables = new String[1];
     for (int i = 0; i < 1; ++i) {
         this->_table_data[i] = nullptr;
         this->_table_structure[i] = nullptr;
+        this->table_structure[i] = nullptr;
         this->tables[i] = nullptr;
     }
 }
@@ -120,7 +122,7 @@ bool DB::resize(long long size) {
     for (i = 0; i < this->table_count; ++i) {
         tmp_tables_structs[i] = this->table_structure[i];
     }
-    delete[] this->tables;
+    delete[] this->table_structure;
     this->table_structure = new table[this->table_count + size + 1]; // +1 to set the end(nullptr) of array
     // copy stored data back from tmp to tables_data
     for (i = 0; i < this->table_count; ++i) {
@@ -133,7 +135,7 @@ bool DB::resize(long long size) {
     for (; i <= size; ++i) {
         this->table_structure[this->table_count + i] = nullptr;
     }
-    delete[] tmp_tables;
+    delete[] tmp_tables_structs;
 
     return true;
 }
@@ -143,6 +145,9 @@ bool DB::check_table_loaded(String table_name) {
 }
 
 long long DB::get_table_index(String table_name) {
+    if (this->table_count == 0) {
+        return -1;
+    }
     return String::searchInArray(this->tables, table_name.getContent());
 }
 
@@ -170,6 +175,7 @@ bool DB::load_table(String table_name, bool force) {
     this->_table_structure[index] = new char[file_size + 1];
     this->_table_structure[index] = f.read();
     this->_table_structure[index][file_size] = '\0';
+    this->table_structure[index] = new table(table_name, this->_table_structure[index]);
 
     // Load table data
     f.load(String::concat((char *) table_name, (char *) ".data.db"), (char *) "r");
@@ -177,10 +183,11 @@ bool DB::load_table(String table_name, bool force) {
     this->_table_data[index] = new char[file_size + 1];
     this->_table_data[index] = f.read();
     this->_table_data[index][file_size] = '\0';
+    this->table_structure[index].setTableData(this->_table_data[index]);
 
     // save table name
-    this->tables[index] = new String((char *) table_name);
-
+    this->tables[index] = new String(table_name.getContent());
+    this->table_count++;
     return true;
 }
 
@@ -197,9 +204,11 @@ char *DB::get_table_structure(String table_name) {
 }
 
 bool DB::save_table_data(String table_name) {
-
     FileManager f(String::concat((char *) table_name, (char *) ".data.db"), (char *) "w");
-    f.write(this->get_table_data(table_name));
+    char *data = this->get_table_data(table_name);
+    long long size = 0;
+    memcpy(&size, data, sizeof(long long));
+    f.write(data, size);
     return true;
 }
 
@@ -296,10 +305,15 @@ bool DB::setTableStructure(struct table *tb) {
 }
 
 struct table *DB::getTableStructure(String table_name) {
-    char *raw_structure;
     this->load_table(table_name);
-    raw_structure = this->get_table_structure(table_name);
-    struct table *tb = new table(table_name, raw_structure);
-    return tb;
+    long long table_index = this->get_table_index(table_name);
+    return &this->table_structure[table_index];
+}
+
+bool DB::flush(String table_name) {
+    long long index = this->get_table_index(table_name);
+    this->_table_data[index] = this->table_structure[index].getTableVoidData();
+    this->saveTable(table_name);
+    return true;
 }
 

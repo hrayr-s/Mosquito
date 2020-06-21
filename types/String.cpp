@@ -36,6 +36,24 @@ String::String(char *text) {
     }
 }
 
+String::String(nullptr_t s) {
+    this->content = nullptr;
+    this->_size = NULL;
+}
+
+String::String(const char *text) {
+    if (text != nullptr) {
+        long long size = String::size(text);
+        this->content = new char[size + 1];
+        this->_size = size;
+        memcpy(this->content, text, sizeof(char) * size);
+        this->content[size] = '\0';
+    } else {
+        this->content = nullptr;
+        this->_size = NULL;
+    }
+}
+
 String::String(char *text, long long int size) {
     if (text != nullptr) {
         this->content = new char[size + 1];
@@ -52,7 +70,9 @@ String::String(char *text, long long int size) {
 
 std::ostream &operator<<(std::ostream &out, const String &str) {
     // Since operator<< is a friend of the String class, we can access Point's members directly.
-    out << str.content;
+    if (str.content != nullptr) {
+        out << str.content;
+    }
 
     return out; // return std::ostream so we can chain calls to operator<<
 }
@@ -117,13 +137,17 @@ std::istream &operator>>(std::istream &in, String &str) {
 
 String String::operator=(String s) {
     this->_size = s.size();
-    this->content = s.getContent();
+    this->content = new char[s.length() + 1];
+    memcpy(this->content, s.getContent(), s.length() + 1);
+//    this->content = s.getContent();
     return *this;
 }
 
 String String::operator=(String *s) {
     this->_size = s->size();
-    this->content = s->getContent();
+    this->content = new char[s->size() + 1];
+    memcpy(this->content, s->content, s->size());
+    this->content[this->_size] = '\0';
     return *this;
 }
 
@@ -282,6 +306,11 @@ String String::operator+=(char ch) {
     return *this;
 }
 
+String String::operator+=(double number) {
+    *this = *this + number;
+    return *this;
+}
+
 String String::operator+=(const char *ch) {
     *this = *this + ch;
     return *this;
@@ -424,19 +453,22 @@ long long String::search(String text, String haystack, long long index, bool neg
     return -1;
 }
 
-long long *String::searchAll(char *text, char *haystack, long long position) {
+long long *String::searchAll(String text, String haystack, long long position) {
     long long *items = new long long[10];
+    items[9] = NULL;
     long long count = 0;
     for (; (position = String::search(text, haystack, position)) != -1;) {
         items[count] = position;
         ++count;
-        if (count > 9) {
+        if (count >= 9) {
             ArrayHelper::resize(items, count + 1);
         }
     }
-    if (count < 9) {
+    if (count == 0) {
+        items = nullptr;
+    } else if (count < 9) {
         items[count] = NULL;
-        ArrayHelper::resize(items, count + 1);
+        ArrayHelper::resize(items, count);
     }
     return items;
 }
@@ -460,18 +492,27 @@ long long String::searchInArray(String *array_string, long long pos) {
 }
 
 long long *String::searchAll(char *haystack, long long pos) {
-    return String::searchAll(this->content, haystack, pos);
+    return String::searchAll(*this, haystack, pos);
 }
 
 long long String::search(char *haystack, long long pos, bool negative) {
-    return String::search(this->content, haystack, pos, negative);
+    return String::search(*this, String(haystack), pos, negative);
 }
 
 long long String::search(const char *haystack, long long pos) {
-    return String::search(this->content, (char *) haystack, pos);
+    return String::search(*this, String(haystack), pos);
 }
 
 long long String::size(char *text) {
+    long long size = 0;
+    if (text == nullptr) {
+        return 0;
+    }
+    for (; text[size] != '\0'; ++size) {}
+    return size;
+}
+
+long long String::size(const char *text) {
     long long size = 0;
     if (text == nullptr) {
         return 0;
@@ -501,6 +542,25 @@ bool String::compare(char *str1, char *str2) {
 
 bool String::compare(char *str) {
     return String::compare(this->content, str);
+}
+
+bool String::isNumber() {
+    bool has_dot = false;
+    for (long long i = 0; i < this->length(); ++i) {
+        if ((this->content[i] >= '0') || (this->content[i] <= '9')) {
+            continue;
+        }
+        if ((this->content[i] == '.') || (this->content[i] == ',')) {
+            if (has_dot) {
+                return false;
+            } else {
+                has_dot = true;
+                continue;
+            }
+        }
+        return false;
+    }
+    return true;
 }
 
 String String::cut(String str, long long pos, long long length) {
@@ -603,10 +663,79 @@ String::operator long long() {
     return tmp;
 }
 
+String String::toUpperCase() {
+    String str(this->content);
+    char diff = 'A' - 'a';
+    for (long long i = 0; i < this->length(); ++i) {
+        if (str[i] >= 'a' && str[i] < 'z' + 1) {
+            str[i] = str[i] + diff;
+        }
+    }
+    return str;
+}
+
+String String::toUpperCase(char *str) {
+    String s(str);
+    return s.toUpperCase();
+}
+
+String String::toLowerCase() {
+    String str(this->content);
+    char diff = 'A' - 'a';
+    for (long long i = 0; i < this->length(); ++i) {
+        if (str[i] < 'Z' + 1) {
+            if ('A' >= str[i]) {
+                str[i] = str[i] - diff;
+            }
+        }
+    }
+    return str;
+}
+
+String String::toLowerCase(char *str) {
+    String s(str);
+    return s.toLowerCase();
+}
+
 String String::parse(long long int var) {
     char *sum = new char[ll_LENGTH + 1];
     sprintf(sum, "%lld", var);
     String s(sum);
     delete[] sum;
     return s;
+}
+
+long long String::parseToInt() {
+    long long val = 0;
+    int success = sscanf(this->content, "%lld", &val);
+    if (success >= 1) return val;
+    return NULL;
+}
+
+String *String::split(String delimiter) {
+    long long *positions = this->searchAll(delimiter);
+    long long parts_count;
+    String *parts;
+    if (positions != nullptr) {
+        parts_count = ArrayHelper::count(positions) + 1;
+        parts = new String[parts_count + 1];
+        parts[parts_count] = nullptr;
+        parts[0] = this->cut(0, positions[0] - delimiter.length());
+        long long i = 1;
+        for (; positions[i] != NULL; ++i) {
+            parts[i] = this->cut(positions[i - 1], positions[i] - delimiter.length() - positions[i - 1]);
+        }
+        long long posit = positions[i - 1];
+        long long length = this->length() - positions[i - 1];
+        parts[i] = this->cut(posit, length);
+    } else {
+        positions = new long long[2];
+        positions[0] = 0;
+        positions[1] = NULL;
+        parts = new String[2];
+        parts[0] = new String(this->content);
+        parts[1] = nullptr;
+    }
+
+    return parts;
 }

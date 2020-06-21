@@ -21,6 +21,10 @@ public:
 
     String(char *text);
 
+    String(nullptr_t);
+
+    String(const char *text);
+
     String(char *text, long long int size);
 
     friend std::ostream &operator<<(std::ostream &out, const String &str);
@@ -54,6 +58,8 @@ public:
     friend String operator+(char ch, String &str);
 
     String operator+=(char str);
+
+    String operator+=(double number);
 
     String operator+=(const char *str);
 
@@ -105,7 +111,7 @@ public:
      */
     static long long search(String text, String haystack, long long index = 0, bool negative = false);
 
-    static long long *searchAll(char *text, char *haystack, long long position = 0);
+    static long long *searchAll(String text, String haystack, long long position = 0);
 
     static long long searchInArray(char **array_string, char *haystack);
 
@@ -127,6 +133,8 @@ public:
 
     static long long size(char *text);
 
+    static long long size(const char *text);
+
     long long size();
 
     long long length();
@@ -145,6 +153,12 @@ public:
      * @return
      */
     bool compare(char *str);
+
+    /**
+    * Checks for string to being a number
+    * @return bool
+    */
+    bool isNumber();
 
     /**
      * Cuts given String by position and length
@@ -166,10 +180,32 @@ public:
     String trim();
 
     /**
+     * Manipulations with string characters cases
+     *
+     * @return
+     */
+    String toUpperCase();
+
+    static String toUpperCase(char *s);
+
+    String toLowerCase();
+
+    static String toLowerCase(char *s);
+
+    /**
      * Parsing to String from other types
      */
 
     static String parse(long long var);
+
+    long long parseToInt();
+
+    /*
+     * Splits String by provided delimeter
+     */
+    String *split(String delimiter);
+
+
 };
 
 

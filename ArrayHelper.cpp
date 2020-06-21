@@ -64,11 +64,42 @@ bool ArrayHelper::resize(long long *&f, long long size) {
     for (long long i = 0; i < size; ++i) {
         tmp[i] = f[i];
     }
-    tmp[size + 1] = NULL;
+    tmp[size] = NULL;
     delete[] f;
     f = new long long[size + 1];
     for (long long i = 0; i <= size; ++i) {
         f[i] = tmp[i];
+    }
+    f[size] = NULL;
+    return true;
+}
+
+bool ArrayHelper::resize(void **&f, long long int size) {
+    if (size < 1) {
+        throw "size should be more than 0";
+    }
+    if (f == nullptr) {
+        f = new void *[size];
+        return true;
+    }
+
+    void **tmp;
+    long long tmp_size = 0, new_size = 0;
+    for (; f[tmp_size] != nullptr; ++tmp_size) {}
+    new_size = tmp_size + size;
+    tmp = new void *[tmp_size + 1];
+    for (long long i = 0; i < tmp_size; ++i) {
+        tmp[i] = f[i];
+    }
+    tmp[tmp_size] = nullptr;
+    delete[] f;
+    f = new void *[new_size + 1];
+    long long i = 0;
+    for (; i < tmp_size; ++i) {
+        f[i] = tmp[i];
+    }
+    for (; i <= new_size; ++i) {
+        f[i] = nullptr;
     }
     return true;
 }

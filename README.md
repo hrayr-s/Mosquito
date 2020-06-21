@@ -18,7 +18,7 @@ Commands to use:
 
 ## INSERT
 ```
-  INSERT INTO `table_name` (`col1`, `col2`, `col3`, ..., `colN`) 
+  INSERT INTO `table_name`
       VALUES('col1_val', 'col2_val', 'col3_val', ..., 'colN_val'),
             ('col1_val', 'col2_val', 'col3_val', ..., 'colN_val'),
             ('col1_val', 'col2_val', 'col3_val', ..., 'colN_val');

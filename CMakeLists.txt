@@ -35,6 +35,8 @@ add_executable(Database ${SOURCES})
 
 file(GLOB TEST_SOURCES
         types/String.cpp
+        types/structures.cpp
+        command/Parser.cpp
         ArrayHelper.cpp
         test.cpp)
 add_executable(Test ${TEST_SOURCES})

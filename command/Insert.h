@@ -12,7 +12,8 @@ class Parser;
 #include <iostream>
 
 class Insert {
-
+private:
+    char *values_text = "VALUES";
 public:
 
     void run(String query);

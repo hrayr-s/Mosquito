@@ -13,6 +13,8 @@ struct column {
     String *name;
     char type;
     long long size;
+    long long rows_count;
+    void **data; // column data array indexed row by row
 
     column();
 
@@ -22,17 +24,26 @@ struct column {
 
     struct column operator=(nullptr_t s);
 
+    struct column operator=(String raw_col);
+
     bool operator==(nullptr_t s);
 
     bool operator!=(nullptr_t s);
 
+    bool insert(String data);
+
+    bool remove_last_added();
+
+    bool checkVar(String var);
 };
 
 struct table {
     struct column *columns;
     char cols_count; // Table columns count should not be more than 255
     String *name;
-    char *data;
+    char *data; // Raw data of a table
+
+    bool flushed; // Indicator of flushed into raw this->data from columns data
 
     table();
 
@@ -52,6 +63,8 @@ struct table {
 
     struct table operator=(nullptr_t s);
 
+    struct table operator=(table *tb);
+
     /** No needed for now
      * With given String array organize table structure
      * @param s
@@ -62,6 +75,14 @@ struct table {
     bool operator==(nullptr_t s) const;
 
     bool operator!=(nullptr_t s) const;
+
+    bool setTableData(char *raw);
+
+    bool insert(String raw);
+
+    char *getTableVoidData();
+
+    long long getDataSize();
 };
 
 #endif //DATABASE_STRUCTURES_H

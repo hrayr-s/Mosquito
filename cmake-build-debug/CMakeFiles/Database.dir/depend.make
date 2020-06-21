@@ -80,6 +80,7 @@ CMakeFiles\Database.dir\types\String.cpp.obj: ..\types\String.h
 CMakeFiles\Database.dir\types\String.cpp.obj: ..\types\structures.h
 
 CMakeFiles\Database.dir\types\structures.cpp.obj: ..\ArrayHelper.h
+CMakeFiles\Database.dir\types\structures.cpp.obj: ..\DB.h
 CMakeFiles\Database.dir\types\structures.cpp.obj: ..\command\Parser.h
 CMakeFiles\Database.dir\types\structures.cpp.obj: ..\types\String.h
 CMakeFiles\Database.dir\types\structures.cpp.obj: ..\types\structures.cpp

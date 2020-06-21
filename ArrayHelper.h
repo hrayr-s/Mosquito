@@ -10,11 +10,13 @@ class String;
 class ArrayHelper {
 public:
 
+    bool resize(String *f, long long int size = 1);
+
     static bool resize(struct column *columns, long long size = 1);
 
     static bool resize(long long *&f, long long size = 1);
 
-    bool resize(String *f, long long int size = 1);
+    static bool resize(void **&f, long long size = 1);
 
     static long long int count(long long int *array);
 

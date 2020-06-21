@@ -122,3 +122,18 @@ long long Parser::getColumnSize(String col) {
 char *Parser::getColumnTypeName(char type) {
     return (char *) Parser::types[type];
 }
+
+char *Parser::parseInsertValues(table tb, String str) {
+    long long pos = str.search(tb.name->getContent()) + 1;
+    void **raw_data;
+    raw_data = new void *[101];
+    raw_data[100] = nullptr;
+    long long tmp_integer = 0;
+    String tmp_string;
+    while (str[pos] != '\0') {
+        for (char i = 0; i < tb.cols_count; ++i) {
+            // Split str with ',' delimeter and assign each column - value
+        }
+    }
+    return nullptr;
+}

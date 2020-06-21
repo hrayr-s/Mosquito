@@ -104,5 +104,7 @@ public:
     static long long getColumnSize(String col);
 
     static char *getColumnTypeName(char type);
+
+    static char *parseInsertValues(struct table tb, String str);
 };
 #endif //DATABASE_PARSER_H

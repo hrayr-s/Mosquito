@@ -128,6 +128,8 @@ public:
      * Generates `struct table` from a table structure raw data (file)
      */
     struct table *getTableStructure(String table_name);
+
+    bool flush(String table_name);
 };
 
 
