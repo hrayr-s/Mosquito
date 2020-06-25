@@ -16,6 +16,7 @@ void Drop::run(String query) {
     if (!DB::getInstance()->check_table_exists(table_name)) {
         throw "Can not find provided table!";
     }
-    remove(table_name + ".structure.db");
-    remove(table_name + ".data.db");
+    remove((table_name + ".structure.db").getContent());
+    remove((table_name + ".data.db").getContent());
 }
+

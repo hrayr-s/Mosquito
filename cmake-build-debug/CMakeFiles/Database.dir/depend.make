@@ -15,7 +15,6 @@ CMakeFiles\Database.dir\DB.cpp.obj: ..\types\structures.h
 CMakeFiles\Database.dir\FileManager.cpp.obj: ..\FileManager.cpp
 CMakeFiles\Database.dir\FileManager.cpp.obj: ..\FileManager.h
 CMakeFiles\Database.dir\FileManager.cpp.obj: ..\types\String.h
-CMakeFiles\Database.dir\FileManager.cpp.obj: ..\types\structures.h
 
 CMakeFiles\Database.dir\command\Create.cpp.obj: ..\ArrayHelper.h
 CMakeFiles\Database.dir\command\Create.cpp.obj: ..\DB.h
@@ -25,6 +24,7 @@ CMakeFiles\Database.dir\command\Create.cpp.obj: ..\command\Parser.h
 CMakeFiles\Database.dir\command\Create.cpp.obj: ..\types\String.h
 CMakeFiles\Database.dir\command\Create.cpp.obj: ..\types\structures.h
 
+CMakeFiles\Database.dir\command\Delete.cpp.obj: ..\DB.h
 CMakeFiles\Database.dir\command\Delete.cpp.obj: ..\command\Delete.cpp
 CMakeFiles\Database.dir\command\Delete.cpp.obj: ..\command\Delete.h
 CMakeFiles\Database.dir\command\Delete.cpp.obj: ..\command\Parser.h
@@ -36,7 +36,6 @@ CMakeFiles\Database.dir\command\Drop.cpp.obj: ..\command\Drop.cpp
 CMakeFiles\Database.dir\command\Drop.cpp.obj: ..\command\Drop.h
 CMakeFiles\Database.dir\command\Drop.cpp.obj: ..\command\Parser.h
 CMakeFiles\Database.dir\command\Drop.cpp.obj: ..\types\String.h
-CMakeFiles\Database.dir\command\Drop.cpp.obj: ..\types\structures.h
 
 CMakeFiles\Database.dir\command\Insert.cpp.obj: ..\DB.h
 CMakeFiles\Database.dir\command\Insert.cpp.obj: ..\command\Insert.cpp
@@ -61,7 +60,6 @@ CMakeFiles\Database.dir\command\Update.cpp.obj: ..\command\Parser.h
 CMakeFiles\Database.dir\command\Update.cpp.obj: ..\command\Update.cpp
 CMakeFiles\Database.dir\command\Update.cpp.obj: ..\command\Update.h
 CMakeFiles\Database.dir\command\Update.cpp.obj: ..\types\String.h
-CMakeFiles\Database.dir\command\Update.cpp.obj: ..\types\structures.h
 
 CMakeFiles\Database.dir\main.cpp.obj: ..\FileManager.h
 CMakeFiles\Database.dir\main.cpp.obj: ..\command\Create.h
@@ -78,7 +76,6 @@ CMakeFiles\Database.dir\main.cpp.obj: ..\types\structures.h
 CMakeFiles\Database.dir\types\String.cpp.obj: ..\ArrayHelper.h
 CMakeFiles\Database.dir\types\String.cpp.obj: ..\types\String.cpp
 CMakeFiles\Database.dir\types\String.cpp.obj: ..\types\String.h
-CMakeFiles\Database.dir\types\String.cpp.obj: ..\types\structures.h
 
 CMakeFiles\Database.dir\types\structures.cpp.obj: ..\ArrayHelper.h
 CMakeFiles\Database.dir\types\structures.cpp.obj: ..\DB.h

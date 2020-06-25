@@ -3,6 +3,7 @@
 //
 
 
+#include "../types/structures.h"
 #include "../types/String.h"
 #include "Parser.h"
 #include "Select.h"
@@ -56,7 +57,7 @@ void Select::run(String query) {
         }
     }
     for (int k = 0; cols_indexes[k] != -1; ++k) {
-        cout << left << setfill(' ') << (tb->columns[cols_indexes[k]].type == TYPE_INT ? setw(12) : setw(40))
+        cout << left << setfill(' ') << (tb->columns[cols_indexes[k]].type == TYPE_INT ? setw(12) : setw(30))
              << *tb->columns[cols_indexes[k]].name << right;
     }
     cout << endl;
@@ -79,7 +80,7 @@ void Select::run(String query) {
                     break;
                 case TYPE_VARCHAR:
                 case TYPE_TEXT:
-                    cout << left << setfill(' ') << setw(40) << (char *) tb->columns[cols_indexes[col]][i];
+                    cout << left << setfill(' ') << setw(30) << (char *) tb->columns[cols_indexes[col]][i];
                     break;
             }
         }

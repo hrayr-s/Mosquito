@@ -16,21 +16,6 @@ file(GLOB SOURCES command/Create.cpp command/Delete.cpp
         ArrayHelper.cpp
         main.cpp)
 
-#[[file(GLOB
-        command/*.h
-        command/*.cpp
-        types/*.h
-        types/*.cpp
-        )]]
-#add_library(libcmdcreate command/Create.cpp)
-#add_library(libcmddelete command/Delete.cpp)
-#add_library(libcmddrop command/Drop.cpp)
-#add_library(libcmdinsert command/Insert.cpp)
-#add_library(libcmdparser command/Parser.cpp)
-#add_library(libcmdselect command/Select.cpp)
-#add_library(libcmdupdate command/Update.cpp)
-#add_library(libtypes types/String.cpp)
-
 add_executable(Database ${SOURCES})
 
 file(GLOB TEST_SOURCES

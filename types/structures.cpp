@@ -147,8 +147,9 @@ bool column::insert(void *data) {
         case TYPE_TEXT:
             val_ch = (char *) data;
             tmp_size = String::size(val_ch);
-            memcpy(this->data[this->rows_count++], val_ch, tmp_size);
-            ((char *) this->data[this->rows_count])[tmp_size + 1] = '\0';
+            this->data[this->rows_count] = new char[tmp_size + 1];
+            memcpy(this->data[this->rows_count], val_ch, tmp_size);
+            ((char *) this->data[this->rows_count++])[tmp_size] = '\0';
             break;
         default:
             return false;
@@ -190,6 +191,23 @@ bool column::checkVar(String var) {
             }
             return true;
     }
+    return true;
+}
+
+bool column::remove(long long row) {
+    switch (this->type) {
+        case TYPE_INT:
+            delete (long long *) this->data[row];
+            break;
+        case TYPE_VARCHAR:
+        case TYPE_TEXT:
+            delete[] (char *) this->data[row];
+            break;
+    }
+    for (long long i = row; i < this->rows_count; ++i) {
+        this->data[i] = this->data[i + 1];
+    }
+    this->data[this->rows_count--] = nullptr;
     return true;
 }
 
@@ -449,12 +467,20 @@ bool table::prepareRawBytes() {
                     throw "Table data is corrupted";
                 }
             }
-            tmp_data = new char[tmp_size];
+            tmp_data = new char[tmp_size + 1];
             memcpy(tmp_data, data + byte_pos, tmp_size);
+            ((char *) tmp_data)[tmp_size] = '\0';
             this->columns[col_index].insert(tmp_data);
             delete[] tmp_data;
             byte_pos += tmp_size + 1;
         }
+    }
+    return true;
+}
+
+bool table::remove(long long row) {
+    for (long long col = 0; col < this->cols_count; ++col) {
+        this->columns[col].remove(row);
     }
     return true;
 }

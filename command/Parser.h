@@ -5,6 +5,8 @@
 #ifndef DATABASE_PARSER_H
 #define DATABASE_PARSER_H
 
+struct table;
+
 class String;
 
 const char COMMAND_SELECT = 0,

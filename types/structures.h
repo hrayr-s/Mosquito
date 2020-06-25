@@ -42,6 +42,8 @@ struct column {
     bool remove_last_added();
 
     bool checkVar(String var);
+
+    bool remove(long long row);
 };
 
 struct table {
@@ -92,6 +94,8 @@ struct table {
     char *getTableVoidData();
 
     long long getDataSize();
+
+    bool remove(long long row);
 };
 
 struct condition {

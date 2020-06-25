@@ -6,7 +6,6 @@
 #define DATABASE_DB_H
 
 class String;
-
 struct table;
 
 class FileManager;

@@ -2,6 +2,7 @@
 // Created by Hrayr on 5/30/2020.
 //
 
+#include "../types/structures.h"
 #include "Parser.h"
 #include <iostream>
 #include "../types/String.h"

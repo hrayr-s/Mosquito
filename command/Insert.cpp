@@ -3,6 +3,7 @@
 //
 
 
+#include "../types/structures.h"
 #include "../types/String.h"
 #include "Parser.h"
 #include "Insert.h"

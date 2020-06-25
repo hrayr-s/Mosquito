@@ -6,7 +6,6 @@
 #define DATABASE_STRING_H
 
 #include <iostream>
-#include "structures.h"
 
 class String {
 private:
