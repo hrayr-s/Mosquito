@@ -45,6 +45,17 @@ Commands to use:
     'col_N' {COLUMN_TYPE}
   );
 ```
+
+###### EXAMPLE
+
+```mysql
+  CREATE TABLE `users` (
+    'name' TEXT,
+    'age' INT,
+    'username' TEXT
+  );
+```
+
   
 ## DROP
 ```

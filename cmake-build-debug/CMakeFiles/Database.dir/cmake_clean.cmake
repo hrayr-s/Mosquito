@@ -10,6 +10,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/Database.dir/command/Select.cpp.obj"
   "CMakeFiles/Database.dir/command/Update.cpp.obj"
   "CMakeFiles/Database.dir/main.cpp.obj"
+  "CMakeFiles/Database.dir/operators/in.cpp.obj"
   "CMakeFiles/Database.dir/types/String.cpp.obj"
   "CMakeFiles/Database.dir/types/structures.cpp.obj"
   "Database.exe"

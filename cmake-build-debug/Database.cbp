@@ -8,215 +8,111 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="C:/Users/Hrayr/CLionProjects/Database/cmake-build-debug"/>
+				<Option working_dir="C:/Users/hrayr/CLionProjects/Database/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="nmake /NOLOGO /f C:\Users\Hrayr\CLionProjects\Database\cmake-build-debug\Makefile VERBOSE=1 all"/>
-					<CompileFile command="nmake /NOLOGO /f C:\Users\Hrayr\CLionProjects\Database\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="nmake /NOLOGO /f C:\Users\Hrayr\CLionProjects\Database\cmake-build-debug\Makefile VERBOSE=1 clean"/>
-					<DistClean command="nmake /NOLOGO /f C:\Users\Hrayr\CLionProjects\Database\cmake-build-debug\Makefile VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="edit_cache">
-				<Option working_dir="C:/Users/Hrayr/CLionProjects/Database/cmake-build-debug"/>
-				<Option type="4"/>
-				<MakeCommands>
-					<Build command="nmake /NOLOGO /f C:\Users\Hrayr\CLionProjects\Database\cmake-build-debug\Makefile VERBOSE=1 edit_cache"/>
-					<CompileFile command="nmake /NOLOGO /f C:\Users\Hrayr\CLionProjects\Database\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="nmake /NOLOGO /f C:\Users\Hrayr\CLionProjects\Database\cmake-build-debug\Makefile VERBOSE=1 clean"/>
-					<DistClean command="nmake /NOLOGO /f C:\Users\Hrayr\CLionProjects\Database\cmake-build-debug\Makefile VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="Database">
-				<Option output="C:/Users/Hrayr/CLionProjects/Database/cmake-build-debug/Database.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="C:/Users/Hrayr/CLionProjects/Database/cmake-build-debug"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="msvc8"/>
-				<Compiler>
-					<Add directory="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\ATLMFC\include"/>
-					<Add directory="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include"/>
-					<Add directory="C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um"/>
-					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\ucrt"/>
-					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\shared"/>
-					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\um"/>
-					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\winrt"/>
-					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\cppwinrt"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="nmake /NOLOGO /f C:\Users\Hrayr\CLionProjects\Database\cmake-build-debug\Makefile VERBOSE=1 Database"/>
-					<CompileFile command="nmake /NOLOGO /f C:\Users\Hrayr\CLionProjects\Database\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="nmake /NOLOGO /f C:\Users\Hrayr\CLionProjects\Database\cmake-build-debug\Makefile VERBOSE=1 clean"/>
-					<DistClean command="nmake /NOLOGO /f C:\Users\Hrayr\CLionProjects\Database\cmake-build-debug\Makefile VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="Database/fast">
-				<Option output="C:/Users/Hrayr/CLionProjects/Database/cmake-build-debug/Database.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="C:/Users/Hrayr/CLionProjects/Database/cmake-build-debug"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="msvc8"/>
-				<Compiler>
-					<Add directory="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\ATLMFC\include"/>
-					<Add directory="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include"/>
-					<Add directory="C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um"/>
-					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\ucrt"/>
-					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\shared"/>
-					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\um"/>
-					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\winrt"/>
-					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\cppwinrt"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="nmake /NOLOGO /f C:\Users\Hrayr\CLionProjects\Database\cmake-build-debug\Makefile VERBOSE=1 Database/fast"/>
-					<CompileFile command="nmake /NOLOGO /f C:\Users\Hrayr\CLionProjects\Database\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="nmake /NOLOGO /f C:\Users\Hrayr\CLionProjects\Database\cmake-build-debug\Makefile VERBOSE=1 clean"/>
-					<DistClean command="nmake /NOLOGO /f C:\Users\Hrayr\CLionProjects\Database\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<Build command="nmake /NOLOGO /f C:\Users\hrayr\CLionProjects\Database\cmake-build-debug\Makefile VERBOSE=1 all"/>
+					<CompileFile command="nmake /NOLOGO /f C:\Users\hrayr\CLionProjects\Database\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f C:\Users\hrayr\CLionProjects\Database\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f C:\Users\hrayr\CLionProjects\Database\cmake-build-debug\Makefile VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="C:/Users/Hrayr/CLionProjects/Database/cmake-build-debug"/>
+				<Option working_dir="C:/Users/hrayr/CLionProjects/Database/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="nmake /NOLOGO /f C:\Users\Hrayr\CLionProjects\Database\cmake-build-debug\Makefile VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="nmake /NOLOGO /f C:\Users\Hrayr\CLionProjects\Database\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="nmake /NOLOGO /f C:\Users\Hrayr\CLionProjects\Database\cmake-build-debug\Makefile VERBOSE=1 clean"/>
-					<DistClean command="nmake /NOLOGO /f C:\Users\Hrayr\CLionProjects\Database\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<Build command="nmake /NOLOGO /f C:\Users\hrayr\CLionProjects\Database\cmake-build-debug\Makefile VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="nmake /NOLOGO /f C:\Users\hrayr\CLionProjects\Database\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f C:\Users\hrayr\CLionProjects\Database\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f C:\Users\hrayr\CLionProjects\Database\cmake-build-debug\Makefile VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Test">
-				<Option output="C:/Users/Hrayr/CLionProjects/Database/cmake-build-debug/Test.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="C:/Users/Hrayr/CLionProjects/Database/cmake-build-debug"/>
+				<Option output="C:/Users/hrayr/CLionProjects/Database/cmake-build-debug/Test.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/hrayr/CLionProjects/Database/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="msvc8"/>
 				<Compiler>
-					<Add directory="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\ATLMFC\include"/>
-					<Add directory="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include"/>
-					<Add directory="C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um"/>
-					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\ucrt"/>
-					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\shared"/>
-					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\um"/>
-					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\winrt"/>
-					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\cppwinrt"/>
+					<Add directory="C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.31.31103\ATLMFC\include"/>
+					<Add directory="C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.31.31103\include"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\ucrt"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\\include\10.0.19041.0\\shared"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\\include\10.0.19041.0\\um"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\\include\10.0.19041.0\\winrt"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\\include\10.0.19041.0\\cppwinrt"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="nmake /NOLOGO /f C:\Users\Hrayr\CLionProjects\Database\cmake-build-debug\Makefile VERBOSE=1 Test"/>
-					<CompileFile command="nmake /NOLOGO /f C:\Users\Hrayr\CLionProjects\Database\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="nmake /NOLOGO /f C:\Users\Hrayr\CLionProjects\Database\cmake-build-debug\Makefile VERBOSE=1 clean"/>
-					<DistClean command="nmake /NOLOGO /f C:\Users\Hrayr\CLionProjects\Database\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<Build command="nmake /NOLOGO /f C:\Users\hrayr\CLionProjects\Database\cmake-build-debug\Makefile VERBOSE=1 Test"/>
+					<CompileFile command="nmake /NOLOGO /f C:\Users\hrayr\CLionProjects\Database\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f C:\Users\hrayr\CLionProjects\Database\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f C:\Users\hrayr\CLionProjects\Database\cmake-build-debug\Makefile VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Test/fast">
-				<Option output="C:/Users/Hrayr/CLionProjects/Database/cmake-build-debug/Test.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="C:/Users/Hrayr/CLionProjects/Database/cmake-build-debug"/>
+				<Option output="C:/Users/hrayr/CLionProjects/Database/cmake-build-debug/Test.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/hrayr/CLionProjects/Database/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="msvc8"/>
 				<Compiler>
-					<Add directory="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\ATLMFC\include"/>
-					<Add directory="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include"/>
-					<Add directory="C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um"/>
-					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\ucrt"/>
-					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\shared"/>
-					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\um"/>
-					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\winrt"/>
-					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\cppwinrt"/>
+					<Add directory="C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.31.31103\ATLMFC\include"/>
+					<Add directory="C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.31.31103\include"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\ucrt"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\\include\10.0.19041.0\\shared"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\\include\10.0.19041.0\\um"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\\include\10.0.19041.0\\winrt"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\\include\10.0.19041.0\\cppwinrt"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="nmake /NOLOGO /f C:\Users\Hrayr\CLionProjects\Database\cmake-build-debug\Makefile VERBOSE=1 Test/fast"/>
-					<CompileFile command="nmake /NOLOGO /f C:\Users\Hrayr\CLionProjects\Database\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="nmake /NOLOGO /f C:\Users\Hrayr\CLionProjects\Database\cmake-build-debug\Makefile VERBOSE=1 clean"/>
-					<DistClean command="nmake /NOLOGO /f C:\Users\Hrayr\CLionProjects\Database\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<Build command="nmake /NOLOGO /f C:\Users\hrayr\CLionProjects\Database\cmake-build-debug\Makefile VERBOSE=1 Test/fast"/>
+					<CompileFile command="nmake /NOLOGO /f C:\Users\hrayr\CLionProjects\Database\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f C:\Users\hrayr\CLionProjects\Database\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f C:\Users\hrayr\CLionProjects\Database\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="C:/Users/hrayr/CLionProjects/Database/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="nmake /NOLOGO /f C:\Users\hrayr\CLionProjects\Database\cmake-build-debug\Makefile VERBOSE=1 edit_cache"/>
+					<CompileFile command="nmake /NOLOGO /f C:\Users\hrayr\CLionProjects\Database\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f C:\Users\hrayr\CLionProjects\Database\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f C:\Users\hrayr\CLionProjects\Database\cmake-build-debug\Makefile VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="C:/Users/Hrayr/CLionProjects/Database/ArrayHelper.cpp">
-			<Option target="Database"/>
+		<Unit filename="C:/Users/hrayr/CLionProjects/Database/ArrayHelper.cpp">
 			<Option target="Test"/>
 		</Unit>
-		<Unit filename="C:/Users/Hrayr/CLionProjects/Database/ArrayHelper.h">
-			<Option target="Database"/>
+		<Unit filename="C:/Users/hrayr/CLionProjects/Database/ArrayHelper.h">
 			<Option target="Test"/>
 		</Unit>
-		<Unit filename="C:/Users/Hrayr/CLionProjects/Database/DB.cpp">
-			<Option target="Database"/>
-		</Unit>
-		<Unit filename="C:/Users/Hrayr/CLionProjects/Database/DB.h">
-			<Option target="Database"/>
-		</Unit>
-		<Unit filename="C:/Users/Hrayr/CLionProjects/Database/FileManager.cpp">
-			<Option target="Database"/>
-		</Unit>
-		<Unit filename="C:/Users/Hrayr/CLionProjects/Database/FileManager.h">
-			<Option target="Database"/>
-		</Unit>
-		<Unit filename="C:/Users/Hrayr/CLionProjects/Database/command/Create.cpp">
-			<Option target="Database"/>
-		</Unit>
-		<Unit filename="C:/Users/Hrayr/CLionProjects/Database/command/Create.h">
-			<Option target="Database"/>
-		</Unit>
-		<Unit filename="C:/Users/Hrayr/CLionProjects/Database/command/Delete.cpp">
-			<Option target="Database"/>
-		</Unit>
-		<Unit filename="C:/Users/Hrayr/CLionProjects/Database/command/Delete.h">
-			<Option target="Database"/>
-		</Unit>
-		<Unit filename="C:/Users/Hrayr/CLionProjects/Database/command/Drop.cpp">
-			<Option target="Database"/>
-		</Unit>
-		<Unit filename="C:/Users/Hrayr/CLionProjects/Database/command/Drop.h">
-			<Option target="Database"/>
-		</Unit>
-		<Unit filename="C:/Users/Hrayr/CLionProjects/Database/command/Insert.cpp">
-			<Option target="Database"/>
-		</Unit>
-		<Unit filename="C:/Users/Hrayr/CLionProjects/Database/command/Insert.h">
-			<Option target="Database"/>
-		</Unit>
-		<Unit filename="C:/Users/Hrayr/CLionProjects/Database/command/Parser.cpp">
-			<Option target="Database"/>
+		<Unit filename="C:/Users/hrayr/CLionProjects/Database/command/Parser.cpp">
 			<Option target="Test"/>
 		</Unit>
-		<Unit filename="C:/Users/Hrayr/CLionProjects/Database/command/Parser.h">
-			<Option target="Database"/>
+		<Unit filename="C:/Users/hrayr/CLionProjects/Database/command/Parser.h">
 			<Option target="Test"/>
 		</Unit>
-		<Unit filename="C:/Users/Hrayr/CLionProjects/Database/command/Select.cpp">
-			<Option target="Database"/>
-		</Unit>
-		<Unit filename="C:/Users/Hrayr/CLionProjects/Database/command/Select.h">
-			<Option target="Database"/>
-		</Unit>
-		<Unit filename="C:/Users/Hrayr/CLionProjects/Database/command/Update.cpp">
-			<Option target="Database"/>
-		</Unit>
-		<Unit filename="C:/Users/Hrayr/CLionProjects/Database/command/Update.h">
-			<Option target="Database"/>
-		</Unit>
-		<Unit filename="C:/Users/Hrayr/CLionProjects/Database/main.cpp">
-			<Option target="Database"/>
-		</Unit>
-		<Unit filename="C:/Users/Hrayr/CLionProjects/Database/test.cpp">
+		<Unit filename="C:/Users/hrayr/CLionProjects/Database/operators/array.cpp">
 			<Option target="Test"/>
 		</Unit>
-		<Unit filename="C:/Users/Hrayr/CLionProjects/Database/types/String.cpp">
-			<Option target="Database"/>
+		<Unit filename="C:/Users/hrayr/CLionProjects/Database/test.cpp">
 			<Option target="Test"/>
 		</Unit>
-		<Unit filename="C:/Users/Hrayr/CLionProjects/Database/types/String.h">
-			<Option target="Database"/>
+		<Unit filename="C:/Users/hrayr/CLionProjects/Database/types/String.cpp">
 			<Option target="Test"/>
 		</Unit>
-		<Unit filename="C:/Users/Hrayr/CLionProjects/Database/types/structures.cpp">
-			<Option target="Database"/>
+		<Unit filename="C:/Users/hrayr/CLionProjects/Database/types/String.h">
 			<Option target="Test"/>
 		</Unit>
-		<Unit filename="C:/Users/Hrayr/CLionProjects/Database/types/structures.h">
-			<Option target="Database"/>
+		<Unit filename="C:/Users/hrayr/CLionProjects/Database/types/structures.cpp">
 			<Option target="Test"/>
 		</Unit>
-		<Unit filename="C:/Users/Hrayr/CLionProjects/Database/CMakeLists.txt">
+		<Unit filename="C:/Users/hrayr/CLionProjects/Database/types/structures.h">
+			<Option target="Test"/>
+		</Unit>
+		<Unit filename="C:/Users/hrayr/CLionProjects/Database/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

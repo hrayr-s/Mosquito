@@ -1,4 +1,4 @@
-ToolSet: 16.0 (local)@C:\Program Files (x86)\Microsoft Visual Studio\2019\Community
-Options: 
+ToolSet: 17.0 (local)@C:\Program Files\Microsoft Visual Studio\2022\Community
+Options: msvc.arch=amd64
 
 Options:

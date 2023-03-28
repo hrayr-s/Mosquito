@@ -422,6 +422,9 @@ char *String::getContent() {
 }
 
 long long String::search(String text, String haystack, long long index, bool negative) {
+    /*
+     * Returns position of the text found
+     */
     if (text.getContent()[0] == '\0') {
         throw "Text can not be empty";
     }

@@ -84,9 +84,35 @@ String Parser::getTable(String query) {
 }
 
 String Parser::getColumnName(String str) {
-    long long index1 = str.search((char *) "`");
-    long long index2 = str.search((char *) "`", index1 + 1);
-    return str.cut(index1, index2 - index1 - 1);
+    char col_name_decorators[] = "`'";
+    // ----------------------------- NEW Implementation
+    bool look_for_name = true;
+    String col_name;
+    str = str.trim();
+    if (str[0] == col_name_decorators[0]) {
+
+    }
+    for (int i = 0; i < str.length(); ++i) {
+        if (look_for_name) {
+
+        }
+    }
+    // ----------------------------- OLD Implementation
+    char decorator = '\'';
+    char sec_decorator = '`';
+    String search_obj = str.trim();
+    long long index1 = -1, index2 = -1;
+    index1 = search_obj.search((char *) decorator);
+    if (index1 != -1) {
+        index2 = search_obj.search((char *) decorator, index1 + 1);
+    } else {
+        // If first decorator wasn't found lookup for the second
+        index1 = search_obj.search((char *) sec_decorator);
+        if (index1 != -1) {
+            index2 = search_obj.search((char *) sec_decorator, index1 + 1);
+        }
+    }
+    return search_obj.cut(index1, index2 - index1 - 1);
 }
 
 String *Parser::getColumnName_P(String *str) {
@@ -98,10 +124,22 @@ String *Parser::getColumnName_P(String *str) {
 
 char Parser::getColumnType(String str) {
     long long index1 = str.search((char *) "`");
-    index1 = str.search((char *) "`", index1);
+    if (index1 == -1) {
+        index1 = str.search((char *) "'", index1);
+    } else {
+        index1 = str.search((char *) "`", index1);
+        if (index1 == -1) {
+            throw (new String("Syntax Error: ")) + str;
+        }
+    }
     String s = str.cut(index1, str.length() - index1).trim();
     if (s[s.length() - 1] == ')') {
         s = s.cut(0, s.search("(") - 1);
+    }
+    if (s.length() == 0) {
+        long long index2 = str.search((char *) ",", index1);
+        index1 = str.search((char *)" ", str.length() - index2);
+        s = str.cut(index1, index2).trim();
     }
     char index = 0;
     for (; index < Parser::types_count; ++index) {

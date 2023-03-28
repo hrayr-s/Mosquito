@@ -14,9 +14,9 @@ file(GLOB SOURCES command/Create.cpp command/Delete.cpp
         FileManager.cpp
         DB.cpp
         ArrayHelper.cpp
-        main.cpp)
-
-add_executable(Database ${SOURCES})
+        main.cpp
+        Exceptions/QLSyntaxError.cpp
+        )
 
 file(GLOB TEST_SOURCES
         types/String.cpp
@@ -24,4 +24,4 @@ file(GLOB TEST_SOURCES
         command/Parser.cpp
         ArrayHelper.cpp
         test.cpp)
-add_executable(Test ${TEST_SOURCES})
+add_executable(Test ${TEST_SOURCES} operators/array.cpp)
