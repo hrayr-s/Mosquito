@@ -11,11 +11,11 @@ FileManager::FileManager() {
 }
 
 FileManager::FileManager(char *filename) {
-    this->load(filename, "r");
+    this->load(filename, (char*)"r");
 }
 
 FileManager::FileManager(String filename) {
-    this->load(filename, "r");
+    this->load(filename, (char*)"r");
 }
 
 FileManager::FileManager(char *filename, char *mode) {

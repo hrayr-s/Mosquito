@@ -59,18 +59,18 @@ bool ArrayHelper::resize(long long *&f, long long size) {
 
     long long *tmp;
     long long tmp_size = 0;
-    for (; f[tmp_size] != NULL; ++tmp_size) {}
+    for (; &f[tmp_size] != nullptr; ++tmp_size) {}
     tmp = new long long[size + 1];
     for (long long i = 0; i < size; ++i) {
         tmp[i] = f[i];
     }
-    tmp[size] = NULL;
+    tmp[size] = -1;
     delete[] f;
     f = new long long[size + 1];
     for (long long i = 0; i <= size; ++i) {
         f[i] = tmp[i];
     }
-    f[size] = NULL;
+    f[size] = -1;
     return true;
 }
 
@@ -106,7 +106,7 @@ bool ArrayHelper::resize(void **&f, long long int size) {
 
 long long ArrayHelper::count(long long *array) {
     long long size = 0;
-    for (; array[size] != NULL; ++size) {}
+    for (; array[size] != -1; ++size) {}
     return size;
 }
 

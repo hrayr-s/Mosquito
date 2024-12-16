@@ -13,7 +13,7 @@ class Parser;
 
 class Insert {
 private:
-    char *values_text = "VALUES";
+    char *values_text = (char*)"VALUES";
 public:
 
     void run(String query);

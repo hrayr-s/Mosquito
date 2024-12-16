@@ -7,7 +7,7 @@
 #include <iostream>
 #include "../types/String.h"
 
-int Parser::cureent_cmd = -1;
+int Parser::current_cmd = -1;
 
 
 String Parser::get_table_name(String &query, const char *from_str) {
@@ -60,12 +60,12 @@ int Parser::getCMD(char *command) {
         if (String::compare(cmd, (char *) Parser::cmnds[index]))
             break;
     }
-    Parser::cureent_cmd = index;
+    Parser::current_cmd = index;
     return index;
 }
 
 String Parser::getTable(String query) {
-    switch (Parser::cureent_cmd) {
+    switch (Parser::current_cmd) {
         case COMMAND_CREATE:
             return Parser::get_table_from_create(query);
         case COMMAND_INSERT:

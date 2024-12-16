@@ -1,4 +1,4 @@
-ToolSet: 17.0 (local)@C:\Program Files\Microsoft Visual Studio\2022\Community
-Options: msvc.arch=amd64
+ToolSet: w64 11.0 (local)@C:\Program Files\JetBrains\CLion 2023.2\bin\mingw
+Options: 
 
 Options:

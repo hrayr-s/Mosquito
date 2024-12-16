@@ -20,7 +20,7 @@ public:
 
     String(char *text);
 
-    String(nullptr_t);
+    String(std::nullptr_t);
 
     String(const char *text);
 
@@ -36,7 +36,7 @@ public:
 
     String operator=(char *s);
 
-    String operator=(nullptr_t s);
+    String operator=(std::nullptr_t s);
 
     bool operator!=(String *s);
 
@@ -48,7 +48,7 @@ public:
 
     bool operator==(const char *s);
 
-    bool operator!=(nullptr_t s);
+    bool operator!=(std::nullptr_t s);
 
     String operator+(String str);
 
@@ -93,6 +93,8 @@ public:
     char &operator[](long long idx);
 
     operator char *();
+
+    operator void *();
 
     operator const char *();
 

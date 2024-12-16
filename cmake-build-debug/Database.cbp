@@ -4,115 +4,169 @@
 	<Project>
 		<Option title="Database"/>
 		<Option makefile_is_custom="1"/>
-		<Option compiler="msvc8"/>
+		<Option compiler="gcc"/>
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="C:/Users/hrayr/CLionProjects/Database/cmake-build-debug"/>
+				<Option working_dir="C:/Users/hrayr/CLionProjects/Mosquito/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="nmake /NOLOGO /f C:\Users\hrayr\CLionProjects\Database\cmake-build-debug\Makefile VERBOSE=1 all"/>
-					<CompileFile command="nmake /NOLOGO /f C:\Users\hrayr\CLionProjects\Database\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="nmake /NOLOGO /f C:\Users\hrayr\CLionProjects\Database\cmake-build-debug\Makefile VERBOSE=1 clean"/>
-					<DistClean command="nmake /NOLOGO /f C:\Users\hrayr\CLionProjects\Database\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/hrayr/CLionProjects/Mosquito/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/hrayr/CLionProjects/Mosquito/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/hrayr/CLionProjects/Mosquito/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/hrayr/CLionProjects/Mosquito/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="rebuild_cache">
-				<Option working_dir="C:/Users/hrayr/CLionProjects/Database/cmake-build-debug"/>
-				<Option type="4"/>
-				<MakeCommands>
-					<Build command="nmake /NOLOGO /f C:\Users\hrayr\CLionProjects\Database\cmake-build-debug\Makefile VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="nmake /NOLOGO /f C:\Users\hrayr\CLionProjects\Database\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="nmake /NOLOGO /f C:\Users\hrayr\CLionProjects\Database\cmake-build-debug\Makefile VERBOSE=1 clean"/>
-					<DistClean command="nmake /NOLOGO /f C:\Users\hrayr\CLionProjects\Database\cmake-build-debug\Makefile VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="Test">
-				<Option output="C:/Users/hrayr/CLionProjects/Database/cmake-build-debug/Test.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="C:/Users/hrayr/CLionProjects/Database/cmake-build-debug"/>
+			<Target title="Main">
+				<Option output="C:/Users/hrayr/CLionProjects/Mosquito/cmake-build-debug/Main.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/hrayr/CLionProjects/Mosquito/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
-				<Option compiler="msvc8"/>
+				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.31.31103\ATLMFC\include"/>
-					<Add directory="C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.31.31103\include"/>
-					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\ucrt"/>
-					<Add directory="C:\Program Files (x86)\Windows Kits\10\\include\10.0.19041.0\\shared"/>
-					<Add directory="C:\Program Files (x86)\Windows Kits\10\\include\10.0.19041.0\\um"/>
-					<Add directory="C:\Program Files (x86)\Windows Kits\10\\include\10.0.19041.0\\winrt"/>
-					<Add directory="C:\Program Files (x86)\Windows Kits\10\\include\10.0.19041.0\\cppwinrt"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2023.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2023.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2023.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2023.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2023.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../include"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2023.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2023.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="nmake /NOLOGO /f C:\Users\hrayr\CLionProjects\Database\cmake-build-debug\Makefile VERBOSE=1 Test"/>
-					<CompileFile command="nmake /NOLOGO /f C:\Users\hrayr\CLionProjects\Database\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="nmake /NOLOGO /f C:\Users\hrayr\CLionProjects\Database\cmake-build-debug\Makefile VERBOSE=1 clean"/>
-					<DistClean command="nmake /NOLOGO /f C:\Users\hrayr\CLionProjects\Database\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/hrayr/CLionProjects/Mosquito/cmake-build-debug/Makefile&quot;  VERBOSE=1 Main"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/hrayr/CLionProjects/Mosquito/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/hrayr/CLionProjects/Mosquito/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/hrayr/CLionProjects/Mosquito/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="Test/fast">
-				<Option output="C:/Users/hrayr/CLionProjects/Database/cmake-build-debug/Test.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="C:/Users/hrayr/CLionProjects/Database/cmake-build-debug"/>
+			<Target title="Main/fast">
+				<Option output="C:/Users/hrayr/CLionProjects/Mosquito/cmake-build-debug/Main.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/hrayr/CLionProjects/Mosquito/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
-				<Option compiler="msvc8"/>
+				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.31.31103\ATLMFC\include"/>
-					<Add directory="C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.31.31103\include"/>
-					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\ucrt"/>
-					<Add directory="C:\Program Files (x86)\Windows Kits\10\\include\10.0.19041.0\\shared"/>
-					<Add directory="C:\Program Files (x86)\Windows Kits\10\\include\10.0.19041.0\\um"/>
-					<Add directory="C:\Program Files (x86)\Windows Kits\10\\include\10.0.19041.0\\winrt"/>
-					<Add directory="C:\Program Files (x86)\Windows Kits\10\\include\10.0.19041.0\\cppwinrt"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2023.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2023.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2023.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2023.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2023.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../include"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2023.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2023.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="nmake /NOLOGO /f C:\Users\hrayr\CLionProjects\Database\cmake-build-debug\Makefile VERBOSE=1 Test/fast"/>
-					<CompileFile command="nmake /NOLOGO /f C:\Users\hrayr\CLionProjects\Database\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="nmake /NOLOGO /f C:\Users\hrayr\CLionProjects\Database\cmake-build-debug\Makefile VERBOSE=1 clean"/>
-					<DistClean command="nmake /NOLOGO /f C:\Users\hrayr\CLionProjects\Database\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/hrayr/CLionProjects/Mosquito/cmake-build-debug/Makefile&quot;  VERBOSE=1 Main/fast"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/hrayr/CLionProjects/Mosquito/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/hrayr/CLionProjects/Mosquito/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/hrayr/CLionProjects/Mosquito/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="C:/Users/hrayr/CLionProjects/Database/cmake-build-debug"/>
+				<Option working_dir="C:/Users/hrayr/CLionProjects/Mosquito/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="nmake /NOLOGO /f C:\Users\hrayr\CLionProjects\Database\cmake-build-debug\Makefile VERBOSE=1 edit_cache"/>
-					<CompileFile command="nmake /NOLOGO /f C:\Users\hrayr\CLionProjects\Database\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="nmake /NOLOGO /f C:\Users\hrayr\CLionProjects\Database\cmake-build-debug\Makefile VERBOSE=1 clean"/>
-					<DistClean command="nmake /NOLOGO /f C:\Users\hrayr\CLionProjects\Database\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/hrayr/CLionProjects/Mosquito/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/hrayr/CLionProjects/Mosquito/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/hrayr/CLionProjects/Mosquito/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/hrayr/CLionProjects/Mosquito/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="C:/Users/hrayr/CLionProjects/Mosquito/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/hrayr/CLionProjects/Mosquito/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/hrayr/CLionProjects/Mosquito/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/hrayr/CLionProjects/Mosquito/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/hrayr/CLionProjects/Mosquito/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="C:/Users/hrayr/CLionProjects/Database/ArrayHelper.cpp">
-			<Option target="Test"/>
+		<Unit filename="C:/Users/hrayr/CLionProjects/Mosquito/ArrayHelper.cpp">
+			<Option target="Main"/>
 		</Unit>
-		<Unit filename="C:/Users/hrayr/CLionProjects/Database/ArrayHelper.h">
-			<Option target="Test"/>
+		<Unit filename="C:/Users/hrayr/CLionProjects/Mosquito/ArrayHelper.h">
+			<Option target="Main"/>
 		</Unit>
-		<Unit filename="C:/Users/hrayr/CLionProjects/Database/command/Parser.cpp">
-			<Option target="Test"/>
+		<Unit filename="C:/Users/hrayr/CLionProjects/Mosquito/DB.cpp">
+			<Option target="Main"/>
 		</Unit>
-		<Unit filename="C:/Users/hrayr/CLionProjects/Database/command/Parser.h">
-			<Option target="Test"/>
+		<Unit filename="C:/Users/hrayr/CLionProjects/Mosquito/DB.h">
+			<Option target="Main"/>
 		</Unit>
-		<Unit filename="C:/Users/hrayr/CLionProjects/Database/operators/array.cpp">
-			<Option target="Test"/>
+		<Unit filename="C:/Users/hrayr/CLionProjects/Mosquito/FileManager.cpp">
+			<Option target="Main"/>
 		</Unit>
-		<Unit filename="C:/Users/hrayr/CLionProjects/Database/test.cpp">
-			<Option target="Test"/>
+		<Unit filename="C:/Users/hrayr/CLionProjects/Mosquito/FileManager.h">
+			<Option target="Main"/>
 		</Unit>
-		<Unit filename="C:/Users/hrayr/CLionProjects/Database/types/String.cpp">
-			<Option target="Test"/>
+		<Unit filename="C:/Users/hrayr/CLionProjects/Mosquito/command/Create.cpp">
+			<Option target="Main"/>
 		</Unit>
-		<Unit filename="C:/Users/hrayr/CLionProjects/Database/types/String.h">
-			<Option target="Test"/>
+		<Unit filename="C:/Users/hrayr/CLionProjects/Mosquito/command/Create.h">
+			<Option target="Main"/>
 		</Unit>
-		<Unit filename="C:/Users/hrayr/CLionProjects/Database/types/structures.cpp">
-			<Option target="Test"/>
+		<Unit filename="C:/Users/hrayr/CLionProjects/Mosquito/command/Delete.cpp">
+			<Option target="Main"/>
 		</Unit>
-		<Unit filename="C:/Users/hrayr/CLionProjects/Database/types/structures.h">
-			<Option target="Test"/>
+		<Unit filename="C:/Users/hrayr/CLionProjects/Mosquito/command/Delete.h">
+			<Option target="Main"/>
 		</Unit>
-		<Unit filename="C:/Users/hrayr/CLionProjects/Database/CMakeLists.txt">
+		<Unit filename="C:/Users/hrayr/CLionProjects/Mosquito/command/Drop.cpp">
+			<Option target="Main"/>
+		</Unit>
+		<Unit filename="C:/Users/hrayr/CLionProjects/Mosquito/command/Drop.h">
+			<Option target="Main"/>
+		</Unit>
+		<Unit filename="C:/Users/hrayr/CLionProjects/Mosquito/command/Insert.cpp">
+			<Option target="Main"/>
+		</Unit>
+		<Unit filename="C:/Users/hrayr/CLionProjects/Mosquito/command/Insert.h">
+			<Option target="Main"/>
+		</Unit>
+		<Unit filename="C:/Users/hrayr/CLionProjects/Mosquito/command/Parser.cpp">
+			<Option target="Main"/>
+		</Unit>
+		<Unit filename="C:/Users/hrayr/CLionProjects/Mosquito/command/Parser.h">
+			<Option target="Main"/>
+		</Unit>
+		<Unit filename="C:/Users/hrayr/CLionProjects/Mosquito/command/Select.cpp">
+			<Option target="Main"/>
+		</Unit>
+		<Unit filename="C:/Users/hrayr/CLionProjects/Mosquito/command/Select.h">
+			<Option target="Main"/>
+		</Unit>
+		<Unit filename="C:/Users/hrayr/CLionProjects/Mosquito/command/Update.cpp">
+			<Option target="Main"/>
+		</Unit>
+		<Unit filename="C:/Users/hrayr/CLionProjects/Mosquito/command/Update.h">
+			<Option target="Main"/>
+		</Unit>
+		<Unit filename="C:/Users/hrayr/CLionProjects/Mosquito/main.cpp">
+			<Option target="Main"/>
+		</Unit>
+		<Unit filename="C:/Users/hrayr/CLionProjects/Mosquito/operators/array.cpp">
+			<Option target="Main"/>
+		</Unit>
+		<Unit filename="C:/Users/hrayr/CLionProjects/Mosquito/types/List.cpp">
+			<Option target="Main"/>
+		</Unit>
+		<Unit filename="C:/Users/hrayr/CLionProjects/Mosquito/types/List.h">
+			<Option target="Main"/>
+		</Unit>
+		<Unit filename="C:/Users/hrayr/CLionProjects/Mosquito/types/String.cpp">
+			<Option target="Main"/>
+		</Unit>
+		<Unit filename="C:/Users/hrayr/CLionProjects/Mosquito/types/String.h">
+			<Option target="Main"/>
+		</Unit>
+		<Unit filename="C:/Users/hrayr/CLionProjects/Mosquito/types/structures.cpp">
+			<Option target="Main"/>
+		</Unit>
+		<Unit filename="C:/Users/hrayr/CLionProjects/Mosquito/types/structures.h">
+			<Option target="Main"/>
+		</Unit>
+		<Unit filename="C:/Users/hrayr/CLionProjects/Mosquito/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

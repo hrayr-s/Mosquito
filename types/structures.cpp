@@ -70,7 +70,7 @@ void *&column::operator[](long long idx) {
     return this->data[idx];
 }
 
-struct column column::operator=(nullptr_t s) {
+struct column column::operator=(std::nullptr_t s) {
     name = nullptr;
     type = NULL;
     size = NULL;
@@ -78,11 +78,11 @@ struct column column::operator=(nullptr_t s) {
     return *this;
 }
 
-bool column::operator==(nullptr_t s) {
+bool column::operator==(std::nullptr_t s) {
     return this->name == nullptr;
 }
 
-bool column::operator!=(nullptr_t s) {
+bool column::operator!=(std::nullptr_t s) {
     return this->name != nullptr;
 }
 
@@ -297,7 +297,7 @@ table::table(String name, char *raw) {
     }
 }
 
-struct table table::operator=(nullptr_t s) {
+struct table table::operator=(std::nullptr_t s) {
     this->name = nullptr;
     this->columns = nullptr;
     this->cols_count = NULL;
@@ -331,11 +331,11 @@ struct table table::operator=(table *tb) {
     return *this;
 }
 
-bool table::operator==(nullptr_t s) const {
+bool table::operator==(std::nullptr_t s) const {
     return this->name == nullptr;
 }
 
-bool table::operator!=(nullptr_t s) const {
+bool table::operator!=(std::nullptr_t s) const {
     return this->name != nullptr;
 }
 

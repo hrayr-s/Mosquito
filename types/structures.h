@@ -23,7 +23,7 @@ struct column {
 
     column(column *pColumn);
 
-    struct column operator=(nullptr_t s);
+    struct column operator=(std::nullptr_t s);
 
     struct column operator=(String raw_col);
 
@@ -31,9 +31,9 @@ struct column {
 
     void *&operator[](long long idx);
 
-    bool operator==(nullptr_t s);
+    bool operator==(std::nullptr_t s);
 
-    bool operator!=(nullptr_t s);
+    bool operator!=(std::nullptr_t s);
 
     bool insert(String data);
 
@@ -70,7 +70,7 @@ struct table {
      */
     table(String name, char *raw);
 
-    struct table operator=(nullptr_t s);
+    struct table operator=(std::nullptr_t s);
 
     struct table operator=(table *tb);
 
@@ -81,9 +81,9 @@ struct table {
      */
     struct table operator=(String *s);
 
-    bool operator==(nullptr_t s) const;
+    bool operator==(std::nullptr_t s) const;
 
-    bool operator!=(nullptr_t s) const;
+    bool operator!=(std::nullptr_t s) const;
 
     bool prepareRawBytes();
 
@@ -108,11 +108,11 @@ struct condition {
 
     condition(String raw);
 
-    struct condition &operator=(nullptr_t s);
+    struct condition &operator=(std::nullptr_t s);
 
-    bool operator!=(nullptr_t);
+    bool operator!=(std::nullptr_t);
 
-    bool operator==(nullptr_t);
+    bool operator==(std::nullptr_t);
 
     void set(String raw);
 

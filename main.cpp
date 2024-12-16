@@ -16,7 +16,7 @@ int main() {
     String query(';');
     cout << "Welcome to Database" << endl;
     cout << "Type commands" << endl;
-    Create creat;
+    Create create;
     Select select;
     Update update;
     Delete del;
@@ -43,7 +43,7 @@ int main() {
                     drop.run(query);
                     break;
                 case COMMAND_CREATE:
-                    creat.run(query);
+                    create.run(query);
                     break;
                 case COMMAND_EXIT:
                     return 0;

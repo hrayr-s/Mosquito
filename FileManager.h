@@ -45,7 +45,7 @@ public:
      * @param mode
      * @return
      */
-    FileManager *load(char *name, char *mode = "r");
+    FileManager *load(char *name, char *mode = (char*)"r");
 
     char *getFileName();
 

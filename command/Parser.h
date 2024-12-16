@@ -85,7 +85,7 @@ private:
     static String get_table_from_update(String &query);
 
 public:
-    static int cureent_cmd;
+    static int current_cmd;
 
     static int getCMD(char *command);
 

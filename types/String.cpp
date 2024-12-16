@@ -6,6 +6,8 @@
 #include "String.h"
 #include "../ArrayHelper.h"
 #include <climits>
+#include <cstring>
+using namespace std;
 
 #define d_LENGTH 16
 #define f_LENGTH 8
@@ -36,7 +38,7 @@ String::String(char *text) {
     }
 }
 
-String::String(nullptr_t s) {
+String::String(std::nullptr_t s) {
     this->content = nullptr;
     this->_size = NULL;
 }
@@ -160,7 +162,7 @@ String String::operator=(char *s) {
     return *this;
 }
 
-String String::operator=(nullptr_t s) {
+String String::operator=(std::nullptr_t s) {
     this->_size = NULL;
     this->content = nullptr;
     return *this;
@@ -186,7 +188,7 @@ bool String::operator==(const char *s) {
     return this->compare((char *) s);
 }
 
-bool String::operator!=(nullptr_t s) {
+bool String::operator!=(std::nullptr_t s) {
     return s != this->content;
 }
 
@@ -271,6 +273,17 @@ String operator+(char ch, String &str) {
  * @return
  */
 String::operator char *() {
+    char *tmp = new char[this->length() + 1];
+    tmp[this->length()] = '\0';
+    memcpy(tmp, this->getContent(), sizeof(char) * this->length());
+    return tmp;
+}
+
+/**
+ * Casting to void*
+ * @return
+ */
+String::operator void *() {
     char *tmp = new char[this->length() + 1];
     tmp[this->length()] = '\0';
     memcpy(tmp, this->getContent(), sizeof(char) * this->length());

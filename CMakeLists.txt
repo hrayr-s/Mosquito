@@ -9,7 +9,9 @@ file(GLOB SOURCES command/Create.cpp command/Delete.cpp
         command/Parser.cpp
         command/Select.cpp
         command/Update.cpp
+        operators/array.cpp
         types/String.cpp
+        types/List.cpp
         types/structures.cpp
         FileManager.cpp
         DB.cpp
@@ -24,4 +26,4 @@ file(GLOB TEST_SOURCES
         command/Parser.cpp
         ArrayHelper.cpp
         test.cpp)
-add_executable(Test ${TEST_SOURCES} operators/array.cpp)
+add_executable(Main ${SOURCES} main.cpp)

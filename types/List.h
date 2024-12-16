@@ -6,11 +6,9 @@
 #define DATABASE_LIST_H
 
 
-
 class List {
 
 };
-
 
 
 #endif //DATABASE_LIST_H
