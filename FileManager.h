@@ -10,30 +10,42 @@ class String;
 
 using namespace std;
 
-class FileManager {
+enum STATUS
+{
+    NO_ERROR = 0,
+    FILE_NOT_FOUND=1,
+    CONTENT_LENGTH_ZERO=2,
+    FILE_OPEN_ERROR=3,
+    FILE_READ_ERROR=4,
+    FILE_WRITE_ERROR=5
+};
+
+class FileManager
+{
 private:
-    FILE *f;
-    char *mode;
+    FILE* f;
+    char* mode;
     int current_error = 0;
-    String *filename;
+    String* filename;
+
 public:
-    static const int NO_ERROR = 0,
-            FILE_NOT_FOUND = 1,
-            CONTENT_LENGTH_ZERO = 2;
+    static constexpr int NO_ERROR = 0,
+                         FILE_NOT_FOUND = 1,
+                         CONTENT_LENGTH_ZERO = 2;
 
     FileManager();
 
-    FileManager(char *filename);
+    explicit FileManager(char* filename);
 
-    FileManager(String filename);
+    explicit FileManager(String filename);
 
-    FileManager(char *filename, char *mode);
+    FileManager(char* filename, char* mode);
 
-    FileManager(String filename, char *mode);
+    FileManager(String filename, char* mode);
 
     ~FileManager();
 
-    FILE *getFileInstance();
+    FILE* getFileInstance();
 
     void setError(int code);
 
@@ -45,17 +57,17 @@ public:
      * @param mode
      * @return
      */
-    FileManager *load(char *name, char *mode = (char*)"r");
+    FileManager* load(char* name, char* mode = static_cast<char*>("r"));
 
-    char *getFileName();
+    char* getFileName();
 
-    char *read();
+    char* read();
 
     long long size();
 
-    bool write(char *content, long long size);
+    bool write(char* content, long long size);
 
-    bool write(char *content);
+    bool write(char* content);
 
     bool write(String content);
 };

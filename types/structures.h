@@ -58,14 +58,16 @@ struct table {
 
     /**
      * With given String array organize table structure
-     * @param s
+     * @param name
+     * @param raw
      * @return
      */
     table(String name, String *raw);
 
     /**
      * With given char/byte array organize table structure
-     * @param s
+     * @param name
+     * @param raw
      * @return
      */
     table(String name, char *raw);
@@ -106,6 +108,10 @@ struct condition {
 
     condition();
 
+    /**
+     *
+     * @param raw
+     */
     condition(String raw);
 
     struct condition &operator=(std::nullptr_t s);

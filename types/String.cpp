@@ -495,6 +495,7 @@ long long *String::searchAll(String text, String haystack, long long position) {
         }
     }
     if (count == 0) {
+        free(items);
         items = nullptr;
     } else if (count < 9) {
         items[count] = NULL;
